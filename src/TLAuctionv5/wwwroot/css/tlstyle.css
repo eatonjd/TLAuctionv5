@@ -1,0 +1,1757 @@
+﻿html {
+    font-family: sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+    display: block;
+}
+
+audio, canvas, progress, video {
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+    audio:not([controls]) {
+        display: none;
+        height: 0;
+    }
+
+a {
+    background-color: transparent;
+}
+
+    a:active, a:hover {
+        outline: 0;
+    }
+
+abbr[title] {
+    border-bottom-width: 1px;
+    border-bottom-style: dotted;
+}
+
+b, strong {
+    font-weight: bold;
+}
+
+dfn {
+    font-style: italic;
+}
+
+h1 {
+    margin: 0.67em 0;
+    font-size: 2em;
+}
+
+mark {
+    color: rgb(0, 0, 0);
+    background: rgb(255, 255, 0);
+}
+
+small {
+    font-size: 80%;
+}
+
+sub, sup {
+    position: relative;
+    font-size: 75%;
+    line-height: 0;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+img {
+    border: 0;
+}
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+figure {
+    margin: 1em 40px;
+}
+
+hr {
+    height: 0;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+pre {
+    overflow: auto;
+}
+
+code, kbd, pre, samp {
+    font-family: monospace, monospace;
+    font-size: 1em;
+}
+
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font-style: inherit;
+    font-variant: inherit;
+    font-weight: inherit;
+    font-stretch: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    font-family: inherit;
+    color: inherit;
+}
+
+button {
+    overflow: visible;
+}
+
+button, select {
+    text-transform: none;
+}
+
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+
+    button[disabled], html input[disabled] {
+        cursor: default;
+    }
+
+input {
+    line-height: normal;
+}
+
+    input[type="checkbox"], input[type="radio"] {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 0;
+    }
+
+    input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {
+        height: auto;
+    }
+
+    input[type="search"] {
+        -moz-box-sizing: content-box;
+        -webkit-box-sizing: content-box;
+        box-sizing: content-box;
+        -webkit-appearance: textfield;
+    }
+
+        input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration {
+            -webkit-appearance: none;
+        }
+
+fieldset {
+    padding: 0.35em 0.625em 0.75em;
+    margin: 0 2px;
+    border: 1px solid rgb(192, 192, 192);
+}
+
+legend {
+    padding: 0;
+    border: 0;
+}
+
+textarea {
+    overflow: auto;
+}
+
+optgroup {
+    font-weight: bold;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+td, th {
+    padding: 0;
+}
+
+::before, ::after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+input, button, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+a:hover, a:focus {
+    color: rgb(35, 82, 124);
+    text-decoration: underline;
+}
+
+a:focus {
+    outline: -webkit-focus-ring-color auto 5px;
+    outline-offset: -2px;
+}
+
+[role="button"] {
+    cursor: pointer;
+}
+
+p {
+    margin: 0 0 10px;
+}
+
+ul, ol {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+    ul ul, ol ul, ul ol, ol ol {
+        margin-bottom: 0;
+    }
+
+dl {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+dt, dd {
+    line-height: 1.42857;
+}
+
+dt {
+    font-weight: bold;
+}
+
+dd {
+    margin-left: 0;
+}
+
+abbr[title], abbr[data-original-title] {
+    cursor: help;
+    border-bottom-width: 1px;
+    border-bottom-style: dotted;
+    border-bottom-color: rgb(119, 119, 119);
+}
+
+blockquote {
+    padding: 10px 20px;
+    margin: 0 0 20px;
+    font-size: 17.5px;
+    border-left-width: 5px;
+    border-left-style: solid;
+    border-left-color: rgb(238, 238, 238);
+}
+
+    blockquote p:last-child, blockquote ul:last-child, blockquote ol:last-child {
+        margin-bottom: 0;
+    }
+
+address {
+    margin-bottom: 20px;
+    font-style: normal;
+    line-height: 1.42857;
+}
+
+code {
+    padding: 2px 4px;
+    font-size: 90%;
+    color: rgb(199, 37, 78);
+    border-radius: 4px;
+    background-color: rgb(249, 242, 244);
+}
+
+kbd {
+    padding: 2px 4px;
+    font-size: 90%;
+    color: rgb(255, 255, 255);
+    border-radius: 3px;
+    box-shadow: rgba(0, 0, 0, 0.247059) 0 -1px 0 inset;
+    background-color: rgb(51, 51, 51);
+}
+
+    kbd kbd {
+        padding: 0;
+        font-size: 100%;
+        font-weight: bold;
+        box-shadow: none;
+    }
+
+pre code {
+    padding: 0;
+    font-size: inherit;
+    color: inherit;
+    white-space: pre-wrap;
+    border-radius: 0;
+    background-color: transparent;
+}
+
+caption {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    color: rgb(119, 119, 119);
+    text-align: left;
+}
+
+th {
+    text-align: left;
+}
+
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="file"] {
+    display: block;
+}
+
+input[type="range"] {
+    display: block;
+    width: 100%;
+}
+
+select[multiple], select[size] {
+    height: auto;
+}
+
+input[type="file"]:focus, input[type="radio"]:focus, input[type="checkbox"]:focus {
+    outline: -webkit-focus-ring-color auto 5px;
+    outline-offset: -2px;
+}
+
+output {
+    display: block;
+    padding-top: 7px;
+    font-size: 14px;
+    line-height: 1.42857;
+    color: rgb(85, 85, 85);
+}
+
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.42857;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background-image: none;
+}
+
+    .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn.active.focus {
+        outline: -webkit-focus-ring-color auto 5px;
+        outline-offset: -2px;
+    }
+
+    .btn:hover, .btn:focus, .btn.focus {
+        color: rgb(51, 51, 51);
+        text-decoration: none;
+    }
+
+    .btn:active, .btn.active {
+        outline: 0;
+        box-shadow: rgba(0, 0, 0, 0.121569) 0 3px 5px inset;
+        background-image: none;
+    }
+
+    .btn.disabled, .btn[disabled], fieldset[disabled] .btn {
+        cursor: not-allowed;
+        box-shadow: none;
+        opacity: 0.65;
+    }
+
+a.btn.disabled, fieldset[disabled] a.btn {
+    pointer-events: none;
+}
+
+.btn-warning {
+    color: rgb(255, 255, 255);
+    border-color: rgb(238, 162, 54);
+    background-color: rgb(240, 173, 78);
+}
+
+    .btn-warning:focus, .btn-warning.focus {
+        color: rgb(255, 255, 255);
+        border-color: rgb(152, 95, 13);
+        background-color: rgb(236, 151, 31);
+    }
+
+    .btn-warning:hover {
+        color: rgb(255, 255, 255);
+        border-color: rgb(213, 133, 18);
+        background-color: rgb(236, 151, 31);
+    }
+
+    .btn-warning:active, .btn-warning.active, .open > .dropdown-toggle.btn-warning {
+        color: rgb(255, 255, 255);
+        border-color: rgb(213, 133, 18);
+        background-color: rgb(236, 151, 31);
+    }
+
+        .btn-warning:active:hover, .btn-warning.active:hover, .open > .dropdown-toggle.btn-warning:hover, .btn-warning:active:focus, .btn-warning.active:focus, .open > .dropdown-toggle.btn-warning:focus, .btn-warning:active.focus, .btn-warning.active.focus, .open > .dropdown-toggle.btn-warning.focus {
+            color: rgb(255, 255, 255);
+            border-color: rgb(152, 95, 13);
+            background-color: rgb(213, 133, 18);
+        }
+
+    .btn-warning.disabled, .btn-warning[disabled], fieldset[disabled] .btn-warning, .btn-warning.disabled:hover, .btn-warning[disabled]:hover, fieldset[disabled] .btn-warning:hover, .btn-warning.disabled:focus, .btn-warning[disabled]:focus, fieldset[disabled] .btn-warning:focus, .btn-warning.disabled.focus, .btn-warning[disabled].focus, fieldset[disabled] .btn-warning.focus, .btn-warning.disabled:active, .btn-warning[disabled]:active, fieldset[disabled] .btn-warning:active, .btn-warning.disabled.active, .btn-warning[disabled].active, fieldset[disabled] .btn-warning.active {
+        border-color: rgb(238, 162, 54);
+        background-color: rgb(240, 173, 78);
+    }
+
+    .btn-warning .badge {
+        color: rgb(240, 173, 78);
+        background-color: rgb(255, 255, 255);
+    }
+
+.btn-lg, .btn-group-lg > .btn {
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.33333;
+    border-radius: 6px;
+}
+
+.btn-sm, .btn-group-sm > .btn {
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+}
+
+.btn-xs, .btn-group-xs > .btn {
+    padding: 1px 5px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+}
+
+.dropdown-menu .divider {
+    height: 1px;
+    margin: 9px 0;
+    overflow: hidden;
+    background-color: rgb(229, 229, 229);
+}
+
+.btn-group > .btn, .btn-group-vertical > .btn {
+    position: relative;
+    float: left;
+}
+
+    .btn-group > .btn:hover, .btn-group-vertical > .btn:hover, .btn-group > .btn:focus, .btn-group-vertical > .btn:focus, .btn-group > .btn:active, .btn-group-vertical > .btn:active, .btn-group > .btn.active, .btn-group-vertical > .btn.active {
+        z-index: 2;
+    }
+
+.btn-group .btn + .btn, .btn-group .btn + .btn-group, .btn-group .btn-group + .btn, .btn-group .btn-group + .btn-group {
+    margin-left: -1px;
+}
+
+.btn-toolbar .btn, .btn-toolbar .btn-group, .btn-toolbar .input-group {
+    float: left;
+}
+
+.btn-toolbar > .btn, .btn-toolbar > .btn-group, .btn-toolbar > .input-group {
+    margin-left: 5px;
+}
+
+.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+    border-radius: 0;
+}
+
+.btn-group > .btn:first-child {
+    margin-left: 0;
+}
+
+    .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+.btn-group > .btn:last-child:not(:first-child), .btn-group > .dropdown-toggle:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.btn-group > .btn-group:not(:first-child):not(:last-child) > .btn {
+    border-radius: 0;
+}
+
+.btn-group > .btn-group:first-child:not(:last-child) > .btn:last-child, .btn-group > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.btn-group > .btn-group:last-child:not(:first-child) > .btn:first-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.btn-group > .btn + .dropdown-toggle {
+    padding-right: 8px;
+    padding-left: 8px;
+}
+
+.btn .caret {
+    margin-left: 0;
+}
+
+.btn-group-vertical > .btn, .btn-group-vertical > .btn-group, .btn-group-vertical > .btn-group > .btn {
+    display: block;
+    float: none;
+    width: 100%;
+    max-width: 100%;
+}
+
+    .btn-group-vertical > .btn-group > .btn {
+        float: none;
+    }
+
+    .btn-group-vertical > .btn + .btn, .btn-group-vertical > .btn + .btn-group, .btn-group-vertical > .btn-group + .btn, .btn-group-vertical > .btn-group + .btn-group {
+        margin-top: -1px;
+        margin-left: 0;
+    }
+
+    .btn-group-vertical > .btn:not(:first-child):not(:last-child) {
+        border-radius: 0;
+    }
+
+    .btn-group-vertical > .btn:first-child:not(:last-child) {
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    .btn-group-vertical > .btn:last-child:not(:first-child) {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 4px;
+    }
+
+    .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn {
+        border-radius: 0;
+    }
+
+    .btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn:last-child, .btn-group-vertical > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    .btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn:first-child {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+.btn-group-justified > .btn, .btn-group-justified > .btn-group {
+    display: table-cell;
+    float: none;
+    width: 1%;
+}
+
+    .btn-group-justified > .btn-group .btn {
+        width: 100%;
+    }
+
+[data-toggle="buttons"] > .btn input[type="radio"], [data-toggle="buttons"] > .btn-group > .btn input[type="radio"], [data-toggle="buttons"] > .btn input[type="checkbox"], [data-toggle="buttons"] > .btn-group > .btn input[type="checkbox"] {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    pointer-events: none;
+}
+
+.input-group-lg > .form-control, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .btn {
+    height: 46px;
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.33333;
+    border-radius: 6px;
+}
+
+select.input-group-lg > .form-control, select.input-group-lg > .input-group-addon, select.input-group-lg > .input-group-btn > .btn {
+    height: 46px;
+    line-height: 46px;
+}
+
+textarea.input-group-lg > .form-control, textarea.input-group-lg > .input-group-addon, textarea.input-group-lg > .input-group-btn > .btn, select[multiple].input-group-lg > .form-control, select[multiple].input-group-lg > .input-group-addon, select[multiple].input-group-lg > .input-group-btn > .btn {
+    height: auto;
+}
+
+.input-group-sm > .form-control, .input-group-sm > .input-group-addon, .input-group-sm > .input-group-btn > .btn {
+    height: 30px;
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+}
+
+select.input-group-sm > .form-control, select.input-group-sm > .input-group-addon, select.input-group-sm > .input-group-btn > .btn {
+    height: 30px;
+    line-height: 30px;
+}
+
+textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-addon, textarea.input-group-sm > .input-group-btn > .btn, select[multiple].input-group-sm > .form-control, select[multiple].input-group-sm > .input-group-addon, select[multiple].input-group-sm > .input-group-btn > .btn {
+    height: auto;
+}
+
+.input-group .form-control:first-child, .input-group-addon:first-child, .input-group-btn:first-child > .btn, .input-group-btn:first-child > .btn-group > .btn, .input-group-btn:first-child > .dropdown-toggle, .input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle), .input-group-btn:last-child > .btn-group:not(:last-child) > .btn {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+    .input-group .form-control:last-child, .input-group-addon:last-child, .input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group > .btn, .input-group-btn:last-child > .dropdown-toggle, .input-group-btn:first-child > .btn:not(:first-child), .input-group-btn:first-child > .btn-group:not(:first-child) > .btn {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+.input-group-btn > .btn {
+    position: relative;
+}
+
+    .input-group-btn > .btn + .btn {
+        margin-left: -1px;
+    }
+
+    .input-group-btn > .btn:hover, .input-group-btn > .btn:focus, .input-group-btn > .btn:active {
+        z-index: 2;
+    }
+
+.input-group-btn:first-child > .btn, .input-group-btn:first-child > .btn-group {
+    margin-right: -1px;
+}
+
+.input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group {
+    z-index: 2;
+    margin-left: -1px;
+}
+
+.btn .label {
+    position: relative;
+    top: -1px;
+}
+
+.btn .badge {
+    position: relative;
+    top: -1px;
+}
+
+.btn-xs .badge, .btn-group-xs > .btn .badge {
+    top: 0;
+    padding: 1px 5px;
+}
+
+.modal-footer .btn + .btn {
+    margin-bottom: 0;
+    margin-left: 5px;
+}
+
+.modal-footer .btn-group .btn + .btn {
+    margin-left: -1px;
+}
+
+.carousel-caption .btn {
+    text-shadow: none;
+}
+
+.clearfix::before, .clearfix::after, .dl-horizontal dd::before, .dl-horizontal dd::after, .container::before, .container::after, .container-fluid::before, .container-fluid::after, .row::before, .row::after, .form-horizontal .form-group::before, .form-horizontal .form-group::after, .btn-toolbar::before, .btn-toolbar::after, .btn-group-vertical > .btn-group::before, .btn-group-vertical > .btn-group::after, .nav::before, .nav::after, .navbar::before, .navbar::after, .navbar-header::before, .navbar-header::after, .navbar-collapse::before, .navbar-collapse::after, .pager::before, .pager::after, .panel-body::before, .panel-body::after, .modal-footer::before, .modal-footer::after {
+    display: table;
+    content: " ";
+}
+
+.clearfix::after, .dl-horizontal dd::after, .container::after, .container-fluid::after, .row::after, .form-horizontal .form-group::after, .btn-toolbar::after, .btn-group-vertical > .btn-group::after, .nav::after, .navbar::after, .navbar-header::after, .navbar-collapse::after, .pager::after, .panel-body::after, .modal-footer::after {
+    clear: both;
+}
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strong, sub, sup, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-style: inherit;
+    font-variant: inherit;
+    font-weight: inherit;
+    font-stretch: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    font-family: inherit;
+    vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+    blockquote::before, blockquote::after, q::before, q::after {
+        content: none;
+    }
+
+body, select, input, textarea {
+    color: rgb(68, 68, 68);
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+ol {
+    list-style-type: decimal;
+}
+
+strong, th {
+    font-weight: bold;
+}
+
+td, td img {
+    vertical-align: top;
+}
+
+input[type="radio"] {
+    vertical-align: text-bottom;
+}
+
+input[type="checkbox"] {
+    vertical-align: middle;
+}
+
+label, input[type="button"], input[type="submit"], button {
+    cursor: pointer;
+}
+
+.clearfix::before, .clearfix::after {
+    content: " ";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+.clearfix::after {
+    clear: both;
+}
+
+.clearfix {
+    -ms-zoom: 1;
+    zoom: 1;
+}
+
+.ui-corner-all, .ui-corner-top, .ui-corner-left, .ui-corner-tl {
+    border-top-left-radius: 5px;
+}
+
+.ui-corner-all, .ui-corner-top, .ui-corner-right, .ui-corner-tr {
+    border-top-right-radius: 5px;
+}
+
+.ui-corner-all, .ui-corner-bottom, .ui-corner-left, .ui-corner-bl {
+    border-bottom-left-radius: 5px;
+}
+
+.ui-corner-all, .ui-corner-bottom, .ui-corner-right, .ui-corner-br {
+    border-bottom-right-radius: 5px;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
+    display: block;
+}
+
+.icon-white {
+    background-image: url("http://static2.cargurus.com/gfx/bootstrap/glyphicons-halflings-white.png");
+}
+
+.icon-home {
+    background-position: 0 -24px;
+}
+
+.btn:hover, .btn:active, .btn.active, .btn.disabled, .btn[disabled] {
+    color: rgb(51, 51, 51);
+    background-color: rgb(230, 230, 230);
+}
+
+.btn:hover {
+    color: rgb(51, 51, 51);
+    text-decoration: none;
+    -moz-transition: background-position 0.1s linear;
+    -o-transition: background-position 0.1s linear;
+    -webkit-transition: background-position 0.1s linear;
+    transition: background-position 0.1s linear;
+    background-color: rgb(230, 230, 230);
+    background-position: 0 -15px;
+}
+
+.btn:focus {
+    outline: -webkit-focus-ring-color auto 5px;
+    outline-offset: -2px;
+}
+
+.btn-warning:hover, .btn-warning:active, .btn-warning.active, .btn-warning.disabled, .btn-warning[disabled] {
+    color: rgb(255, 255, 255);
+    background-color: rgb(248, 148, 6);
+}
+
+.btn-toolbar .btn + .btn, .btn-toolbar .btn-group + .btn, .btn-toolbar .btn + .btn-group {
+    margin-left: 5px;
+}
+
+.btn-group > .btn {
+    position: relative;
+    border-radius: 0;
+}
+
+    .btn-group > .btn + .btn {
+        margin-left: -1px;
+    }
+
+.btn-group > .btn, .btn-group > .dropdown-menu {
+    font-size: 14px;
+}
+
+btn-group > .btn:last-child, .btn-group > .dropdown-toggle {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.btn-group > .btn:hover, .btn-group > .btn:focus, .btn-group > .btn:active, .btn-group > .btn.active {
+    z-index: 2;
+}
+
+
+.btn-primary .caret, .btn-warning .caret, .btn-danger .caret, .btn-info .caret, .btn-success .caret, .btn-inverse .caret {
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+}
+
+.btn-group-vertical .btn {
+    display: block;
+    float: none;
+    width: 100%;
+    border-radius: 0;
+}
+
+    .btn-group-vertical .btn + .btn {
+        margin-left: 0;
+        margin-top: -1px;
+    }
+
+    .btn-group-vertical .btn:first-child {
+        border-radius: 4px 4px 0 0;
+    }
+
+    .btn-group-vertical .btn:last-child {
+        border-radius: 0 0 4px 4px;
+    }
+
+.nav-list .divider {
+    height: 1px;
+    margin: 9px 1px;
+    overflow: hidden;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(255, 255, 255);
+    background-color: rgb(229, 229, 229);
+}
+
+.navbar .btn, .navbar .btn-group {
+    margin-top: 5px;
+}
+
+    .navbar .btn-group .btn, .navbar .input-prepend .btn, .navbar .input-append .btn {
+        margin-top: 0;
+    }
+
+.navbar-form input, .navbar-form select, .navbar-form .btn {
+    display: inline-block;
+    margin-bottom: 0;
+}
+
+
+.btn .label, .btn .badge {
+    position: relative;
+    top: -1px;
+}
+
+hero-unit {
+    padding: 60px;
+    margin-bottom: 30px;
+    border-radius: 6px;
+    background-color: rgb(238, 238, 238);
+}
+
+.clearInvisible {
+    width: 0;
+    height: 0;
+    clear: both;
+    overflow: hidden;
+}
+
+.slnk {
+    color: rgb(62, 130, 185);
+    cursor: pointer;
+}
+
+    .slnk:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+.breadcrumb .divider {
+    padding: 0 5px;
+    color: rgb(153, 153, 153);
+}
+
+.btn:visited {
+    color: rgb(102, 102, 102);
+}
+
+.btn-primary:visited, .btn-success:visited, .btn-warning:visited, .btn-danger:visited, .btn-inverse:visited {
+    color: rgb(255, 255, 255);
+}
+
+html, body {
+    height: 100%;
+}
+
+a, a:active, a:visited {
+    color: rgb(62, 130, 185);
+    text-decoration: none;
+}
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+h1, h2, h3, h4 {
+    font-family: 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+    font-weight: bold;
+    line-height: 1.2em;
+    color: rgb(85, 85, 85);
+}
+
+h2 {
+    font-size: 135%;
+}
+
+h3 {
+    font-size: 120%;
+}
+
+h4 {
+    font-size: 110%;
+}
+
+.TLHeader .PageHeader {
+    padding: 10px 0 12px;
+    position: relative;
+    height: 75px;
+}
+
+.PageHeader .RightHeader {
+    padding: 5px 0 0;
+    float: right;
+    width: 600px;
+}
+
+.PageHeader .Logo {
+    color: rgb(62, 130, 185);
+    float: left;
+    width: 300px;
+    height: 73px;
+    display: block;
+    text-indent: -9999px;
+    border: 0 none rgb(62, 130, 185);
+    background: url('../images/tlauctiontoplogo.jpg') 0 0 no-repeat;
+}
+
+#wrapper {
+    background: url("http://static2.cargurus.com/gfx/cg/white_carbon.png") 0 0 repeat rgb(238, 238, 238);
+}
+
+.cg-header-wrap {
+    background-color: rgb(255, 255, 255);
+}
+
+.header {
+    width: 975px;
+    margin: 0 auto;
+    background-color: rgb(255, 255, 255);
+}
+
+.header-inner {
+    padding: 10px 0 12px;
+    position: relative;
+}
+
+    .header-inner ul {
+        list-style: none;
+        float: right;
+        margin: 0;
+    }
+
+        .header-inner ul li {
+            display: inline;
+        }
+
+            .header-inner ul li .divider {
+                padding: 0 5px;
+                color: rgb(204, 204, 204);
+            }
+
+.app_ca .cg-header-wrap {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(221, 221, 221);
+}
+
+.cg-siteHeader-authBar-wrap {
+    padding: 5px 0 0;
+    float: right;
+    width: 600px;
+}
+
+    .cg-siteHeader-authBar-wrap a, .cg-siteHeader-authBar-wrap .slnk {
+        font-weight: normal;
+    }
+
+    .cg-siteHeader-authBar-wrap .cg-siteHeader-authBar-welcomeMessage {
+        padding-right: 10px;
+        font-weight: bold;
+        color: rgb(46, 101, 131);
+    }
+
+    .cg-siteHeader-authBar-wrap .separator {
+        margin: 0 0.4em;
+        color: rgb(204, 204, 204);
+    }
+
+.mainNav {
+    margin-bottom: 10px;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: rgb(41, 84, 126);
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(51, 51, 51);
+    font-family: HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+    font-weight: 300;
+    text-shadow: rgb(51, 51, 51) 0 -1px 1px;
+    background-image: -webkit-linear-gradient(top, rgb(51, 102, 153), rgb(41, 84, 126));
+    background-color: rgb(51, 102, 153);
+}
+
+.mainNav-inner {
+    width: 975px;
+    margin: 0 auto;
+}
+
+    .mainNav-inner ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .mainNav-inner li {
+        float: left;
+    }
+
+        .mainNav-inner li a, .mainNav-inner ul li span {
+            padding: 12px 15px;
+            display: block;
+            color: rgb(234, 244, 253);
+            text-shadow: rgb(41, 84, 126) 1px 1px;
+            font-size: 14px;
+            border-right-width: 1px;
+            border-left-width: 1px;
+            border-style: none solid;
+            border-right-color: transparent;
+            border-left-color: transparent;
+        }
+
+    .mainNav-inner a:hover, .mainNav-inner span:hover, .mainNav-inner a:focus, .mainNav-inner span:focus {
+        color: rgb(255, 255, 255);
+        text-decoration: none;
+        border-color: rgb(41, 84, 126);
+        background-image: -webkit-linear-gradient(top, rgb(78, 131, 185), rgb(51, 102, 153));
+        background-color: rgb(51, 102, 153);
+    }
+
+    .mainNav-inner li.active, .mainNav-inner li.active a:hover, .mainNav-inner li.active span:hover {
+        color: rgb(234, 244, 253);
+        text-shadow: rgb(51, 51, 51) 0 -1px 1px;
+        box-shadow: rgb(30, 60, 89) 4px 0 6px -4px inset, rgb(30, 60, 89) -4px 0 6px -4px inset;
+        background-color: rgb(41, 84, 126);
+    }
+
+        .mainNav-inner a:active, .mainNav-inner span:active, .mainNav-inner li.active a:hover, .mainNav-inner ul li.active span:hover {
+            cursor: default;
+            background-image: none;
+            background-color: rgb(41, 84, 126);
+        }
+
+.cg-siteHeader-leaderBoardWrap {
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: rgb(204, 204, 204);
+    padding-bottom: 4px;
+    background-image: -webkit-linear-gradient(top, rgb(238, 238, 238), rgb(224, 224, 224));
+    background-color: rgb(238, 238, 238);
+}
+
+.clear {
+    clear: both;
+}
+
+.footer, .push {
+    height: 140px;
+    clear: both;
+}
+
+.footer {
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: rgb(41, 84, 126);
+    padding: 5px 0 20px;
+    margin: 0 !important;
+    background-color: rgb(51, 102, 153);
+}
+
+    .footer::before {
+        content: ".";
+        border-top-width: 1px;
+        border-top-style: solid;
+        border-top-color: rgb(255, 255, 255);
+    }
+
+.footer-inner {
+    width: 990px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+    .footer-inner p {
+        color: rgb(96, 141, 184);
+        font-size: 11px;
+        text-shadow: rgb(41, 84, 126) 0 -1px;
+        line-height: 1.6;
+    }
+
+    .footer-inner ul {
+        margin: 0;
+        padding: 0 0 10px;
+        list-style: none;
+    }
+
+        .footer-inner ul li {
+            line-height: 1.6;
+            display: inline;
+        }
+
+            .footer-inner ul li .divider {
+                padding: 0 15px;
+                color: rgb(96, 141, 184);
+                text-shadow: rgb(41, 84, 126) 1px -1px;
+            }
+
+            .footer-inner ul li a, .footer-inner ul li span.slnk {
+                color: rgb(234, 244, 253);
+                text-shadow: rgb(25, 67, 108) 1px -1px;
+            }
+
+.cg-footer-followUsWrap {
+    width: 250px;
+    margin: 10px auto 20px;
+    text-align: center;
+}
+
+.cg-footer-socialMediaLink {
+    margin: 2px 5px 0 0;
+    text-indent: -9999px;
+    display: block;
+    float: left;
+    line-height: 32px;
+    width: 32px;
+    text-align: center;
+    box-shadow: rgb(51, 51, 51) 0 8px 6px -6px;
+    background: url("../images/socialmedia32pxsprite.png") 0 0 no-repeat;
+}
+
+.cg-footer-socialMediaIcon-FB:hover {
+    background-color: rgb(58, 87, 149);
+}
+
+.cg-footer-socialMediaIcon-twitter {
+    background-position: -40px 0;
+}
+
+.cg-footer-socialMediaIcon-pinterest {
+    background-position: -120px 0;
+}
+
+.cg-footer-socialMediaIcon-googlePlus {
+    background-position: -160px 0;
+}
+
+.cg-footer-socialMediaLink.cg-footer-socialMediaIcon-instagram {
+    background: url("../images/instagram.png") 0 0 no-repeat;
+}
+
+.cg-footer-socialMediaIcon-linkedin {
+    background: url("../images/linkedin-logo-white.png") 0 0 no-repeat;
+}
+
+.cg-footer-socialMediaIcon-googlePlus:hover {
+    background-color: rgb(221, 75, 57);
+}
+
+.pricediff-green {
+    color: green;
+}
+
+.cg-listingSearch-autocheck_logo, .cg-listingSearch-loandotcom_logo, .cg-listingSearch-usedcars_dot_com_transparent_72x11, .cg-listingSearch-galleryPrev_67x50, .cg-listingSearch-galleryNext_67x50, .cg-listingSearch-user-noPic, .cg-listingSearch-arrow_orange_left_36x34, .cg-listingSearch-zoom, .cg-listingSearch-twitter16x16, .cg-listingSearch-tick, .cg-listingSearch-telephone, .cg-listingSearch-star_half, .cg-listingSearch-star_disabled, .cg-listingSearch-star, .cg-listingSearch-resultset_previous, .cg-listingSearch-resultset_next, .cg-listingSearch-resultset_first, .cg-listingSearch-printer, .cg-listingSearch-pencil, .cg-listingSearch-newspaper, .cg-listingSearch-new, .cg-listingSearch-money, .cg-listingSearch-help, .cg-listingSearch-fire, .cg-listingSearch-facebook_small, .cg-listingSearch-email, .cg-listingSearch-disk, .cg-listingSearch-delete, .cg-listingSearch-cross, .cg-listingSearch-comment, .cg-listingSearch-chart_curve, .cg-listingSearch-arrow_out, .cg-listingSearch-arrow_left {
+    background-image: url("http://static2.cargurus.com/gfx/cg/sprites/listingSearch/listingSearchSprite.png");
+    background-repeat: no-repeat;
+}
+
+.cg-listingSearch-tick {
+    width: 16px;
+    height: 16px;
+    background-position: -117px -85px;
+}
+
+.leaderboardParent {
+    padding: 10px 0;
+}
+
+    .leaderboardParent .bannerDiv.leaderboard {
+        margin: 0 auto;
+    }
+
+#authBar {
+    float: right;
+    margin-right: 1px;
+    font-size: 12px;
+    font-family: Arial;
+    font-weight: bold;
+}
+
+    #authBar .profilePic {
+        float: left;
+        width: 20px;
+        height: 20px;
+        overflow: hidden;
+        margin-right: 10px;
+    }
+
+.cg-home-allRecentWrap .btn {
+    margin-top: 5px;
+}
+
+.cg-questions-sideCol .bannerDiv {
+    margin-bottom: 10px;
+}
+
+.cg-questions-shortcuts ul li a, .cg-questions-shortcuts ul li span.slnk {
+    display: block;
+    padding: 8px;
+}
+
+    .cg-questions-shortcuts ul li a:hover, .cg-questions-shortcuts ul li span.slnk:hover {
+        text-decoration: underline !important;
+        color: rgb(102, 102, 102) !important;
+    }
+
+.cg-dealFinder-searchSectionsWrap {
+    width: 220px;
+    margin: 0 auto;
+}
+
+.cg-listingResults-wrap {
+    padding: 0;
+}
+
+.cg-listingResults-leftCol {
+    float: left;
+    vertical-align: top;
+    width: 300px;
+}
+
+.cg-listingResults-rightCol {
+    float: left;
+    vertical-align: top;
+    width: 650px;
+    position: relative;
+}
+
+.cg-listingResults-headerWrap {
+    padding: 10px 0;
+}
+
+    .cg-listingResults-headerWrap h1 {
+        float: left;
+        font-size: 24px;
+    }
+
+        .cg-listingResults-headerWrap h1 em {
+            color: rgb(99, 129, 147);
+            font-style: normal;
+        }
+
+.cg-dealfinder-breadcrumb-callouts-wrap {
+    float: right;
+    margin-right: 10px;
+}
+
+    .cg-dealfinder-breadcrumb-callouts-wrap .cg-dealfinder-sellCar-text {
+        float: right;
+        margin-top: 4px;
+    }
+
+    .cg-dealfinder-breadcrumb-callouts-wrap .cg-dealfinder-reviewDealer-text {
+        float: right;
+        margin-top: 4px;
+        margin-left: 15px;
+    }
+
+    .cg-dealfinder-breadcrumb-callouts-wrap span i {
+        display: inline-block;
+        vertical-align: text-top;
+        margin-right: 4px;
+    }
+
+#mainSearchResultsContainer {
+    width: 650px;
+    float: left;
+    margin-left: 10px;
+}
+
+#activeFiltersWrap #activeFilterBar .btn {
+    margin: 4px 6px 0 0;
+}
+
+#savedListingsSearchesToolbar .btn {
+    width: 126px;
+    color: rgb(102, 102, 102) !important;
+}
+
+.invisibleLayer {
+    display: none;
+}
+
+#wideDealFinderVersion #listingsOverviewContainer #middleColumn {
+    width: 650px;
+    margin-left: 10px;
+}
+
+
+td input {
+    vertical-align: middle;
+}
+
+.newSearchSubmitButton {
+    font-size: 15px;
+    width: 152px;
+}
+
+#listingsContent {
+    margin-top: 5px;
+}
+
+#listingsOverviewContainer #leftColumn, #listingsOverviewContainer #middleColumn, #listingsOverviewContainer #rightColumn {
+    float: left;
+}
+
+#listingsOverviewContainer #rightColumn {
+    width: 184px;
+    margin: 0 0 0 10px;
+}
+
+    #listingsOverviewContainer #rightColumn #adSpace {
+        border: 1px solid rgb(114, 169, 211);
+        padding: 0 0 10px;
+        background-color: rgb(240, 240, 240);
+    }
+
+#listingsOverviewContainer .section {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid rgb(114, 169, 211);
+    background-color: rgb(240, 240, 240);
+}
+
+#listingsOverviewContainer .searchWarning {
+    border: 2px solid rgb(203, 185, 13);
+}
+
+#content {
+    width: 975px;
+    min-width: 972px;
+    line-height: 1.4;
+    margin: 0 auto;
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-right-color: rgb(204, 204, 204);
+    border-left-width: 1px;
+    border-left-style: solid;
+    border-left-color: rgb(204, 204, 204);
+    box-shadow: rgb(204, 204, 204) 0 0 32px;
+    background: rgb(255, 255, 255);
+}
+
+#contentbody {
+    text-align: left;
+    padding: 5px;
+}
+
+#listingsOverviewContainer {
+    padding: 0;
+    background-color: rgb(255, 255, 255);
+}
+
+.cg-dealFinder-result-wrap {
+    padding: 15px 10px;
+    border-style: none none solid;
+    border-bottom-width: 1px;
+    border-bottom-color: rgb(204, 204, 204);
+    margin-bottom: 0;
+    position: relative;
+    background-color: rgb(255, 255, 255);
+}
+
+    .cg-dealFinder-result-wrap:hover {
+        border-color: rgb(187, 187, 187);
+        cursor: pointer;
+        background-color: rgb(255, 253, 205);
+    }
+
+h4.cg-dealFinder-result-model {
+    font-size: 16px;
+    margin: 0 0 5px;
+    padding: 0;
+}
+
+.cg-dealFinder-result-img {
+    float: left;
+    margin-right: 10px;
+    border: 1px solid rgb(204, 204, 204);
+    position: relative;
+    background-color: rgb(255, 255, 255);
+}
+
+.cg-dealFinder-result-deal {
+    float: left;
+    margin-right: 30px;
+    width: 150px;
+    line-height: 1.7;
+}
+
+    .cg-dealFinder-result-deal strong {
+        display: inline-block;
+        width: 90px;
+        color: rgb(102, 102, 102);
+    }
+
+    .cg-dealFinder-result-deal .arrow {
+        display: block;
+        width: 32px;
+        height: 32px;
+        float: left;
+        margin-top: 3px;
+        background: transparent;
+    }
+
+    .cg-dealFinder-result-deal span {
+        font-size: 14px;
+        margin-left: 2px;
+        vertical-align: middle;
+    }
+
+.cg-dealFinder-result-stats {
+    float: left;
+    line-height: 1.7;
+}
+
+    .cg-dealFinder-result-stats strong {
+        display: inline-block;
+        width: 90px;
+        color: rgb(102, 102, 102);
+    }
+
+.appc_CA .cg-dealFinder-result-stats strong {
+    display: inline-block;
+    width: 30%;
+    color: rgb(102, 102, 102);
+}
+
+.cg-dealFinder-result-stats .bladeMonthlyPaymentCallout {
+    font-size: 12px;
+    margin-left: 5px;
+    color: rgb(90, 163, 120);
+}
+
+.cg-listingDetail-alternate .slnk {
+    font-size: 1.1em;
+}
+
+.cg-dealFinder-search-wrap {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid rgb(204, 204, 204);
+    background-color: rgb(238, 238, 238);
+}
+
+.cg-dealFinder-searchByCar-form {
+    padding: 10px 0;
+    clear: both;
+}
+
+    .cg-dealFinder-searchByCar-form select {
+        margin: 5px 6px;
+    }
+
+    .cg-dealFinder-searchByCar-form .carYearsSeparator {
+        vertical-align: middle;
+    }
+
+#featuredResultsDivParent {
+    border-top-style: none !important;
+}
+
+.cg-listingDivider {
+    border: 1px solid rgb(65, 117, 157);
+}
+
+    .cg-listingDivider, .cg-listingDivider a {
+        background-image: none;
+        background-color: rgb(45, 101, 141);
+    }
+
+        .cg-listingDivider span, .cg-listingDivider a {
+            padding: 5px 10px;
+            display: block;
+            color: rgb(255, 255, 255);
+            text-shadow: rgb(45, 101, 142) -1px 0 1px;
+            font-size: 12px;
+        }
+
+        .cg-listingDivider span {
+            float: left;
+            font-weight: bold;
+        }
+
+        .cg-listingDivider a {
+            float: right;
+            color: rgb(234, 244, 253);
+            font-weight: normal;
+            border-left-width: 1px;
+            border-left-style: solid;
+            border-left-color: rgb(65, 117, 157);
+        }
+
+            .cg-listingDivider a i {
+                margin-top: -1px;
+            }
+
+            .cg-listingDivider a i, .cg-listingDivider a strong {
+                margin-right: 4px;
+            }
+
+            .cg-listingDivider a:hover {
+                text-decoration: none;
+                color: rgb(255, 255, 255);
+                background-image: none;
+            }
+
+#priceCheckResultWrap .cg-dealFinder-result-deal {
+    width: 150px;
+    margin: 0 auto;
+}
+
+.visitedListing h4.cg-dealFinder-result-model {
+    font-weight: 400;
+    color: rgb(102, 0, 153);
+}
+
+.cg-listingDetail-similarListingDiv .btn {
+    color: white;
+    margin-top: 20px;
+    width: 150px;
+    text-decoration: none;
+}
+
+.cg-similarListingsAllLink .btn {
+    width: 100%;
+}
+
+.cg-oneClickBuyListingDetailFooter .btn {
+    width: 160px;
+    margin: 10px 0;
+}
+
+.cg-oneClickBuyListingDetailColumn .btn {
+    width: 160px;
+    margin: 10px 0;
+}
+
+.cg-listingDetail-madLibDetails .cg-dealFinder-result-deal {
+    margin-top: 10px;
+    margin-right: 0;
+    width: 100%;
+}
+
+    .cg-listingDetail-madLibDetails .cg-dealFinder-result-deal .alert {
+        margin-bottom: 10px;
+    }
+
+        .cg-listingDetail-madLibDetails .cg-dealFinder-result-deal .alert .cg-dealfinder-result-deal-recommendation {
+            font-size: 20px;
+            font-family: HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+            font-weight: 300;
+        }
+
+.cg-newCarSearch-changeCarWrap input.btn {
+    margin-top: 20px;
+}
+
+.cg-newCar-headerBackDiv .backarrow-btns .btn {
+    width: 225px;
+    margin-bottom: 5px;
+    font-size: 15px;
+}
+
+tl-checklb-container {
+    border: 2px solid rgb(255, 255, 255);
+    width: 300px;
+    height: 100px;
+    overflow-y: scroll;
+}
+
+html > body body {
+    margin: 0;
+    padding: 0;
+}
+
+p span {
+    display: block;
+}
+
+.psdgraphics-com-table {
+    margin: 0;
+    padding: 4px;
+    width: inherit;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    font-stretch: normal;
+    font-size: 11px;
+    line-height: normal;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(116, 116, 116);
+    background-color: rgb(12, 42, 98);
+}
+
+.psdgraphics-com-table .psdg-header {
+    margin: 0;
+    padding: 14px 0 0 24px;
+    width: auto;
+    height: 55px;
+    color: rgb(255, 255, 255);
+    font-size: 13px;
+    background: url("../images/head-bcg.jpg") 100% 0 no-repeat rgb(12, 44, 101);
+}
+.psdg-header .psdg-bold {
+    font-weight: bold;
+    font-style: normal;
+    font-variant: normal;
+    font-stretch: normal;
+    font-size: 22px;
+    line-height: normal;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.psdgraphics-com-table .psdg-top {
+    margin: 0;
+    padding: 0;
+    width: auto;
+    height: 46px;
+    border-top-width: 2px;
+    border-top-style: solid;
+    border-top-color: rgb(255, 255, 255);
+    background: url("../images/top-light-blue.png") 0 0 repeat-x rgb(239, 244, 255);
+}
+
+.psdg-top .psdg-top-cell {
+    float: left;
+    padding: 15px 0 0;
+    text-align: center;
+    width: 105px;
+    height: 31px;
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-right-color: rgb(206, 217, 236);
+    color: rgb(31, 61, 113);
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    font-stretch: normal;
+    font-size: 13px;
+    line-height: normal;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.psdgraphics-com-table .psdg-middle {
+    margin: 0;
+    padding: 0;
+    width: inherit;
+    background: url("../images/center-bcg.png") 100% 0 repeat-y rgb(246, 246, 246);
+}
+
+.psdg-middle:after {
+    content: " ";
+    display: block;
+    clear: both;
+}
+
+.psdg-middle .psdg-right {
+    float: left;
+    margin: 0;
+    padding: 11px 0 0;
+    width: 105px;
+    text-align: center;
+    height: 24px;
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-right-color: rgb(206, 217, 236);
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(179, 193, 219);
+}
+
+.psdgraphics-com-table .psdg-footer {
+    font-size: 10px;
+    color: rgb(138, 138, 138);
+    margin: 0;
+    padding: 8px 0 8px 12px;
+    width: auto;
+    background: url("../images/center-bcg.png") 100% 0 repeat-y rgb(246, 246, 246);
+}

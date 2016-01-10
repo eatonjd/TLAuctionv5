@@ -1,0 +1,9 @@
+@using TLAuctionv5.ViewModels.Main
+@model IEnumerable<TLAuctionv5.Models.Auction>
+
+@{
+   @foreach (var auction in Model)
+   {
+    @Html.DisplayFor(m => auction);
+   }
+}

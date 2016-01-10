@@ -1,0 +1,41 @@
+﻿@using TLAuctionv5.ViewModels.Main;
+
+
+<div id="content">
+    <div id="contentbody">
+        <div class="psdgraphics-com-table">
+            <div class="psdg-header">
+                <span class="psdg-bold">@ViewBag.Manifests[0].AuctionTitle</span><br />
+            </div>
+            <div class="psdg-top">
+                <div class="psdg-top-cell" style="width:70px;">Quantity</div>
+                <div class="psdg-top-cell">Brand</div>
+                <div class="psdg-top-cell" style="width:80px;">Part #</div>
+                <div class="psdg-top-cell" style="width:258px;">Item Title</div>
+                <div class="psdg-top-cell" style="width:120px;">UPC</div>
+                <div class="psdg-top-cell">SKU</div>
+                <div class="psdg-top-cell">Avg Price</div>
+                <div class="psdg-top-cell">Total Avg Price</div>
+            </div>
+            <div class="psdg-middle">
+                @foreach (var manifest in ViewBag.Manifests)
+                {
+                    <div class="psdg-right" style="width:70px;">@manifest.Quantity</div>
+                    <div class="psdg-right">@manifest.Manufacturer</div>
+                    <div class="psdg-right" style="width:80px;">@manifest.Partno</div>
+                    <div class="psdg-right" style="width:258px;">@manifest.Title</div>
+                    <div class="psdg-right" style="width:120px;">@manifest.UPC</div>
+                    <div class="psdg-right">@manifest.Sku</div>
+                    <div class="psdg-right">@manifest.AvgPrice</div>
+                    <div class="psdg-right">@manifest.Actual_Prodqty</div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

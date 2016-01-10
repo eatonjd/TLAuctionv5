@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>@ViewData["Title"] - TLAuctionv5</title>
+
+        <environment names="Development">
+            <!--<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" /> comment out until css is clea -->
+            <link rel="stylesheet" href="~/css/tlstyle.css" />
+        </environment>
+        <environment names="Staging,Production">
+            <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/css/bootstrap.min.css"
+                  asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+                  asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+            <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+        </environment>
+    </head>
+    <body>
+        <header class="cg-header-wrap">
+            <div class="header">
+                <div class="header-inner clearfix">
+                    <div class="PageHeader">
+                        <nav class="cg-siteHeader-authBar-wrap clearfix">
+                            <div id="authBar">
+                                <div id="authPlaceHolder">
+                                    <span class="slnk">Sign in</span>
+                                    <span class="separator">|</span>
+                                    <span class="slnk">Register</span>
+                                    <span class="separator">|</span>
+                                    <a href="#"><span class="slnk">My Account</span></a>
+                                </div>
+                            </div>
+                        </nav>
+                        <div style="width: 300px; float: left;">
+                            <a href="http://www.tlauctionhistory.com/">
+                                <span class="Logo">TLAuctionHistory</span>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div id="wrapper">
+            <div class="mainNav">
+                <div class="mainNav-inner clearfix">
+                    <ul>
+                        <li class="">
+                            <a href="/" title="Home"><i class="icon-home icon-white"></i></a>
+                        </li>
+                        <li>
+                            <a href="/" title="Used Cars">Menu 1</a>
+                        </li>
+                        <li>
+                            <a href="/" title="New Cars">Menu 2</a>
+                        </li>
+                        <li>
+                            <a href="/" title="Car Values">Menu 3</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+            <div class="cg-siteHeader-leaderBoardWrap">
+                <div class="leaderboardParent">
+                    <div id="bannerAdLEADERBOARD_DealFinderBanner" class="leaderboard" style="overflow: hidden;">
+                        <div id="iframe-LEADERBOARDDealFinderBanner" class="bannerDiv leaderboard" style="width: 728px; height: 90px; overflow: hidden;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @RenderBody()
+            <footer class="footer" role="contentinfo">
+                <div class="footer-inner">
+                    <ul>
+                        <li>
+                            <a href="http://www.TLAuction.com/Cars/aboutTLAuction.html" target="_blank" title="">About TLAuction</a>
+                            <span class="divider">|</span>
+                        </li>
+
+                        <li>
+                            <span class="slnk " onclick="">Our Team</span>
+                            <span class="divider">|</span>
+                        </li>
+
+                        <li>
+                            <a href="http://www.TLAuction.com/Cars/mobile.html" target="_blank" title="TLAuction Mobile">Mobile</a>
+                            <span class="divider">|</span>
+                        </li>
+
+                        <li>
+                            <a href="http://www.TLAuction.com/Cars/sitemap.html" target="_blank" title="">Sitemap</a>
+                            <span class="divider">|</span>
+                        </li>
+
+                        <li>
+                            <span class="slnk " onclick="">Terms of Use</span>
+                            <span class="divider">|</span>
+                        </li>
+
+                        <li>
+                            <span class="slnk " onclick="">Privacy</span>
+                            <span class="divider">|</span>
+                        </li>
+
+                        <li>
+                            <a href="http://www.TLAuction.com/Contact" target="_blank" title="">Contact Us</a>
+                        </li>
+                    </ul>
+                    <div class="cg-footer-followUsWrap clearfix">
+                        <span class="slnk cg-footer-socialMediaLink cg-footer-socialMediaIcon-FB" onclick="">TLAuction on Facebook</span>
+                        <span class="slnk cg-footer-socialMediaLink cg-footer-socialMediaIcon-twitter" onclick="">TLAuction on Twitter</span>
+                        <span class="slnk cg-footer-socialMediaLink cg-footer-socialMediaIcon-pinterest" onclick="">TLAuction on Pinterest</span>
+                        <span class="slnk cg-footer-socialMediaLink cg-footer-socialMediaIcon-googlePlus" onclick="">TLAuction on GooglePlus</span>
+                        <span class="slnk cg-footer-socialMediaLink cg-footer-socialMediaIcon-instagram" onclick="">TLAuction on Instagram</span>
+                        <span class="slnk cg-footer-socialMediaLink cg-footer-socialMediaIcon-linkedin" onclick="">TLAuction on LinkedIn</span>
+                    </div>
+                    <p>Copyright © 2006-2015 TLAuction ®, Inc., All Rights Reserved.</p>
+                </div>
+            </footer>
+        </div>
+
+  <environment names="Development">
+            <script src="~/lib/jquery/dist/jquery.js"></script>
+            <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+            <script src="~/js/site.js" asp-append-version="true"></script>
+        </environment>
+        <environment names="Staging,Production">
+            <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js"
+                    asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                    asp-fallback-test="window.jQuery">
+            </script>
+            <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/bootstrap.min.js"
+                    asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                    asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
+            </script>
+            <script src="~/js/site.min.js" asp-append-version="true"></script>
+        </environment>
+
+        @RenderSection("scripts", required: false)
+    </body>
+</html>

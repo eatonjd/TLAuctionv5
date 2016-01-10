@@ -1,0 +1,65 @@
+﻿@{  }
+@using TLAuction5.HtmlExtensions;
+@using TLAuctionv5.ViewModels.Main;
+@model MainViewModel
+
+
+<div id="content">
+    <div id="contentbody">
+        <div id="listingResultsContentBody">
+            <div class="cg-listingResults-headerWrap clearfix">
+                <div class="cg-dealfinder-breadcrumb-callouts-wrap clearfix">
+                </div>
+                <h1 class="clearfix"><em>Live Auctions</em></h1>
+            </div>
+            <div id="listingsContent" class="clear">
+                <div class="cg-listingResults-wrap">
+                    <div id="listingsOverviewContainer" class="clearfix">
+                        <div class="cg-listingResults-leftCol">
+                            <div class="cg-dealFinder-search-wrap ui-corner-all">
+
+                                <h3 style="float:left;margin-top:2px;">New Search</h3>
+                                <div class="clearInvisible"></div>
+
+                                <div class="cg-dealFinder-searchSectionsWrap">
+                                    <div id="vehicleSearch" style="">
+                                        <div class="cg-dealFinder-searchByCar-form">
+                                            <form id="newSearchHeaderForm" asp-controller="HomeController" asp-action="submit" method="post">
+                                                <div class="class=" select maker-select-dropdown btn btn-small" style="width: 208px;">
+                                                    @Html.DropDownList("categories", ((List<Category>)ViewBag.CategoryList).Select(m => new SelectListItem { Text = m.TLCategoryName, Value = m.CategoryId.ToString() }))
+                                                </div>
+                                                <div class="class=" select maker-select-dropdown btn btn-small" style="width: 208px;">
+                                                    @Html.DropDownList("conditions", ((List<Condition>)ViewBag.ConditionList).Select(m => new SelectListItem { Text = m.ConditionName, Value = m.ConditionId.ToString() }))
+                                                </div>
+                                                <div class="class=" select maker-select-dropdown btn btn-small" style="width: 208px;">
+                                                    @Html.DropDownList("auctionenddates", ((List<AuctionEndDate>)ViewBag.AuctionEndDateList).Select(m => new SelectListItem { Text = m.EndDate, Value = m.EndDate }))
+                                                </div><div>
+                                                    <input type="submit" value="Search" class="btn btn-warning newSearchSubmitButton" style="margin:15px auto 0 auto;display:block;">
+                                                </div>
+                                                <div class="clearInvisible"></div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearInvisible"></div>
+                            </div>
+                        </div>
+                        <div class="cg-listingResults-rightCol">
+                            <div id="mainSearchResultsContainer">
+                                <div id="featuredResultsDivParent">
+                                    <div class="cg-listingDivider clearfix"><span>Auction Results</span></div>
+                                    <div id="divResults">@Html.DisplayFor(x => x.Auctions)</div>
+                                    </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
