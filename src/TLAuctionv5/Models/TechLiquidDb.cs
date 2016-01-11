@@ -88,14 +88,17 @@ namespace TLAuctionv5.Models
                         oManifest.UPC = dataReader["upc"].ToString();
                         oManifest.Title = dataReader["title"].ToString();
                         oManifest.BB_name = dataReader["bb_name"].ToString();
+                        oManifest.Quantity = (int)dataReader["quantity"];
                         oManifest.AvgPrice = (decimal)dataReader.GetDecimal(7);
                         oManifest.MinPrice = (decimal)dataReader.GetDecimal(8);
                         oManifest.MaxPrice = (decimal)dataReader.GetDecimal(9);
                         oManifest.ConditionId = (int)dataReader["conditionid"];
+                        oManifest.ProductCnt = (int)dataReader["productcnt"];
                         oManifest.Manufacturer = dataReader["manufacturer"].ToString();
+                        oManifest.Partno = dataReader["partno"].ToString();
                         oManifest.BB_model = dataReader["bb_model"].ToString();
                         oManifest.Actual_Product = (decimal)dataReader.GetDecimal(15);
-                        oManifest.Actual_Prodqty = (decimal)dataReader.GetDecimal(16);
+                        oManifest.Actual_Prodqty = oManifest.AvgPrice * oManifest.Quantity;
                         oManifest.Ended = dataReader["ended"].ToString();
                         myMainModel.Manifests.Add(oManifest);
                     }
