@@ -1,0 +1,40 @@
+@model TLAuctionv5.Models.AuctionOpenView
+@{ string strListing = "AuctionListing_" + Model.AuctionId;
+    string sImageURL = "/Images/" + Model.getCategoryImage(Model.TLCategoryName);
+}
+
+@foreach (var auction in ViewBag.AuctionList)
+{
+<a href="@Url.Action("Manifest", "Home", new { auctionid = auction.AuctionId })">
+    <div id='@strListing'>
+        <div class="ft-car cg-dealFinder-result-wrap clearfix" title="Click to see details...">
+            <div class='cg-dealFinder-result-img'>
+                <img src='@sImageURL'>
+            </div>
+            <h4 class='cg-dealFinder-result-model'>
+                <span class='invisibleLayer cg-listingSearch-tick'></span>
+                @Model.Title
+            </h4>
+            <div class='cg-dealFinder-result-deal'>
+                <p><strong>MSRP:</strong>@auction.MSRP.ToString("C0")</p>
+                <p><strong>Bid:</strong>@auction.Price.ToString("C0")</p>
+                <p><strong>Avg Price:</strong>@auction.AvgPrice.ToString("C0")</p>
+                @if (Model.PriceDiff < 0)
+                {
+                    <p class='pricediff-green'><strong>Difference:</strong>@auction.PriceDiff.ToString("C0")</p>
+                }
+                else
+                {
+                    <p class='pricediff-red'><strong>Difference:</strong>@auction.PriceDiff.ToString("C0")</p>
+                }
+            </div>
+            <div class='cg-dealFinder-result-stats'>
+                <p><strong>Category:</strong>@auction.TLCategoryName</p>
+                <p><strong>Condition:</strong>@auction.ConditionName.ToString()</p>
+                <p><strong>Num Bids:</strong>@auction.Bid.ToString()</p>
+                <p><strong>End Date:</strong>@auction.EndDate.ToString()</p>
+            </div>
+        </div>
+    </div>
+</a>
+}

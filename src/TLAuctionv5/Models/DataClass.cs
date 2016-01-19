@@ -1,10 +1,14 @@
-﻿using System;
+﻿using Microsoft.Data.Entity;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TLAuctionv5.Models
 {
-    public class Auction
+    public class AuctionOpenView
     {
+        [Key]
         public int AuctionId { get; set; }
         public String Title { get; set; }
         public string TLCategoryName { get; set; }
@@ -14,18 +18,16 @@ namespace TLAuctionv5.Models
         public int Quantity { get; set; }
         public Decimal MSRP { get; set; }
         public int Bid { get; set; }
-        public Decimal AvgPrice { get; set; }
         public Decimal Price { get; set; }
+        public Decimal AvgPrice { get; set; }
         public Decimal PriceDiff { get; set; }
         public Decimal PctDiff { get; set; }
-        public DateTime EndDate { get; set; }
-        public int Categoryid { get; set; }
+        public string EndDate { get; set; }
+        public int CategoryId { get; set; }
         public int ConditionId { get; set; }
         public int ProductCnt { get; set; }
-        public Decimal e_AvgPrice { get; set; }
-        public Decimal lowprice { get; set; }
 
-        public String sAuctionHtml { get; set; }
+        public virtual ICollection<ManifestOpenView> Manifests { get; set; }
 
         public string getCategoryImage(String sCategoryName)
         {
@@ -67,9 +69,15 @@ namespace TLAuctionv5.Models
         }
     }
 
-    public class Manifest
+    public class ManifestOpenView
     {
+        [Key]
+        public int Id { get; set; }
+        [ForeignKey("AuctionId")]
         public int AuctionId { get; set; }
+        public AuctionOpenView Auction { get; set; }
+
+        public string ProductId { get; set; }
         public string AuctionTitle { get; set; }
         public long Sku { get; set; }
         public string UPC { get; set; }
@@ -79,59 +87,26 @@ namespace TLAuctionv5.Models
         public decimal AvgPrice { get; set; }
         public decimal MinPrice { get; set; }
         public decimal MaxPrice { get; set; }
+        public int ConditionId { get; set; }
         public int ProductCnt { get; set; }
         public string Manufacturer { get; set; }
         public string Partno { get; set; }
         public string BB_model { get; set; }
-        public decimal Actual_Product { get; set; }
-        public decimal Actual_Prodqty { get; set; }
-        public string Ended { get; set; }
+        public decimal Total { get; set; }
         public DateTime Updated { get; set; }
-        public int Categoryid { get; set; }
-        public int ConditionId { get; set; }
-        
-    }
-        public class Category
-    {
-        public int CategoryId { get; set; }
-        public String TLCategoryName { get; set; }
-        public bool IsSelected { get; set; }
-        public string sHtml_Checkbox { get; set; }
-        public string sHtml_Dropdown { get; set; }
-
-        public void CreateHTML()
-       {
-            sHtml_Checkbox += "<input type='checkbox' />" + " " + TLCategoryName +  "<br />";
-            sHtml_Dropdown += " <option value=" + CategoryId + ">" + TLCategoryName + "</option>";
-        }
     }
 
-    public class Condition
-    {
-        public int ConditionId { get; set; }
-        public String ConditionName { get; set; }
-        public bool IsSelected { get; set; }
-        public string sHtml_Checkbox { get; set; }
-        public string sHtml_Dropdown { get; set; }
-
-        public void CreateHTML()
-        {
-            sHtml_Checkbox += "<input type='checkbox' />" + " " + ConditionName + "<br />";
-            sHtml_Dropdown += " <option value=" + ConditionId + ">" + ConditionName + "</option>";
-        }
-    }
-
-    public class AuctionEndDate
+    public class Auction_Category
     {
         [Key]
-        public string EndDate { get; set; }
-        public bool IsSelected { get; set; }
+        public int CategoryId { get; set; }
+        public String TLCategoryName { get; set; }
     }
 
-    public class SearchParameters
+    public class Auction_Condition
     {
-        public int CategoryId { get; set; }
+        [Key]
         public int ConditionId { get; set; }
-        public string Enddate { get; set; }
+        public String ConditionName { get; set; }
     }
 }

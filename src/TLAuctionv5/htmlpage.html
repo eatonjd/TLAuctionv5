@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div id="middleColumn">
+        <div class="rightHeaderSection" style="float: right; width: 180px;">
+        </div>
+        <div class="clearInvisible"></div>
+
+        <div class="clearInvisible"></div>
+
+
+
+        <div class="alert alert-info" style="display:none" id="noListingResultsMessageContainer">
+
+            <div class="listingResultsMessage ui-corner-all" id="noListingResultsMessage">
+                <span>
+                    Sorry, no listings are available.
+                </span>
+                <div style="margin-top:10px;">
+                    Try a different search to see listings.
+                </div>
+            </div>
+        </div>
+
+        <div class="alert alert-info" style="display:none" id="relatedModelsListingResultsMessageContainer">
+            <button class="close" data-dismiss="alert">×</button>
+            <div class="listingResultsMessage ui-corner-all" id="relatedModelsListingResultsMessage">
+                <span>
+                    <span class="b">Sorry</span>, we couldn't find any listings that matched your search criteria.
+                </span>
+                <div style="margin-top:10px;">
+                    You might be interested in these listings for similar cars.
+                </div>
+            </div>
+        </div>
+
+        <div class="alert alert-info" style="display:none" id="makerListingResultsMessageContainer">
+            <button class="close" data-dismiss="alert">×</button>
+            <div class="listingResultsMessage ui-corner-all" id="makerListingResultsMessage">
+                <span>
+                    <span class="b">Sorry</span>, we couldn't find any listings that matched your search criteria.
+                </span>
+                <div style="margin-top:10px;">
+                </div>
+            </div>
+        </div>
+
+        <div class="alert alert-info" style="display:none" id="nationwideListingResultsMessageContainer">
+            <button class="close" data-dismiss="alert">×</button>
+            <div class="listingResultsMessage ui-corner-all" id="nationwideListingResultsMessage">
+                <span>
+                    <span class="b">Sorry</span>, we couldn't find any local listings that matched your search criteria.
+                </span>
+                <div style="margin-top:10px;">
+                    Here are <span class="b">Nationwide</span> listings for a <span class="b"></span>.
+                </div>
+            </div>
+        </div>
+
+        <div class="alert alert-info" style="display:none" id="allYearsListingResultsMessageContainer">
+            <button class="close" data-dismiss="alert">×</button>
+            <div class="listingResultsMessage ui-corner-all" id="allYearsListingResultsMessage">
+                <span>
+                    <span class="b">Sorry</span>, we couldn't find any listings that matched your search criteria.
+                </span>
+                <div style="margin-top:10px;">
+                    Here are our listings for all model years of the <span class="b"></span>.
+                </div>
+            </div>
+        </div>
+
+        <div class="alert alert-info" style="display:none" id="similarYearsListingResultsMessageContainer">
+            <button class="close" data-dismiss="alert">×</button>
+            <div class="listingResultsMessage ui-corner-all" id="similarYearsListingResultsMessage">
+                <span>
+                    <span class="b">Sorry</span>, we couldn't find any listings that matched your search criteria.
+                </span>
+                <div style="margin-top:10px;">
+                    You might be interested in these similar years for <span class="b"></span>.
+                </div>
+            </div>
+        </div>
+
+        <div class="alert alert-info" style="display:none" id="allResultsFilteredListingResultsMessageContainer">
+            <button class="close" data-dismiss="alert">×</button>
+            <div class="listingResultsMessage ui-corner-all" id="allResultsFilteredListingResultsMessage">
+                <div id="allFilteredMessageCriteria" style="display: none;">
+                    <span>
+                        <span class="b">Sorry</span>, we couldn't find any listings that matched your search criteria. So, we've removed the following criteria from your search:
+                        <br>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+        <input type="hidden" id="shopperListingsSearchId" value="">
+        <input type="hidden" id="savedSearchEntityName" value="Price Search">
+        <div id="activeFiltersWrap" class="alert alert-info clearfix" style="">
+
+
+            <table border="2" cellpadding="6" cellspacing="6" style="width: 625px;">
+                <tbody>
+                    <tr>
+                        <td>
+                            <h2 id="searchTitle"><span id="savedSearchLabel" class="hidden">Saved Search: &nbsp;</span>Price Search</h2>
+                            <div id="savedSearchActions">
+                                <a href="#" id="saveSearchButton" class="btn btn-primary btn-mini" style="width:95px;" onclick="saveSearchOnclick();return false;">
+                                    <span id="saveSearchButtonLabel">Save this search</span>
+                                </a>
+                                <span id="deleteSavedSearchLinkNoCriteria" class="deleteSearchLink" style="display: none;"><a href="#" class="btn btn-mini">Delete</a></span>
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align:bottom;">
+                            <div id="activeFilterBar"><span id="activeFiltersLabel" style="position: relative; top: 2px; display: none;">(<a href="#" id="clearFiltersButton" onclick="$('#activeFilterBar').children().click(); $(this).hide(); return false;" style="display: none;">Clear all filters</a>)</span></div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</body>
+</html>

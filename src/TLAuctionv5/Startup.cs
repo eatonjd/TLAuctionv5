@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using TLAuctionv5.Models;
 using TLAuctionv5.Services;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace TLAuctionv5
 {
@@ -36,7 +37,7 @@ namespace TLAuctionv5
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
-            var connection = @"Server=dataserver;Database=TechLiquid;Trusted_Connection=True;";
+            var connection = @"Server=dataserver;Database=TechLiquid;Trusted_Connection=True;MultipleActiveResultSets = True";
             services.AddEntityFramework()
                 .AddSqlServer()
                 .AddDbContext<TechLiquidDbContext>(options => options.UseSqlServer(connection));
@@ -111,6 +112,8 @@ namespace TLAuctionv5
                     name: "manifest",
                     template: "{controller=Home}/{action=Manifest}/{auctionid?}");
             });
+
+           
         }
 
         // Entry point for the application.

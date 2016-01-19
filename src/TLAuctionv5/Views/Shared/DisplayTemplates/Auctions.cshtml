@@ -1,8 +1,8 @@
 @using TLAuctionv5.ViewModels.Main
-@model IEnumerable<TLAuctionv5.Models.Auction>
+@model MainViewModel
 
 @{
-   @foreach (var auction in Model)
+   @foreach (var auction in Model.Auctions)
    {
     @Html.DisplayFor(m => auction);
    }

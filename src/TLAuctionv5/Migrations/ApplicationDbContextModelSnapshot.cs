@@ -1,7 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.Data.Entity;
 using Microsoft.Data.Entity.Infrastructure;
 using Microsoft.Data.Entity.Metadata;
@@ -16,166 +13,111 @@ namespace TLAuctionv5.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.0-beta8")
+                .HasAnnotation("ProductVersion", "7.0.0-rc1-16348")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityRole", b =>
+            modelBuilder.Entity("TLAuctionv5.Models.Auction_Category", b =>
                 {
-                    b.Property<string>("Id");
+                    b.Property<int>("CategoryId")
+                        .ValueGeneratedOnAdd();
 
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken();
+                    b.Property<string>("TLCategoryName");
 
-                    b.Property<string>("Name")
-                        .HasAnnotation("MaxLength", 256);
-
-                    b.Property<string>("NormalizedName")
-                        .HasAnnotation("MaxLength", 256);
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NormalizedName")
-                        .HasAnnotation("Relational:Name", "RoleNameIndex");
-
-                    b.HasAnnotation("Relational:TableName", "AspNetRoles");
+                    b.HasKey("CategoryId");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityRoleClaim<string>", b =>
+            modelBuilder.Entity("TLAuctionv5.Models.Auction_Condition", b =>
+                {
+                    b.Property<int>("ConditionId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("ConditionName");
+
+                    b.HasKey("ConditionId");
+                });
+
+            modelBuilder.Entity("TLAuctionv5.Models.AuctionOpenView", b =>
+                {
+                    b.Property<int>("AuctionId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<decimal>("AvgPrice");
+
+                    b.Property<int>("Bid");
+
+                    b.Property<int>("CategoryId");
+
+                    b.Property<int>("ConditionId");
+
+                    b.Property<string>("ConditionName");
+
+                    b.Property<string>("EndDate");
+
+                    b.Property<decimal>("MSRP");
+
+                    b.Property<decimal>("PctDiff");
+
+                    b.Property<decimal>("Price");
+
+                    b.Property<decimal>("PriceDiff");
+
+                    b.Property<int>("ProductCnt");
+
+                    b.Property<int>("ProductRun");
+
+                    b.Property<int>("Quantity");
+
+                    b.Property<string>("Status");
+
+                    b.Property<string>("TLCategoryName");
+
+                    b.Property<string>("Title");
+
+                    b.HasKey("AuctionId");
+                });
+
+            modelBuilder.Entity("TLAuctionv5.Models.ManifestOpenView", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("ClaimType");
+                    b.Property<int>("AuctionId");
 
-                    b.Property<string>("ClaimValue");
+                    b.Property<string>("AuctionTitle");
 
-                    b.Property<string>("RoleId");
+                    b.Property<decimal>("AvgPrice");
 
-                    b.HasKey("Id");
+                    b.Property<string>("BB_model");
 
-                    b.HasAnnotation("Relational:TableName", "AspNetRoleClaims");
-                });
+                    b.Property<string>("BB_name");
 
-            modelBuilder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityUserClaim<string>", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
+                    b.Property<int>("ConditionId");
 
-                    b.Property<string>("ClaimType");
+                    b.Property<string>("Manufacturer");
 
-                    b.Property<string>("ClaimValue");
+                    b.Property<decimal>("MaxPrice");
 
-                    b.Property<string>("UserId");
+                    b.Property<decimal>("MinPrice");
 
-                    b.HasKey("Id");
+                    b.Property<string>("Partno");
 
-                    b.HasAnnotation("Relational:TableName", "AspNetUserClaims");
-                });
+                    b.Property<int>("ProductCnt");
 
-            modelBuilder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityUserLogin<string>", b =>
-                {
-                    b.Property<string>("LoginProvider");
+                    b.Property<string>("ProductId");
 
-                    b.Property<string>("ProviderKey");
+                    b.Property<int>("Quantity");
 
-                    b.Property<string>("ProviderDisplayName");
+                    b.Property<long>("Sku");
 
-                    b.Property<string>("UserId");
+                    b.Property<string>("Title");
 
-                    b.HasKey("LoginProvider", "ProviderKey");
+                    b.Property<decimal>("Total");
 
-                    b.HasAnnotation("Relational:TableName", "AspNetUserLogins");
-                });
+                    b.Property<string>("UPC");
 
-            modelBuilder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityUserRole<string>", b =>
-                {
-                    b.Property<string>("UserId");
-
-                    b.Property<string>("RoleId");
-
-                    b.HasKey("UserId", "RoleId");
-
-                    b.HasAnnotation("Relational:TableName", "AspNetUserRoles");
-                });
-
-            modelBuilder.Entity("TLAuctionv5.Models.ApplicationUser", b =>
-                {
-                    b.Property<string>("Id");
-
-                    b.Property<int>("AccessFailedCount");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken();
-
-                    b.Property<string>("Email")
-                        .HasAnnotation("MaxLength", 256);
-
-                    b.Property<bool>("EmailConfirmed");
-
-                    b.Property<bool>("LockoutEnabled");
-
-                    b.Property<DateTimeOffset?>("LockoutEnd");
-
-                    b.Property<string>("NormalizedEmail")
-                        .HasAnnotation("MaxLength", 256);
-
-                    b.Property<string>("NormalizedUserName")
-                        .HasAnnotation("MaxLength", 256);
-
-                    b.Property<string>("PasswordHash");
-
-                    b.Property<string>("PhoneNumber");
-
-                    b.Property<bool>("PhoneNumberConfirmed");
-
-                    b.Property<string>("SecurityStamp");
-
-                    b.Property<bool>("TwoFactorEnabled");
-
-                    b.Property<string>("UserName")
-                        .HasAnnotation("MaxLength", 256);
+                    b.Property<DateTime>("Updated");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("NormalizedEmail")
-                        .HasAnnotation("Relational:Name", "EmailIndex");
-
-                    b.HasIndex("NormalizedUserName")
-                        .HasAnnotation("Relational:Name", "UserNameIndex");
-
-                    b.HasAnnotation("Relational:TableName", "AspNetUsers");
-                });
-
-            modelBuilder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityRoleClaim<string>", b =>
-                {
-                    b.HasOne("Microsoft.AspNet.Identity.EntityFramework.IdentityRole")
-                        .WithMany()
-                        .HasForeignKey("RoleId");
-                });
-
-            modelBuilder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityUserClaim<string>", b =>
-                {
-                    b.HasOne("TLAuctionv5.Models.ApplicationUser")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-                });
-
-            modelBuilder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityUserLogin<string>", b =>
-                {
-                    b.HasOne("TLAuctionv5.Models.ApplicationUser")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-                });
-
-            modelBuilder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityUserRole<string>", b =>
-                {
-                    b.HasOne("Microsoft.AspNet.Identity.EntityFramework.IdentityRole")
-                        .WithMany()
-                        .HasForeignKey("RoleId");
-
-                    b.HasOne("TLAuctionv5.Models.ApplicationUser")
-                        .WithMany()
-                        .HasForeignKey("UserId");
                 });
         }
     }

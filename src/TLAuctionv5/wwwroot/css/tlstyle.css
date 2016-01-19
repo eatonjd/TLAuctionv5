@@ -175,6 +175,8 @@ optgroup {
 table {
     border-spacing: 0;
     border-collapse: collapse;
+    max-width: 100%;
+    background-color: transparent;
 }
 
 td, th {
@@ -1134,6 +1136,7 @@ h4 {
     padding: 5px 0 20px;
     margin: 0 !important;
     background-color: rgb(51, 102, 153);
+    font-size: 14px;
 }
 
     .footer::before {
@@ -1445,7 +1448,7 @@ td input {
     }
 
 h4.cg-dealFinder-result-model {
-    font-size: 16px;
+    font-size: 15px;
     margin: 0 0 5px;
     padding: 0;
 }
@@ -1463,6 +1466,7 @@ h4.cg-dealFinder-result-model {
     margin-right: 30px;
     width: 150px;
     line-height: 1.7;
+    font-size: 13px;
 }
 
     .cg-dealFinder-result-deal strong {
@@ -1487,6 +1491,7 @@ h4.cg-dealFinder-result-model {
     }
 
 .cg-dealFinder-result-stats {
+    font-size: 13px;
     float: left;
     line-height: 1.7;
 }
@@ -1527,6 +1532,7 @@ h4.cg-dealFinder-result-model {
 
     .cg-dealFinder-searchByCar-form select {
         margin: 5px 6px;
+        font-size: 13px;
     }
 
     .cg-dealFinder-searchByCar-form .carYearsSeparator {
@@ -1755,3 +1761,87 @@ p span {
     width: auto;
     background: url("../images/center-bcg.png") 100% 0 repeat-y rgb(246, 246, 246);
 }
+
+.cg-dealFinder-sortHeader-wrap {
+    padding: .8em;
+    border: 0;
+    background: 0;
+}
+
+.pagingNav {
+    background-color: #fff;
+    border: 0;
+    height: 40px;
+}
+
+.cg-listingSearch-upperPagingPanel {
+    padding: 0;
+    float: right;
+}
+
+.cg-listingSearch-pagingPanel {
+    padding: 10px;
+    text-align: right;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.cg-dealFinder-sortHeader-wrap .cg-dealFinder-sortHeader-form {
+    float: left;
+    color: #333;
+    font-size: 12px;
+}
+
+#activeFiltersWrap {
+    margin-bottom: 9px;
+    padding-right: 10px;
+    height: 40px;
+    background-color: #2d658d;
+}
+
+.alert-info {
+    color: #3a87ad;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+}
+.alert {
+    padding: 8px 35px 8px 14px;
+    margin-bottom: 20px;
+    color: #c09853;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+    background-color: #fcf8e3;
+    border: 1px solid #fbeed5;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+#middleColumn {
+    width: 650px;
+    margin-left: 10px;
+    float: left;
+}
+#activeFiltersWrap #savedSearchLabel {
+    float: left;
+    font-weight: normal;
+}
+.hidden {
+    display: none;
+}
+#activeFiltersWrap h2 {
+    color: #638193;
+    float: left;
+}
+
+.tl-manifest-result-wrap {
+    border-style: none none solid;
+    border-bottom-color: rgb(204, 204, 204);
+    margin-bottom: 0;
+    position: relative;
+    background-color: rgb(255, 255, 255);
+}
+
+    .tl-manifest-result-wrap:hover {
+        border-color: rgb(187, 187, 187);
+        cursor: pointer;
+        background-color: rgb(255, 253, 205);
+    }
