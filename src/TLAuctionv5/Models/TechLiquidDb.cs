@@ -13,6 +13,8 @@ namespace TLAuctionv5.Models
         public DbSet<Auction_Category> Categories { get; set; }
         public DbSet<Auction_Condition> Conditions { get; set; }
         public DbSet<ManifestOpenView> Manifests { get; set; }
+        public DbSet<ManifestEndedView> ManifestEnded { get; set; }
+        public DbSet<ProductView> Product { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -20,14 +22,19 @@ namespace TLAuctionv5.Models
             modelBuilder.Entity<AuctionOpenView>()
                                 .HasMany(a => a.Manifests);
 
+            modelBuilder.Entity<ProductView>()
+                                .HasMany(p => p.Manifests);
 
 
             modelBuilder.Entity<ManifestOpenView>()
                                 .HasOne(a => a.Auction)
                                 .WithMany(r => r.Manifests)
                                 .HasForeignKey(a => a.AuctionId);
-                             
 
+            modelBuilder.Entity<ManifestOpenView>()
+                                .HasOne(p => p.Product)
+                                .WithMany(r => r.Manifests)
+                                .HasForeignKey(p => p.ProductId);
         }
     }
 }

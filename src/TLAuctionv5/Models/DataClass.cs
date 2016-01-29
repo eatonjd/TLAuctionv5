@@ -73,11 +73,15 @@ namespace TLAuctionv5.Models
     {
         [Key]
         public int Id { get; set; }
+
         [ForeignKey("AuctionId")]
         public int AuctionId { get; set; }
         public AuctionOpenView Auction { get; set; }
 
+        [ForeignKey("ProductId")]
         public string ProductId { get; set; }
+        public ProductView Product { get; set; }
+
         public string AuctionTitle { get; set; }
         public long Sku { get; set; }
         public string UPC { get; set; }
@@ -94,6 +98,56 @@ namespace TLAuctionv5.Models
         public string BB_model { get; set; }
         public decimal Total { get; set; }
         public DateTime Updated { get; set; }
+    }
+
+    public class ManifestEndedView
+    {
+        [Key]
+        public int Id { get; set; }
+
+        [ForeignKey("AuctionId")]
+        public int AuctionId { get; set; }
+        public AuctionOpenView Auction { get; set; }
+        public string ProductId { get; set; }
+        public string AuctionTitle { get; set; }
+        public int Quantity { get; set; }
+        public decimal AuctionPrice { get; set; }
+        public decimal ProdQtyPrice { get; set; }
+        public decimal ProductPrice { get; set; }
+        public int ConditionId { get; set; }
+        public DateTime EndDate { get; set; }
+    }
+
+
+
+    public class ProductView
+    {
+        [Key]
+        public string id { get; set; }
+
+        public long sku { get; set; }
+        public int conditionid { get; set; }
+        public string upc { get; set; }
+        public string partno { get; set; }
+        public string title { get; set; }
+
+        public decimal avgprice { get; set; }
+
+       public decimal minprice { get; set; }
+       public decimal maxprice { get; set; }
+       public int productcnt { get; set; }
+       public string manufacturer { get; set; }
+       public string bb_name { get; set; }
+       public string bb_model { get; set; }
+
+
+       public int bb_stage { get; set; }
+       public int ebay_stage { get; set; }
+       public DateTime Updated { get; set; }
+       public string ConditionName { get; set; }
+    
+
+        public virtual ICollection<ManifestOpenView> Manifests { get; set; }
     }
 
     public class Auction_Category

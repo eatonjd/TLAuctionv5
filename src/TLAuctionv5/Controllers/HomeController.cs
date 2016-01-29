@@ -60,14 +60,20 @@ namespace TLAuctionv5.Controllers
         [HttpGet]
         public IActionResult Manifest(int auctionid)
         {
-
-            //myMainModel.Manifests = mydbContext.Set<ManifestOpenView>().FromSql("dbo.GetOpenManifests @pAuctionId = {0}", auctionid);
-
             myMainModel.Manifests = mydbContext.Manifests
                             .Where(m => m.AuctionId == auctionid)
                             .OrderByDescending(m => m.Total);
 
             ViewBag.Manifests = myMainModel.Manifests;
+
+            return View(myMainModel);
+        }
+
+        [HttpGet]
+        public IActionResult Product(string ProductId, int ConditionId)
+        {
+            myMainModel.Product = mydbContext.Set<ProductView>().FromSql("select * from productview where id = '" + ProductId + "' and conditionid =" + ConditionId);
+            myMainModel.ManifestsEnded = mydbContext.Set<ManifestEndedView>().FromSql("select * from manifestendedview where productid = '" + ProductId + "' and conditionid =" + ConditionId + " order by EndDate desc ");
 
             return View(myMainModel);
         }

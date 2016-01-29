@@ -1,0 +1,99 @@
+﻿@using TLAuctionv5.ViewModels.Main;
+@using System;
+@model MainViewModel
+
+<div id="content">
+    <div id="contentbody">
+        <div id="listingResultsContentBody">
+            <div class="cg-listingResults-headerWrap clearfix">
+                <div id="listingsContent" class="clear">
+                    <div class="cg-listingResults-wrap">
+                        <div id="listingsOverviewContainer" class="clearfix">
+                            <div class="cg-listingResults-leftCol">
+                                <div class="cg-dealFinder-search-wrap ui-corner-all">
+
+                                    <h3 style="float:left;margin-top:2px;">@Html.DisplayFor(model => model.Product.FirstOrDefault().title)</h3>
+                                    <div class="clearInvisible"></div>
+                                    <div id="vehicleSearch" style="">
+                                        <div class="product-sectionsWrap">
+
+                                            <div class="product-sectionsWrap left"><p>Brand:</p></div>
+                                            <div class="product-sectionsWrap right">
+                                                <p>@Html.DisplayFor(model => model.Product.FirstOrDefault().manufacturer)</p>
+                                            </div>
+                                            <div class="product-sectionsWrap left"><p>Part #:</p></div>
+                                            <div class="product-sectionsWrap right">
+                                                <p>@Html.DisplayFor(model => model.Product.FirstOrDefault().partno)</p>
+                                            </div>
+                                            <div class="product-sectionsWrap left"><p>UPC:</p></div>
+                                            <div class="product-sectionsWrap right">
+                                                <p>@Html.DisplayFor(model => model.Product.FirstOrDefault().upc)</p>
+                                            </div>
+                                            <div class="product-sectionsWrap left"><p>Sku:</p></div>
+                                            <div class="product-sectionsWrap right">
+                                                <p>@Html.DisplayFor(model => model.Product.FirstOrDefault().sku)</p>
+                                            </div>
+                                            <div class="product-sectionsWrap left"><p>Condition:</p></div>
+                                            <div class="product-sectionsWrap right">
+                                                <p>@Html.DisplayFor(model => model.Product.FirstOrDefault().ConditionName)</p>
+                                            </div>
+
+                                            <div class="product-sectionsWrap left"><p>Avg Price:</p></div>
+                                            <div class="product-sectionsWrap right">
+                                                <p>@Html.DisplayFor(model => model.Product.FirstOrDefault().avgprice)</p>
+                                            </div>
+                                            <div class="product-sectionsWrap left"><p>Qty Sold:</p></div>
+                                            <div class="product-sectionsWrap right">
+                                                <p>@Html.DisplayFor(model => model.Product.FirstOrDefault().productcnt)</p>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                    <div class="clearInvisible"></div>
+                                </div>
+                            </div>
+                            <div class="cg-listingResults-rightCol">
+                                <div id="mainSearchResultsContainer">
+                                    <div id="featuredResultsDivParent">
+                                        <div class="cg-listingDivider clearfix"><span>@("Ended Auctions for " + Model.Product.FirstOrDefault().title + " in " + Model.Product.FirstOrDefault().ConditionName + " condition")</span></div>
+                                        <div id="divResults">
+                                            <div class="psdgraphics-com-table">
+                                                <div class="psdg-top">
+                                                    <div class="psdg-top-cell" style="width:70px;">Auction ID</div>
+                                                    <div class="psdg-top-cell" style="width:270px;padding: 11px 0 0 2px;">Auction Title</div>
+                                                    <div class="psdg-top-cell" style="width:70px;">Auction Price</div>
+                                                    <div class="psdg-top-cell" style="width:70px;">End Date</div>
+                                                    <div class="psdg-top-cell" style="width:70px;">Product Qty</div>
+                                                    <div class="psdg-top-cell" style="width:80px;">Product Price</div>
+                                                </div>
+                                                <div class="psdg-middle">
+                                                    @foreach (ManifestEndedView manifest in Model.ManifestsEnded)
+                                                    {
+                                                        string strListing = "AuctionListing_" + manifest.ProductId;
+                                                        <div id='@strListing'>
+                                                            <a href="">
+                                                                <div class="tl-manifest-result-wrap clearfix">
+                                                                    <div class="psdg-right" style="width:70px;">@manifest.AuctionId</div>
+                                                                    <div class="psdg-right" style="width:270px; text-align: left; padding: 11px 0 0 2px;">@manifest.AuctionTitle</div>
+                                                                    <div class="psdg-right" style="width:70px;">@manifest.AuctionPrice.ToString("C0")</div>
+                                                                    <div class="psdg-right" style="width:70px;">@manifest.EndDate.Date.ToString("d")</div>
+                                                                    <div class="psdg-right" style="width:70px;">@manifest.Quantity</div>
+                                                                    <div class="psdg-right" style="width:80px;">@manifest.ProductPrice.ToString("C0")</div>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

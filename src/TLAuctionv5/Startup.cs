@@ -75,7 +75,7 @@ namespace TLAuctionv5
             {
                 app.UseBrowserLink();
                 app.UseDeveloperExceptionPage();
-                app.UseDatabaseErrorPage();
+                //app.UseDatabaseErrorPage();
             }
             else
             {
@@ -111,6 +111,11 @@ namespace TLAuctionv5
                 routes.MapRoute(
                     name: "manifest",
                     template: "{controller=Home}/{action=Manifest}/{auctionid?}");
+
+                routes.MapRoute(
+                    name: "product",
+                    template: "{controller=Home}/{action=Product}/{id?}");
+
             });
 
            
