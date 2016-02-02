@@ -1,23 +1,26 @@
-﻿@using TLAuctionv5.ViewModels.Main;
+﻿@using TLAuction5.HtmlExtensions;
+@using TLAuctionv5.ViewModels.Main;
+@using Microsoft.Data.Entity;
+@using System;
 @model MainViewModel
 
 
 <div id="content">
     <div id="contentbody">
         <div class="psdgraphics-com-table">
-            <div class="psdg-header">
-                <span class="psdg-bold">@Html.DisplayFor(model => model.Manifests.FirstOrDefault().AuctionTitle)</span><br />
+            <div id="psdg-header">
+                <span class="psdg-bold">@("Manifest For Auction " + Model.Manifests.FirstOrDefault().AuctionId + "-" + Model.Manifests.FirstOrDefault().AuctionTitle)</span><br>
             </div>
-            <div class="psdg-top">
-                <div class="psdg-top-cell" style="width:50px;">Qty</div>
-                <div class="psdg-top-cell" style="width:90px;">Brand</div>
-                <div class="psdg-top-cell" style="width:125px;">Part #</div>
-                <div class="psdg-top-cell" style="width:258px;padding: 11px 0 0 2px;">Item Title</div>
-                <div class="psdg-top-cell" style="width:90px;">UPC</div>
-                <div class="psdg-top-cell" style="width:90px;">SKU</div>
-                <div class="psdg-top-cell" style="width:90px;">Avg Price</div>
-                <div class="psdg-top-cell" style="width:90px;">Total</div>
-                <div class="psdg-top-cell" style="width:60px;">Prod Cnt</div>
+            <div id="psdg-top">
+                <div class="psdg-top-cell" style="width:50px;">@Html.ActionLink("Qty", "Manifest", new { AuctionId = ViewBag.AuctionId, sortOrder = ViewBag.QtySortParm })</div>
+                <div class="psdg-top-cell" style="width:90px;">@Html.ActionLink("Brand", "Manifest", new { AuctionId = ViewBag.AuctionId, sortOrder = ViewBag.BrandSortParm })</div>
+                <div class="psdg-top-cell" style="width:125px;">@Html.ActionLink("Part#", "Manifest", new { AuctionId = ViewBag.AuctionId, sortOrder = ViewBag.PartSortParm })</div>
+                <div class="psdg-top-cell" style="width:258px;padding: 11px 0 0 2px;">@Html.ActionLink("Product Name", "Manifest", new { AuctionId = ViewBag.AuctionId, sortOrder = ViewBag.TitleSortParm })</div>
+                <div class="psdg-top-cell" style="width:90px;">@Html.ActionLink("UPC", "Manifest", new { AuctionId = ViewBag.AuctionId, sortOrder = ViewBag.UPCSortParm })</div>
+                <div class="psdg-top-cell" style="width:90px;">@Html.ActionLink("SKU", "Manifest", new { AuctionId = ViewBag.AuctionId, sortOrder = ViewBag.SKUSortParm })</div>
+                <div class="psdg-top-cell" style="width:90px;">@Html.ActionLink("Avg Price", "Manifest", new { AuctionId = ViewBag.AuctionId, sortOrder = ViewBag.AvgPriceSortParm })</div>
+                <div class="psdg-top-cell" style="width:90px;">@Html.ActionLink("Total Price", "Manifest", new { AuctionId = ViewBag.AuctionId, sortOrder = ViewBag.TotalSortParm })</div>
+                <div class="psdg-top-cell" style="width:60px;">@Html.ActionLink("Product Cnt", "Manifest", new { AuctionId = ViewBag.AuctionId, sortOrder = ViewBag.ProdCntSortParm })</div>
             </div>
             <div class="psdg-middle">
                 @foreach (ManifestOpenView manifest in Model.Manifests)

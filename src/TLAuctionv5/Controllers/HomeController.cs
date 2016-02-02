@@ -5,6 +5,7 @@ using TLAuctionv5.ViewModels.Main;
 using Microsoft.AspNet.Mvc.Rendering;
 using Microsoft.Data.Entity;
 using System.Linq;
+using System;
 
 namespace TLAuctionv5.Controllers
 {
@@ -58,22 +59,199 @@ namespace TLAuctionv5.Controllers
         }
 
         [HttpGet]
-        public IActionResult Manifest(int auctionid)
+        public IActionResult Manifest(int auctionid, string sortOrder)
         {
-            myMainModel.Manifests = mydbContext.Manifests
+            ViewBag.TotalSortParm = String.IsNullOrEmpty(sortOrder) ? "Total_asc" : "";
+            ViewBag.QtySortParm = sortOrder == "Qty" ? "Qty_desc" : "Qty";
+            ViewBag.BrandSortParm = sortOrder == "Brand" ? "Brand_desc" : "Brand";
+            ViewBag.PartSortParm = sortOrder == "Part" ? "Part_desc" : "Part";
+            ViewBag.TitleSortParm = sortOrder == "Title" ? "Title_desc" : "Title";
+            ViewBag.UPCSortParm = sortOrder == "UPC" ? "UPC_desc" : "UPC";
+            ViewBag.SKUSortParm = sortOrder == "SKU" ? "SKU_desc" : "SKU";
+            ViewBag.AvgPriceSortParm = sortOrder == "AvgPrice" ? "AvgPrice_desc" : "AvgPrice";
+            ViewBag.ProdCntSortParm = sortOrder == "ProdCnt" ? "ProdCnt_desc" : "ProdCnt";
+
+            switch (sortOrder)
+            {
+                case "Total_asc":
+                    myMainModel.Manifests = mydbContext.Manifests
+                            .Where(m => m.AuctionId == auctionid)
+                            .OrderBy(m => m.Total);
+                    break;
+                case "Qty_desc":
+                    myMainModel.Manifests = mydbContext.Manifests
+                            .Where(m => m.AuctionId == auctionid)
+                            .OrderByDescending(m => m.Quantity);
+                    break;
+                case "Qty":
+                    myMainModel.Manifests = mydbContext.Manifests
+                            .Where(m => m.AuctionId == auctionid)
+                            .OrderBy(m => m.Quantity);
+                    break;
+                case "Brand_desc":
+                    myMainModel.Manifests = mydbContext.Manifests
+                            .Where(m => m.AuctionId == auctionid)
+                            .OrderByDescending(m => m.Manufacturer);
+                    break;
+                case "Brand":
+                    myMainModel.Manifests = mydbContext.Manifests
+                            .Where(m => m.AuctionId == auctionid)
+                            .OrderBy(m => m.Manufacturer);
+                    break;
+                case "Part_desc":
+                    myMainModel.Manifests = mydbContext.Manifests
+                            .Where(m => m.AuctionId == auctionid)
+                            .OrderByDescending(m => m.Partno);
+                    break;
+                case "Part":
+                    myMainModel.Manifests = mydbContext.Manifests
+                            .Where(m => m.AuctionId == auctionid)
+                            .OrderBy(m => m.Partno);
+                    break;
+                case "Title_desc":
+                    myMainModel.Manifests = mydbContext.Manifests
+                            .Where(m => m.AuctionId == auctionid)
+                            .OrderByDescending(m => m.AuctionTitle);
+                    break;
+                case "Title":
+                    myMainModel.Manifests = mydbContext.Manifests
+                            .Where(m => m.AuctionId == auctionid)
+                            .OrderBy(m => m.AuctionTitle);
+                    break;
+                case "UPC_desc":
+                    myMainModel.Manifests = mydbContext.Manifests
+                            .Where(m => m.AuctionId == auctionid)
+                            .OrderByDescending(m => m.UPC);
+                    break;
+                case "UPC":
+                    myMainModel.Manifests = mydbContext.Manifests
+                            .Where(m => m.AuctionId == auctionid)
+                            .OrderBy(m => m.UPC);
+                    break;
+               case "SKU_desc":
+                    myMainModel.Manifests = mydbContext.Manifests
+                            .Where(m => m.AuctionId == auctionid)
+                            .OrderByDescending(m => m.Sku);
+                    break;
+                case "SKU":
+                    myMainModel.Manifests = mydbContext.Manifests
+                            .Where(m => m.AuctionId == auctionid)
+                            .OrderBy(m => m.Sku);
+                    break;
+                case "AvgPrice":
+                    myMainModel.Manifests = mydbContext.Manifests
+                            .Where(m => m.AuctionId == auctionid)
+                            .OrderBy(m => m.AvgPrice);
+                    break;
+                case "AvgPrice_desc":
+                    myMainModel.Manifests = mydbContext.Manifests
+                            .Where(m => m.AuctionId == auctionid)
+                            .OrderByDescending(m => m.AvgPrice);
+                    break;
+                case "ProdCnt":
+                    myMainModel.Manifests = mydbContext.Manifests
+                            .Where(m => m.AuctionId == auctionid)
+                            .OrderBy(m => m.ProductCnt);
+                    break;
+                case "ProdCnt_desc":
+                    myMainModel.Manifests = mydbContext.Manifests
+                            .Where(m => m.AuctionId == auctionid)
+                            .OrderByDescending(m => m.ProductCnt);
+                    break;
+                default:
+                    myMainModel.Manifests = mydbContext.Manifests
                             .Where(m => m.AuctionId == auctionid)
                             .OrderByDescending(m => m.Total);
+                    break;
+            }
+
+            
 
             ViewBag.Manifests = myMainModel.Manifests;
+            ViewBag.AuctionId = myMainModel.Manifests.FirstOrDefault().AuctionId;
 
             return View(myMainModel);
         }
 
         [HttpGet]
-        public IActionResult Product(string ProductId, int ConditionId)
+        public IActionResult Product(string ProductId, int ConditionId, string sortOrder)
         {
-            myMainModel.Product = mydbContext.Set<ProductView>().FromSql("select * from productview where id = '" + ProductId + "' and conditionid =" + ConditionId);
-            myMainModel.ManifestsEnded = mydbContext.Set<ManifestEndedView>().FromSql("select * from manifestendedview where productid = '" + ProductId + "' and conditionid =" + ConditionId + " order by EndDate desc ");
+            ViewBag.SellPriceSortParm = String.IsNullOrEmpty(sortOrder) ? "SellPrice_desc" : "";
+            ViewBag.AuctionIdSortParm = sortOrder == "AuctionId" ? "AuctionId_desc" : "AuctionId";
+            ViewBag.AuctionTitleSortParm = sortOrder == "AuctionTitle" ? "AuctionTitle_desc" : "AuctionTitle";
+            ViewBag.AuctionPriceSortParm = sortOrder == "AuctionPrice" ? "AuctionPrice_desc" : "AuctionPrice";
+            ViewBag.EndDateSortParm = sortOrder == "EndDate" ? "EndDate_desc" : "EndDate";
+            ViewBag.QuantitySortParm = sortOrder == "Quantity" ? "Quantity_desc" : "Quantity";
+
+            myMainModel.Products = mydbContext.Products
+                            .Where(p => (p.id == ProductId) && (p.conditionid == ConditionId));
+
+            switch (sortOrder)
+            {
+                case "SellPrice_desc":
+                    myMainModel.ManifestsEnded = mydbContext.ManifestsEnded
+                            .Where(m => m.ProductId == ProductId)
+                            .OrderByDescending(m => m.ProductPrice);
+                    break;
+                case "AuctionId":
+                    myMainModel.ManifestsEnded = mydbContext.ManifestsEnded
+                            .Where(m => m.ProductId == ProductId)
+                            .OrderBy(m => m.AuctionId);
+                    break;
+                case "AuctionId_desc":
+                    myMainModel.ManifestsEnded = mydbContext.ManifestsEnded
+                           .Where(m => m.ProductId == ProductId)
+                            .OrderByDescending(m => m.AuctionId);
+                    break;
+                case "AuctionTitle":
+                    myMainModel.ManifestsEnded = mydbContext.ManifestsEnded
+                            .Where(m => m.ProductId == ProductId)
+                            .OrderBy(m => m.AuctionTitle);
+                    break;
+                case "AuctionTitle_desc":
+                    myMainModel.ManifestsEnded = mydbContext.ManifestsEnded
+                           .Where(m => m.ProductId == ProductId)
+                            .OrderByDescending(m => m.AuctionTitle);
+                    break;
+                case "AuctionPrice":
+                    myMainModel.ManifestsEnded = mydbContext.ManifestsEnded
+                            .Where(m => m.ProductId == ProductId)
+                            .OrderBy(m => m.AuctionPrice);
+                    break;
+                case "AuctionPrice_desc":
+                    myMainModel.ManifestsEnded = mydbContext.ManifestsEnded
+                           .Where(m => m.ProductId == ProductId)
+                            .OrderByDescending(m => m.AuctionPrice);
+                    break;
+                case "EndDate":
+                    myMainModel.ManifestsEnded = mydbContext.ManifestsEnded
+                            .Where(m => m.ProductId == ProductId)
+                            .OrderBy(m => m.EndDate);
+                    break;
+                case "EndDate_desc":
+                    myMainModel.ManifestsEnded = mydbContext.ManifestsEnded
+                           .Where(m => m.ProductId == ProductId)
+                            .OrderByDescending(m => m.EndDate);
+                    break;
+                case "Quantity":
+                    myMainModel.ManifestsEnded = mydbContext.ManifestsEnded
+                            .Where(m => m.ProductId == ProductId)
+                            .OrderBy(m => m.Quantity);
+                    break;
+                case "Quantity_desc":
+                    myMainModel.ManifestsEnded = mydbContext.ManifestsEnded
+                           .Where(m => m.ProductId == ProductId)
+                            .OrderByDescending(m => m.Quantity);
+                    break;
+                default:
+                    myMainModel.ManifestsEnded = mydbContext.ManifestsEnded
+                            .Where(m => m.ProductId == ProductId)
+                            .OrderBy(m => m.ProductPrice);
+                    break;
+            }
+
+            ViewBag.ProductId = ProductId;
+            ViewBag.ConditionId = ConditionId;
 
             return View(myMainModel);
         }

@@ -11,40 +11,42 @@
                         <div id="listingsOverviewContainer" class="clearfix">
                             <div class="cg-listingResults-leftCol">
                                 <div class="cg-dealFinder-search-wrap ui-corner-all">
-
-                                    <h3 style="float:left;margin-top:2px;">@Html.DisplayFor(model => model.Product.FirstOrDefault().title)</h3>
+                                    <div class="cg-listingDivider clearfix" style="background-color: #d9edf7;
+    border-color: #bce8f1;"><span><h2 id="searchTitle">TechLiquidators Product Info</h2></span></div>
+                                    <div class="clearInvisible"></div>
+                                    <h2 style="float:left;margin-top:2px;">@Html.DisplayFor(model => model.Products.FirstOrDefault().title)</h2>
                                     <div class="clearInvisible"></div>
                                     <div id="vehicleSearch" style="">
                                         <div class="product-sectionsWrap">
 
                                             <div class="product-sectionsWrap left"><p>Brand:</p></div>
                                             <div class="product-sectionsWrap right">
-                                                <p>@Html.DisplayFor(model => model.Product.FirstOrDefault().manufacturer)</p>
+                                                <p>@Html.DisplayFor(model => model.Products.FirstOrDefault().manufacturer)</p>
                                             </div>
                                             <div class="product-sectionsWrap left"><p>Part #:</p></div>
                                             <div class="product-sectionsWrap right">
-                                                <p>@Html.DisplayFor(model => model.Product.FirstOrDefault().partno)</p>
+                                                <p>@Html.DisplayFor(model => model.Products.FirstOrDefault().partno)</p>
                                             </div>
                                             <div class="product-sectionsWrap left"><p>UPC:</p></div>
                                             <div class="product-sectionsWrap right">
-                                                <p>@Html.DisplayFor(model => model.Product.FirstOrDefault().upc)</p>
+                                                <p>@Html.DisplayFor(model => model.Products.FirstOrDefault().upc)</p>
                                             </div>
                                             <div class="product-sectionsWrap left"><p>Sku:</p></div>
                                             <div class="product-sectionsWrap right">
-                                                <p>@Html.DisplayFor(model => model.Product.FirstOrDefault().sku)</p>
+                                                <p>@Html.DisplayFor(model => model.Products.FirstOrDefault().sku)</p>
                                             </div>
                                             <div class="product-sectionsWrap left"><p>Condition:</p></div>
                                             <div class="product-sectionsWrap right">
-                                                <p>@Html.DisplayFor(model => model.Product.FirstOrDefault().ConditionName)</p>
+                                                <p>@Html.DisplayFor(model => model.Products.FirstOrDefault().ConditionName)</p>
                                             </div>
 
-                                            <div class="product-sectionsWrap left"><p>Avg Price:</p></div>
+                                            <div class="product-sectionsWrap left"><p>Avg Sell Price:</p></div>
                                             <div class="product-sectionsWrap right">
-                                                <p>@Html.DisplayFor(model => model.Product.FirstOrDefault().avgprice)</p>
+                                                <p>@Html.DisplayFor(model => model.Products.FirstOrDefault().avgprice)</p>
                                             </div>
                                             <div class="product-sectionsWrap left"><p>Qty Sold:</p></div>
                                             <div class="product-sectionsWrap right">
-                                                <p>@Html.DisplayFor(model => model.Product.FirstOrDefault().productcnt)</p>
+                                                <p>@Html.DisplayFor(model => model.Products.FirstOrDefault().productcnt)</p>
                                             </div>
 
 
@@ -56,16 +58,22 @@
                             <div class="cg-listingResults-rightCol">
                                 <div id="mainSearchResultsContainer">
                                     <div id="featuredResultsDivParent">
-                                        <div class="cg-listingDivider clearfix"><span>@("Ended Auctions for " + Model.Product.FirstOrDefault().title + " in " + Model.Product.FirstOrDefault().ConditionName + " condition")</span></div>
+                                        <div class="cg-listingDivider clearfix" style="background-color: #d9edf7;
+    border-color: #bce8f1;"><span><h2 id="searchTitle">TechLiquidators Ended Auctions w/ Product Sales Price</h2></span></div>
+                                        <div class="cg-listingDivider clearfix"></div>
                                         <div id="divResults">
                                             <div class="psdgraphics-com-table">
-                                                <div class="psdg-top">
-                                                    <div class="psdg-top-cell" style="width:70px;">Auction ID</div>
-                                                    <div class="psdg-top-cell" style="width:270px;padding: 11px 0 0 2px;">Auction Title</div>
-                                                    <div class="psdg-top-cell" style="width:70px;">Auction Price</div>
-                                                    <div class="psdg-top-cell" style="width:70px;">End Date</div>
-                                                    <div class="psdg-top-cell" style="width:70px;">Product Qty</div>
-                                                    <div class="psdg-top-cell" style="width:80px;">Product Price</div>
+                                                <div id="psdg-header">
+                                                    <span class="psdg-bold">@(Model.Products.FirstOrDefault().title)</span><br>
+                                                    @(Model.Products.FirstOrDefault().ConditionName + " condition")
+                                                </div>
+                                                <div id="psdg-top">
+                                                    <div class="psdg-top-cell" style="width:70px;">@Html.ActionLink("Auction", "Product", new { ProductId = ViewBag.ProductId, ConditionId = ViewBag.ConditionId, sortOrder = ViewBag.AuctionIdSortParm })</div>
+                                                    <div class="psdg-top-cell" style="width:270px; text-align: left;padding-left: 2px;">@Html.ActionLink("Auction Title", "Product", new { ProductId = ViewBag.ProductId, ConditionId = ViewBag.ConditionId, sortOrder = ViewBag.AuctionTitleSortParm })</div>
+                                                    <div class="psdg-top-cell" style="width:73px;">@Html.ActionLink("Ending Bid", "Product", new { ProductId = ViewBag.ProductId, ConditionId = ViewBag.ConditionId, sortOrder = ViewBag.AuctionPriceSortParm })</div>
+                                                    <div class="psdg-top-cell" style="width:70px;">@Html.ActionLink("End Date", "Product", new { ProductId = ViewBag.ProductId, ConditionId = ViewBag.ConditionId, sortOrder = ViewBag.EndDateSortParm })</div>
+                                                    <div class="psdg-top-cell" style="width:70px;">@Html.ActionLink("Item Qty", "Product", new { ProductId = ViewBag.ProductId, ConditionId = ViewBag.ConditionId, sortOrder = ViewBag.QuantitySortParm })</div>
+                                                    <div class="psdg-top-cell" style="width:80px;">@Html.ActionLink("Item Price", "Product", new { ProductId = ViewBag.ProductId, ConditionId = ViewBag.ConditionId, sortOrder = ViewBag.SellPriceSortParm })</div>
                                                 </div>
                                                 <div class="psdg-middle">
                                                     @foreach (ManifestEndedView manifest in Model.ManifestsEnded)
@@ -76,7 +84,7 @@
                                                                 <div class="tl-manifest-result-wrap clearfix">
                                                                     <div class="psdg-right" style="width:70px;">@manifest.AuctionId</div>
                                                                     <div class="psdg-right" style="width:270px; text-align: left; padding: 11px 0 0 2px;">@manifest.AuctionTitle</div>
-                                                                    <div class="psdg-right" style="width:70px;">@manifest.AuctionPrice.ToString("C0")</div>
+                                                                    <div class="psdg-right" style="width:73px;">@manifest.AuctionPrice.ToString("C0")</div>
                                                                     <div class="psdg-right" style="width:70px;">@manifest.EndDate.Date.ToString("d")</div>
                                                                     <div class="psdg-right" style="width:70px;">@manifest.Quantity</div>
                                                                     <div class="psdg-right" style="width:80px;">@manifest.ProductPrice.ToString("C0")</div>

@@ -20,6 +20,8 @@ namespace TLAuctionv5.Models
         public int Bid { get; set; }
         public Decimal Price { get; set; }
         public Decimal AvgPrice { get; set; }
+        public Decimal LowPrice { get; set; }
+        public Decimal HighPrice { get; set; }
         public Decimal PriceDiff { get; set; }
         public Decimal PctDiff { get; set; }
         public string EndDate { get; set; }
@@ -82,6 +84,7 @@ namespace TLAuctionv5.Models
         public string ProductId { get; set; }
         public ProductView Product { get; set; }
 
+        [DisplayFormat(NullDisplayText = @"&nbsp;", HtmlEncode = false)]
         public string AuctionTitle { get; set; }
         public long Sku { get; set; }
         public string UPC { get; set; }
@@ -129,6 +132,8 @@ namespace TLAuctionv5.Models
         public int conditionid { get; set; }
         public string upc { get; set; }
         public string partno { get; set; }
+
+        [DisplayFormat(NullDisplayText = @"&nbsp;", HtmlEncode = false)]
         public string title { get; set; }
 
         public decimal avgprice { get; set; }
@@ -136,7 +141,8 @@ namespace TLAuctionv5.Models
        public decimal minprice { get; set; }
        public decimal maxprice { get; set; }
        public int productcnt { get; set; }
-       public string manufacturer { get; set; }
+       [DisplayFormat(NullDisplayText = @"&nbsp;", HtmlEncode = false)]
+        public string manufacturer { get; set; }
        public string bb_name { get; set; }
        public string bb_model { get; set; }
 
@@ -145,7 +151,7 @@ namespace TLAuctionv5.Models
        public int ebay_stage { get; set; }
        public DateTime Updated { get; set; }
        public string ConditionName { get; set; }
-    
+
 
         public virtual ICollection<ManifestOpenView> Manifests { get; set; }
     }

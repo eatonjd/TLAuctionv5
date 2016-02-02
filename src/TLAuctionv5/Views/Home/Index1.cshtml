@@ -1,0 +1,89 @@
+﻿@using TLAuction5.HtmlExtensions;
+@using TLAuctionv5.ViewModels.Main;
+@using Microsoft.Data.Entity;
+@model MainViewModel
+
+
+<div id="content">
+    <div id="contentbody">
+        <div id="listingResultsContentBody">
+            <div class="cg-listingResults-headerWrap clearfix">
+                <div id="listingsContent" class="clear">
+                    <div class="cg-listingResults-wrap">
+                        <div id="listingsOverviewContainer" class="clearfix">
+
+                            <div class="tl-listingResults-rightCol">
+                                <div id="mainSearchResultsContainer">
+                                    <div id="featuredResultsDivParent">
+                                        <div class="cg-listingDivider clearfix" style="background-color: #d9edf7;
+    border-color: #bce8f1;"><span><h2 id="searchTitle">TechLiquidators Live Auction Search</h2></span></div>
+                                        <div class="pagingNav cg-dealFinder-sortHeader-wrap ui-corner-top clearfix">
+                                            <div class="cg-listingSearch-pagingPanel cg-listingSearch-upperPagingPanel">
+                                                <a href="#" class="firstPageElement" onclick="listingsSearchManager.latestViewedListingId='';listingsSearchManager.pagingHelper.firstPage();return false;" style="display: none;"><i class="cg-listingSearch-resultset_first"></i>First</a>
+                                                <a href="#" class="previousPageElement" onclick="listingsSearchManager.latestViewedListingId='';listingsSearchManager.pagingHelper.previousPage();return false;" style="display: none;"><i class="cg-listingSearch-resultset_previous"></i>Previous</a>
+                                                <div id="displayedListingsCount" class="pagingLabel">Showing <span class="b">1 - 15</span> out of <span class="b">1998</span> listings</div>
+                                                <a href="#" class="nextPageElement" onclick="listingsSearchManager.latestViewedListingId='';listingsSearchManager.pagingHelper.nextPage();return false;">Next<i class="cg-listingSearch-resultset_next"></i></a>
+                                            </div>
+                                            <div class="cg-dealFinder-sortHeader-form">
+                                                @using (Html.BeginForm("Index", "HomeController", FormMethod.Get))
+                                                {
+                                                    @Html.DropDownList("sortOrder", (SelectList)ViewBag.sortList, new { onchange = "this.form.submit();" })
+                                                }
+                                            </div>
+                                        </div>
+                                        <div class="cg-listingDivider clearfix"><span>Auction Results</span></div>
+                                        <div id="divResults">
+                                            @foreach (var auction in ViewBag.Auctions)
+                                            {
+                                                string strListing = "AuctionListing_" + auction.AuctionId;
+                                                string sImageURL = "/Images/" + auction.getCategoryImage(auction.TLCategoryName);
+                                                <a href="@Url.Action("Manifest", "Home", new { auctionid = auction.AuctionId })">
+                                                    <div id='@strListing'>
+                                                        <div class="ft-car cg-dealFinder-result-wrap clearfix" title="Click to see details...">
+                                                            <div class='cg-dealFinder-result-img'>
+                                                                <img src='@sImageURL'>
+                                                            </div>
+                                                            <h4 class='cg-dealFinder-result-model'>
+                                                                <span class='invisibleLayer cg-listingSearch-tick'></span>
+                                                                @(auction.AuctionId + "-" + auction.Title)
+                                                            </h4>
+                                                            <div class='cg-dealFinder-result-deal'>
+                                                                <p><strong>Bid:</strong>@auction.Price.ToString("C0")</p>
+                                                                <p><strong>Low Price:</strong>@auction.LowPrice.ToString("C0")</p>
+                                                                <p><strong>Avg Price:</strong>@auction.AvgPrice.ToString("C0")</p>
+                                                                @if (auction.PriceDiff < 0)
+                                                                {
+                                                                    <p class='pricediff-green'><strong>Difference:</strong>@auction.PriceDiff.ToString("C0")</p>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <p class='pricediff-red'><strong>Difference:</strong>@auction.PriceDiff.ToString("C0")</p>
+                                                                }
+                                                            </div>
+                                                            <div class='cg-dealFinder-result-stats'>
+                                                                <p><strong>MSRP:</strong>@auction.MSRP.ToString("C0")</p>
+                                                                <p><strong>Condition:</strong>@auction.ConditionName.ToString()</p>
+                                                                <p><strong>Num Bids:</strong>@auction.Bid.ToString()</p>
+                                                                <p><strong>End Date:</strong>@auction.EndDate.ToString()</p>
+                                                            </div>
+                                                            <div class='tl-dealFinder-result-stats'>
+                                                                <p><strong>Category:</strong>@auction.TLCategoryName</p>
+                                                                <p><strong>Condition:</strong>@auction.ConditionName.ToString()</p>
+                                                                <p><strong>Num Bids:</strong>@auction.Bid.ToString()</p>
+                                                                <p><strong>End Date:</strong>@auction.EndDate.ToString()</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

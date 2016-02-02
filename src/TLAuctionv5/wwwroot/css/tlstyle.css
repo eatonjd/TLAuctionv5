@@ -780,7 +780,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, nav, sectio
 }
 
 .icon-white {
-    background-image: url("http://static2.cargurus.com/gfx/bootstrap/glyphicons-halflings-white.png");
+    background-image: url('../images/glyphicons-halflings-white.png');
 }
 
 .icon-home {
@@ -987,7 +987,7 @@ h4 {
 }
 
 #wrapper {
-    background: url("http://static2.cargurus.com/gfx/cg/white_carbon.png") 0 0 repeat rgb(238, 238, 238);
+       background: url('../images/white_carbon.png') 0 0 repeat rgb(238, 238, 238);
 }
 
 .cg-header-wrap {
@@ -1232,7 +1232,7 @@ h4 {
 }
 
 .cg-listingSearch-autocheck_logo, .cg-listingSearch-loandotcom_logo, .cg-listingSearch-usedcars_dot_com_transparent_72x11, .cg-listingSearch-galleryPrev_67x50, .cg-listingSearch-galleryNext_67x50, .cg-listingSearch-user-noPic, .cg-listingSearch-arrow_orange_left_36x34, .cg-listingSearch-zoom, .cg-listingSearch-twitter16x16, .cg-listingSearch-tick, .cg-listingSearch-telephone, .cg-listingSearch-star_half, .cg-listingSearch-star_disabled, .cg-listingSearch-star, .cg-listingSearch-resultset_previous, .cg-listingSearch-resultset_next, .cg-listingSearch-resultset_first, .cg-listingSearch-printer, .cg-listingSearch-pencil, .cg-listingSearch-newspaper, .cg-listingSearch-new, .cg-listingSearch-money, .cg-listingSearch-help, .cg-listingSearch-fire, .cg-listingSearch-facebook_small, .cg-listingSearch-email, .cg-listingSearch-disk, .cg-listingSearch-delete, .cg-listingSearch-cross, .cg-listingSearch-comment, .cg-listingSearch-chart_curve, .cg-listingSearch-arrow_out, .cg-listingSearch-arrow_left {
-    background-image: url("http://static2.cargurus.com/gfx/cg/sprites/listingSearch/listingSearchSprite.png");
+    background-image: url('../images/listingsearchsprite.png');
     background-repeat: no-repeat;
 }
 
@@ -1297,11 +1297,11 @@ h4 {
 
 .product-sectionsWrap .left {
     float: left;
-    width: 30%;
+    width: 40%;
 }
 .product-sectionsWrap .right {
     float: right;
-    width: 70%;
+    width: 60%;
 }
 
 
@@ -1319,6 +1319,13 @@ h4 {
     float: left;
     vertical-align: top;
     width: 650px;
+    position: relative;
+}
+
+.tl-listingResults-rightCol {
+    float: left;
+    vertical-align: top;
+
     position: relative;
 }
 
@@ -1359,7 +1366,7 @@ h4 {
     }
 
 #mainSearchResultsContainer {
-    width: 650px;
+    width: 600px;
     float: left;
     margin-left: 10px;
 }
@@ -1518,6 +1525,18 @@ h4.cg-dealFinder-result-model {
         color: rgb(102, 102, 102);
     }
 
+.tl-dealFinder-result-stats {
+    font-size: 13px;
+    float: left;
+    line-height: 1.7;
+}
+
+    .tl-dealFinder-result-stats strong {
+        display: inline-block;
+        width: 90px;
+        color: rgb(102, 102, 102);
+    }
+
 .appc_CA .cg-dealFinder-result-stats strong {
     display: inline-block;
     width: 30%;
@@ -1668,13 +1687,308 @@ tl-checklb-container {
     overflow-y: scroll;
 }
 
-html > body body {
-    margin: 0;
-    padding: 0;
+.cg-dealFinder-rating-1 {
+    color: #3e973a;
 }
 
-p span {
-    display: block;
+    .cg-dealFinder-rating-1 .arrow {
+        background: url('../images/dealarrows_sprite.png')  no-repeat 0 0;
+        width: 24px;
+        margin-right: 8px;
+        margin-left: 5px;
+    }
+
+.cg-dealFinder-rating-2 {
+    color: #3e973a;
+}
+
+    .cg-dealFinder-rating-2 .arrow {
+        background: url('../images/dealarrows_sprite.png') no-repeat -24px 0;
+        margin-right: 3px;
+    }
+
+.cg-dealFinder-rating-3, .cg-dealFinder-rating-5 {
+    color: #f6a400;
+}
+
+    .cg-dealFinder-rating-3 .arrow, .cg-dealFinder-rating-5 .arrow {
+       background: url('../images/dealarrows_sprite.png') no-repeat -60px -6px;
+        margin-right: 4px;
+    }
+
+.cg-dealFinder-rating-4 {
+    color: #999;
+}
+
+    .cg-dealFinder-rating-4 .arrow {
+        background: url('../images/dealarrows_sprite.png') no-repeat -169px 0;
+    }
+
+.cg-dealFinder-rating-4-newCar {
+    color: #999;
+}
+
+    .cg-dealFinder-rating-4-newCar .arrow {
+        background: url('../images/dealarrows_sprite.png') no-repeat -200px 0;
+    }
+
+.cg-dealFinder-rating-6 {
+    color: #e83e32;
+}
+
+    .cg-dealFinder-rating-6 .arrow {
+        background: url('../images/dealarrows_sprite.png') no-repeat -143px 0;
+        width: 26px;
+        margin-right: 10px;
+    }
+
+.cg-dealFinder-rating-7 {
+    color: #e83e32;
+}
+
+    .cg-dealFinder-rating-7 .arrow {
+        background: url('../images/dealarrows_sprite.png') no-repeat -90px 0;
+        width: 30px;
+        margin-right: 6px;
+    }
+
+.cg-dealFinder-rating-8 {
+    color: #e83e32;
+}
+
+    .cg-dealFinder-rating-8 .arrow {
+        margin-left: 5px;
+        background: url('../images/dealarrows_sprite.png') no-repeat -118px 0;
+        width: 24px;
+        margin-right: 8px;
+    }
+
+.cg-priceReport-thermometer h2 {
+    margin: 4px 0;
+    color: #3e576f;
+}
+
+.cg-priceReport-thermometerNullMsgWrap {
+    margin-top: 20px;
+    background-color: #eee;
+    padding: 20px;
+    height: 300px;
+    line-height: 300px;
+    text-align: center;
+}
+
+.cg-priceReport-thermometerNullMsg {
+    line-height: 28px;
+    text-shadow: 0 -1px 1px #fff;
+    color: #666;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+    .cg-priceReport-thermometerNullMsg h3 {
+        font-size: 24px;
+        font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+        font-weight: 300;
+    }
+
+    .cg-priceReport-thermometerNullMsg label {
+        display: block;
+        font-size: 14px;
+        margin-top: 20px;
+        line-height: 24px;
+    }
+
+.priceReport-placeholderSection .priceEstimate {
+    font-weight: bold !important;
+    float: right;
+    margin-left: 20px;
+}
+
+.priceReport-placeholderSection .priceEstimateDark {
+    font-weight: bold !important;
+    float: right;
+    margin-left: 20px;
+    color: black;
+}
+
+.priceReport-placeholderSection h2 {
+    font-size: 20px;
+    font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+    font-weight: bold;
+}
+
+.priceReport-placeholderSection .sectionExplanation {
+    color: #999;
+    font-size: 14px;
+    margin-top: 6px;
+    margin-bottom: 12px;
+}
+
+.priceReport-placeholderSection h3 {
+    font-weight: normal;
+}
+
+#priceCheckVerticalScale {
+    position: relative;
+    z-index: 1;
+    margin: 20px 0 20px 90px;
+}
+
+#priceCheckVerticalMarker {
+    position: absolute;
+    left: -22px;
+    line-height: 1;
+    z-index: 100000;
+}
+
+#priceCheckVerticalLabel {
+    position: absolute;
+    left: -128px;
+    padding-top: 9px;
+    width: 100px;
+    text-align: right;
+    color: #777;
+}
+
+.cg-priceCheckVerticalScale-thermometerWrap {
+    padding-left: 20px;
+}
+
+.cg-priceCheckVerticalScale-thermometer {
+    width: 35px;
+    border: 1px solid #ccc;
+    background-image: -webkit-gradient(linear,0 0,0 100%,from(#fff),to(#eee));
+    background-image: -webkit-linear-gradient(top,#fff,#eee);
+    background-image: -moz-linear-gradient(top,#fff,#eee);
+    background-image: -ms-linear-gradient(top,#fff,#eee);
+    background-image: -o-linear-gradient(top,#fff,#eee);
+}
+
+.cg-priceCheckVerticalScale-thermometerPadding {
+    padding: 7px;
+}
+
+.cg-priceCheckVerticalScale-section {
+    height: 50px;
+    width: 20px;
+    position: relative;
+    z-index: 9000;
+    border: 1px solid #ccc;
+}
+
+    .cg-priceCheckVerticalScale-section p {
+        display: inline;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        z-index: 8000;
+        color: #777;
+        top: 20px;
+        left: 34px;
+        width: 160px;
+    }
+
+        .cg-priceCheckVerticalScale-section p span {
+            font-size: 12px;
+            color: #999;
+        }
+
+.cg-priceCheckVerticalScale-great {
+    border-bottom: none !important;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: #008000;
+    background-image: -webkit-gradient(linear,0 0,0 100%,from(#008000),to(#32cd32));
+    background-image: -webkit-linear-gradient(top,#008000,#32cd32);
+    background-image: -moz-linear-gradient(top,#008000,#32cd32);
+    background-image: -ms-linear-gradient(top,#008000,#32cd32);
+    background-image: -o-linear-gradient(top,#008000,#32cd32);
+}
+
+.cg-priceCheckVerticalScale-good {
+    border-top: none !important;
+    border-bottom: none !important;
+    background-color: #32cd32;
+    background-image: -webkit-gradient(linear,0 0,0 100%,from(#32cd32),to(#ff0));
+    background-image: -webkit-linear-gradient(top,#32cd32,#ff0);
+    background-image: -moz-linear-gradient(top,#32cd32,#ff0);
+    background-image: -ms-linear-gradient(top,#32cd32,#ff0);
+    background-image: -o-linear-gradient(top,#32cd32,#ff0);
+}
+
+.cg-priceCheckVerticalScale-fair {
+    background-color: #ff0;
+    border-top: none !important;
+    border-bottom: none !important;
+}
+
+.cg-priceCheckVerticalScale-poor {
+    background-color: orange;
+    border-top: none !important;
+    border-bottom: none !important;
+    background-image: -webkit-gradient(linear,0 0,0 100%,from(#ff0),to(#ffa500));
+    background-image: -webkit-linear-gradient(top,#ff0,#ffa500);
+    background-image: -moz-linear-gradient(top,#ff0,#ffa500);
+    background-image: -ms-linear-gradient(top,#ff0,#ffa500);
+    background-image: -o-linear-gradient(top,#ff0,#ffa500);
+}
+
+.cg-priceCheckVerticalScale-over {
+    background-color: red;
+    border-top: none !important;
+    -webkit-border-bottom-right-radius: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background-image: -webkit-gradient(linear,0 0,0 100%,from(#ffa500),to(#f00));
+    background-image: -webkit-linear-gradient(top,#ffa500,#f00);
+    background-image: -moz-linear-gradient(top,#ffa500,#f00);
+    background-image: -ms-linear-gradient(top,#ffa500,#f00);
+    background-image: -o-linear-gradient(top,#ffa500,#f00);
+}
+
+#priceCheckResultWrap {
+    padding: 10px 20px;
+    background-color: #eee;
+}
+
+    #priceCheckResultWrap .cg-dealFinder-result-deal {
+        width: 150px;
+        margin: 0 auto;
+    }
+
+    #priceCheckResultWrap .cg-dealfinder-result-deal-savings {
+        margin: 4px 0;
+        padding: 0;
+        font-size: 12px;
+    }
+
+#priceReport-renderSimilarModelsPlaceholder .cg-priceTabSimilarModels {
+    margin-top: 0;
+}
+
+#priceReportPlaceholder.row {
+    margin-top: 2em;
+}
+
+.col-xs-6 .cg-priceReport-reportWrap {
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+}
+
+.col-xs-6 .cg-listing-wrap {
+    padding-bottom: 0;
+}
+
+.cg-priceReport-similarListingsRow {
+    margin-top: 1.5em;
+    padding-left: 1.5em;
 }
 
 .psdgraphics-com-table {
@@ -1692,25 +2006,32 @@ p span {
     background-color: rgb(12, 42, 98);
 }
 
-.psdgraphics-com-table .psdg-header {
+#psdg-header {
     margin: 0;
     padding: 14px 0 0 24px;
-    width: auto;
     height: 55px;
     color: rgb(255, 255, 255);
     font-size: 13px;
-    background: url("../images/head-bcg.jpg") 100% 0 no-repeat rgb(12, 44, 101);
+    background: #0C2C65 url("../images/head-bcg.jpg") 100% 0 no-repeat;
 }
-.psdg-header .psdg-bold {
+.psdg-bold {
     font-weight: bold;
     font-style: normal;
     font-variant: normal;
     font-stretch: normal;
-    font-size: 22px;
+    font-size: 20px;
     line-height: normal;
     font-family: Arial, Helvetica, sans-serif;
 }
 
+#psdg-top {
+    margin: 0;
+    padding: 0;
+    height: 46px;
+    border-top: 2px solid #FFF;
+    border-bottom: 2px solid rgb(102, 102, 102);
+    background: url("../images/top-light-blue.png") repeat-x left top;
+}
 .psdgraphics-com-table .psdg-top {
     margin: 0;
     padding: 0;
@@ -1722,23 +2043,15 @@ p span {
     background: url("../images/top-light-blue.png") 0 0 repeat-x rgb(239, 244, 255);
 }
 
-.psdg-top .psdg-top-cell {
+.psdg-top-cell {
     float: left;
-    padding: 15px 0 0;
+    padding: 15px 0 0 0;
     text-align: center;
     width: 105px;
     height: 31px;
-    border-right-width: 1px;
-    border-right-style: solid;
-    border-right-color: rgb(206, 217, 236);
-    color: rgb(31, 61, 113);
-    font-style: normal;
-    font-variant: normal;
-    font-weight: normal;
-    font-stretch: normal;
-    font-size: 13px;
-    line-height: normal;
-    font-family: Arial, Helvetica, sans-serif;
+    border-right: 1px solid #ced9ec;
+    color: #1f3d71;
+    font: 13px Arial, Helvetica, sans-serif;
 }
 
 .psdgraphics-com-table .psdg-middle {

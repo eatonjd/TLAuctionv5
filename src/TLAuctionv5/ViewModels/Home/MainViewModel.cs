@@ -14,7 +14,7 @@ namespace TLAuctionv5.ViewModels.Main
         public IQueryable<Auction_Condition> Conditions { get; set; }
         public IQueryable<ManifestOpenView> Manifests { get; set; }
         public IQueryable<ManifestEndedView> ManifestsEnded { get; set; }
-        public IQueryable<ProductView> Product { get; set; }
+        public IQueryable<ProductView> Products { get; set; }
 
         public SelectList SortList
         {

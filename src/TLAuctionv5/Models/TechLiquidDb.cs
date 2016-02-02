@@ -13,8 +13,8 @@ namespace TLAuctionv5.Models
         public DbSet<Auction_Category> Categories { get; set; }
         public DbSet<Auction_Condition> Conditions { get; set; }
         public DbSet<ManifestOpenView> Manifests { get; set; }
-        public DbSet<ManifestEndedView> ManifestEnded { get; set; }
-        public DbSet<ProductView> Product { get; set; }
+        public DbSet<ManifestEndedView> ManifestsEnded { get; set; }
+        public DbSet<ProductView> Products { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
