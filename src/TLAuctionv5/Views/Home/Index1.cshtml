@@ -11,8 +11,34 @@
                 <div id="listingsContent" class="clear">
                     <div class="cg-listingResults-wrap">
                         <div id="listingsOverviewContainer" class="clearfix">
+                            <div class="cg-listingResults-leftCol">
+                                <div class="cg-dealFinder-search-wrap ui-corner-all">
 
-                            <div class="tl-listingResults-rightCol">
+                                    <h3 style="float:left;margin-top:2px;">New Search</h3>
+                                    <div class="clearInvisible"></div>
+
+                                    <div class="cg-dealFinder-searchSectionsWrap">
+                                        <div id="vehicleSearch" style="">
+                                            <div class="cg-dealFinder-searchByCar-form">
+                                                <form id="newSearchHeaderForm" asp-controller="HomeController" asp-action="submit" method="post">
+                                                    <div class="class=" select maker-select-dropdown btn btn-small" style="width: 208px;">
+                                                        @Html.DropDownList("categories", ((IQueryable<Auction_Category>)ViewBag.Categories).Select(m => new SelectListItem { Text = m.TLCategoryName, Value = m.CategoryId.ToString() }))
+                                                    </div>
+                                                    <div class="class=" select maker-select-dropdown btn btn-small" style="width: 208px;">
+                                                        @Html.DropDownList("conditions", ((IQueryable<Auction_Condition>)ViewBag.Conditions).Select(m => new SelectListItem { Text = m.ConditionName, Value = m.ConditionId.ToString() }))
+                                                    </div>
+                                                    <div>
+                                                        <input type="submit" value="Search" class="btn btn-warning newSearchSubmitButton" style="margin:15px auto 0 auto;display:block;">
+                                                    </div>
+                                                    <div class="clearInvisible"></div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clearInvisible"></div>
+                                </div>
+                            </div>
+                            <div class="cg-listingResults-rightCol">
                                 <div id="mainSearchResultsContainer">
                                     <div id="featuredResultsDivParent">
                                         <div class="cg-listingDivider clearfix" style="background-color: #d9edf7;
@@ -27,7 +53,7 @@
                                             <div class="cg-dealFinder-sortHeader-form">
                                                 @using (Html.BeginForm("Index", "HomeController", FormMethod.Get))
                                                 {
-                                                    @Html.DropDownList("sortOrder", (SelectList)ViewBag.sortList, new { onchange = "this.form.submit();" })
+                                                @Html.DropDownList("sortOrder", (SelectList)ViewBag.sortList, new { onchange = "this.form.submit();" })
                                                 }
                                             </div>
                                         </div>

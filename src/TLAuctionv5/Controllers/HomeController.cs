@@ -27,11 +27,6 @@ namespace TLAuctionv5.Controllers
         [HttpGet]
         public IActionResult Index(string sortOrder)
         {
-            //myMainModel.Categories = mydbContext.Set<Auction_Category>().FromSql("dbo.GetCategories");
-            //myMainModel.Conditions = mydbContext.Set<Auction_Condition>().FromSql("dbo.GetConditions");
-            //myMainModel.AuctionEndDates = mydbContext.Set<AuctionEndDate>().FromSql("dbo.GetOpenEndDates");
-            //myMainModel.Auctions = mydbContext.Set<AuctionOpenView>().FromSql("dbo.GetOpenAuctions @pCategoryList = {0}, @pConditionList = {1}, @pEndDate = {2}", sCategory, sCondition, sEndDate);
-
             if (sortOrder == null) sortOrder = "pricediff";
             switch (sortOrder)
             {
@@ -166,10 +161,8 @@ namespace TLAuctionv5.Controllers
             }
 
             
-
             ViewBag.Manifests = myMainModel.Manifests;
-            ViewBag.AuctionId = myMainModel.Manifests.FirstOrDefault().AuctionId;
-
+         
             return View(myMainModel);
         }
 

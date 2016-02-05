@@ -68,12 +68,12 @@
                                                     @(Model.Products.FirstOrDefault().ConditionName + " condition")
                                                 </div>
                                                 <div id="psdg-top">
-                                                    <div class="psdg-top-cell" style="width:70px;">@Html.ActionLink("Auction", "Product", new { ProductId = ViewBag.ProductId, ConditionId = ViewBag.ConditionId, sortOrder = ViewBag.AuctionIdSortParm })</div>
-                                                    <div class="psdg-top-cell" style="width:270px; text-align: left;padding-left: 2px;">@Html.ActionLink("Auction Title", "Product", new { ProductId = ViewBag.ProductId, ConditionId = ViewBag.ConditionId, sortOrder = ViewBag.AuctionTitleSortParm })</div>
+                                                    <div class="psdg-top-cell" style="width:60px;">@Html.ActionLink("Auction", "Product", new { ProductId = ViewBag.ProductId, ConditionId = ViewBag.ConditionId, sortOrder = ViewBag.AuctionIdSortParm })</div>
+                                                    <div class="psdg-top-cell" style="width:220px; text-align: left;padding-left: 2px;">@Html.ActionLink("Product Title", "Product", new { ProductId = ViewBag.ProductId, ConditionId = ViewBag.ConditionId, sortOrder = ViewBag.AuctionTitleSortParm })</div>
                                                     <div class="psdg-top-cell" style="width:73px;">@Html.ActionLink("Ending Bid", "Product", new { ProductId = ViewBag.ProductId, ConditionId = ViewBag.ConditionId, sortOrder = ViewBag.AuctionPriceSortParm })</div>
                                                     <div class="psdg-top-cell" style="width:70px;">@Html.ActionLink("End Date", "Product", new { ProductId = ViewBag.ProductId, ConditionId = ViewBag.ConditionId, sortOrder = ViewBag.EndDateSortParm })</div>
                                                     <div class="psdg-top-cell" style="width:70px;">@Html.ActionLink("Item Qty", "Product", new { ProductId = ViewBag.ProductId, ConditionId = ViewBag.ConditionId, sortOrder = ViewBag.QuantitySortParm })</div>
-                                                    <div class="psdg-top-cell" style="width:80px;">@Html.ActionLink("Item Price", "Product", new { ProductId = ViewBag.ProductId, ConditionId = ViewBag.ConditionId, sortOrder = ViewBag.SellPriceSortParm })</div>
+                                                    <div class="psdg-top-cell" style="width:70px;">@Html.ActionLink("Item Price", "Product", new { ProductId = ViewBag.ProductId, ConditionId = ViewBag.ConditionId, sortOrder = ViewBag.SellPriceSortParm })</div>
                                                 </div>
                                                 <div class="psdg-middle">
                                                     @foreach (ManifestEndedView manifest in Model.ManifestsEnded)
@@ -82,12 +82,12 @@
                                                         <div id='@strListing'>
                                                             <a href="">
                                                                 <div class="tl-manifest-result-wrap clearfix">
-                                                                    <div class="psdg-right" style="width:70px;">@manifest.AuctionId</div>
-                                                                    <div class="psdg-right" style="width:270px; text-align: left; padding: 11px 0 0 2px;">@manifest.AuctionTitle</div>
+                                                                    <div class="psdg-right" style="width:60px;">@manifest.AuctionId</div>
+                                                                    <div class="psdg-right" style="width:220px; text-align: left; padding: 11px 0 0 2px;">@manifest.ManifestTitle</div>
                                                                     <div class="psdg-right" style="width:73px;">@manifest.AuctionPrice.ToString("C0")</div>
                                                                     <div class="psdg-right" style="width:70px;">@manifest.EndDate.Date.ToString("d")</div>
                                                                     <div class="psdg-right" style="width:70px;">@manifest.Quantity</div>
-                                                                    <div class="psdg-right" style="width:80px;">@manifest.ProductPrice.ToString("C0")</div>
+                                                                    <div class="psdg-right" style="width:70px;">@manifest.ProductPrice.ToString("C0")</div>
                                                                 </div>
                                                             </a>
                                                         </div>
