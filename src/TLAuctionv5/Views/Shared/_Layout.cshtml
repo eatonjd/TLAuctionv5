@@ -1,143 +1,304 @@
 ﻿<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>@ViewData["Title"] - TLAuctionv5</title>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <!-- Icons -->
+    <link rel="shortcut icon" sizes="192x192" href="~/images/apple-icon-180x180.png" />
+    <link rel="shortcut icon" sizes="128x128" href="~/images/apple-touch-icon-120x120.png" />
+    <!-- For iPhone with high-resolution Retina display running iOS ≥ 7: -->
+    <link rel="apple-touch-icon" sizes="120x120" href="~/images/apple-touch-icon-120x120.png" />
+    <!-- For iPad with high-resolution Retina display running iOS ≤ 6: -->
+    <link rel="apple-touch-icon" sizes="144x144" href="~/images/apple-icon-144x144.png" />
 
-        <environment names="Development">
-            <!--<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" /> comment out until css is clea -->
-            <link rel="stylesheet" href="~/css/tlstyle.css" />
-        </environment>
-        <environment names="Staging,Production">
-            <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/css/bootstrap.min.css"
-                  asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-                  asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-            <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
-        </environment>
-    </head>
-    <body>
-        <header class="cg-header-wrap">
-            <div class="header">
-                <div class="header-inner clearfix">
-                    <div class="PageHeader">
-                        <nav class="cg-siteHeader-authBar-wrap clearfix">
-                            <div id="authBar">
-                                <div id="authPlaceHolder">
-                                    <span class="slnk">Sign in</span>
-                                    <span class="separator">|</span>
-                                    <span class="slnk">Register</span>
-                                    <span class="separator">|</span>
-                                    <a href="#"><span class="slnk">My Account</span></a>
-                                </div>
-                            </div>
-                        </nav>
-                        <div style="width: 300px; float: left;">
-                            <a href="http://www.tlauctionhistory.com/">
-                                <span class="Logo">TLAuctionHistory</span>
-                            </a>
-                        </div>
+    <!-- Splash Screen Images -->
+    <!-- iOS 6 & 7 iPad (retina, portrait) -->
+    <link href="~/images/bootcards-splash-768x1004@2x.png"
+          media="(device-width: 768px) and (device-height: 1024px)
+             and (orientation: portrait)
+             and (-webkit-device-pixel-ratio: 2)"
+          rel="apple-touch-startup-image">
 
-                    </div>
-                </div>
+    <!-- iOS 6 & 7 iPad (retina, landscape) -->
+    <link href="~/images/bootcards-splash-1024x748@2x.png"
+          media="(device-width: 768px) and (device-height: 1024px)
+             and (orientation: landscape)
+             and (-webkit-device-pixel-ratio: 2)"
+          rel="apple-touch-startup-image">
+
+    <!-- iOS 6 iPad (portrait) -->
+    <link href="~/images/bootcards-splash-1024x748.png"
+          media="(device-width: 768px) and (device-height: 1024px)
+             and (orientation: portrait)
+             and (-webkit-device-pixel-ratio: 1)"
+          rel="apple-touch-startup-image">
+
+    <!-- iOS 6 iPad (landscape) -->
+    <link href="~/images/bootcards-splash-768x1004.png"
+          media="(device-width: 768px) and (device-height: 1024px)
+             and (orientation: landscape)
+             and (-webkit-device-pixel-ratio: 1)"
+          rel="apple-touch-startup-image">
+
+    <!-- iOS 6 & 7 iPhone 5 -->
+    <link href="~/images/bootcards-splash-320x548@2x.png"
+          media="(device-width: 320px) and (device-height: 568px)
+             and (-webkit-device-pixel-ratio: 2)"
+          rel="apple-touch-startup-image">
+
+    <!-- iOS 6 & 7 iPhone (retina) -->
+    <link href="~/images/bootcards-splash-320x460@2x.png"
+          media="(device-width: 320px) and (device-height: 480px)
+             and (-webkit-device-pixel-ratio: 2)"
+          rel="apple-touch-startup-image">
+
+    <!-- iOS 6 iPhone -->
+    <link href="~/images/bootcards-splash-320x460.png"
+          media="(device-width: 320px) and (device-height: 480px)
+             and (-webkit-device-pixel-ratio: 1)"
+          rel="apple-touch-startup-image">
+
+
+    <environment names="Development">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+        <link rel="stylesheet" href="~/lib/bootcards/dist/css/bootcards-desktop.css" /> <!-- Bootcards CSS for desktop: -->
+        <link rel="stylesheet" href="~/css/tlcards.css" />
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css" />
+        <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.min.css" />
+        <!-- Important: you'll only need one of the Bootcards CSS files below for every platform -->
+        <!-- Bootcards CSS for iOS: -->
+        <!--<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootcards/1.0.0/css/bootcards-ios.min.css">
+        <!-- Bootcards CSS for Android: -->
+        <!--<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootcards/1.0.0/css/bootcards-android.min.css"> -->
+
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+
+        <!-- Bootstrap and Bootcards JS -->
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        <script src="~/lib/bootcards/dist/js/bootcards.js"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/tlcards.css" asp-append-version="true" />
+    </environment>
+
+    <title>TLAuctionHistory.com</title>
+</head>
+<body id="bootcards">
+    <!-- fixed top navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
             </div>
-        </header>
-        <div id="wrapper">
-            <div class="mainNav">
-                <div class="mainNav-inner clearfix">
-                    <ul>
-                        <li class="">
-                            <a href="/" title="Home"><i class="icon-home icon-white"></i></a>
-                        </li>
-                        <li>
-                            <a href="/" title="Used Cars">Menu 1</a>
-                        </li>
-                        <li>
-                            <a href="/" title="New Cars">Menu 2</a>
-                        </li>
-                        <li>
-                            <a href="/" title="Car Values">Menu 3</a>
-                        </li>
-                    </ul>
 
-                </div>
+            <button type="button" class="btn btn-default btn-back navbar-left pull-left hidden" onclick="history.back()">
+                <i class="fa fa-lg fa-chevron-left"></i><span>Back</span>
+            </button>
+            <!-- menu button to show/ hide the off canvas slider -->
+            <button type="button" class="btn btn-default btn-menu navbar-left pull-left offCanvasToggle" data-toggle="offcanvas">
+                <i class="fa fa-lg fa-bars"></i><span>Menu</span>
+            </button>
+
+            <a class="navbar-brand no-break-out Logo" href="/">TLAuctionHistory</a>
+
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="/settings" data-pjax="#main" data-title="Settings"> <i class="fa fa-gears"></i>Settings</a>
+                    </li>
+                </ul>
             </div>
-            <div class="cg-siteHeader-leaderBoardWrap">
-                <div class="leaderboardParent">
-                    <div id="bannerAdLEADERBOARD_DealFinderBanner" class="leaderboard" style="overflow: hidden;">
-                        <div id="iframe-LEADERBOARDDealFinderBanner" class="bannerDiv leaderboard" style="width: 728px; height: 90px; overflow: hidden;">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            @RenderBody()
-            <footer class="footer" role="contentinfo">
-                <div class="footer-inner">
-                    <ul>
-                        <li>
-                            <a href="http://www.TLAuction.com/Cars/aboutTLAuction.html" target="_blank" title="">About TLAuction</a>
-                            <span class="divider">|</span>
-                        </li>
-
-                        <li>
-                            <span class="slnk " onclick="">Our Team</span>
-                            <span class="divider">|</span>
-                        </li>
-
-                        <li>
-                            <a href="http://www.TLAuction.com/Cars/mobile.html" target="_blank" title="TLAuction Mobile">Mobile</a>
-                            <span class="divider">|</span>
-                        </li>
-
-                        <li>
-                            <a href="http://www.TLAuction.com/Cars/sitemap.html" target="_blank" title="">Sitemap</a>
-                            <span class="divider">|</span>
-                        </li>
-
-                        <li>
-                            <span class="slnk " onclick="">Terms of Use</span>
-                            <span class="divider">|</span>
-                        </li>
-
-                        <li>
-                            <span class="slnk " onclick="">Privacy</span>
-                            <span class="divider">|</span>
-                        </li>
-
-                        <li>
-                            <a href="http://www.TLAuction.com/Contact" target="_blank" title="">Contact Us</a>
-                        </li>
-                    </ul>
-                    <div class="cg-footer-followUsWrap clearfix">
-                        <span class="slnk cg-footer-socialMediaLink cg-footer-socialMediaIcon-FB" onclick="">TLAuction on Facebook</span>
-                        <span class="slnk cg-footer-socialMediaLink cg-footer-socialMediaIcon-twitter" onclick="">TLAuction on Twitter</span>
-                        <span class="slnk cg-footer-socialMediaLink cg-footer-socialMediaIcon-pinterest" onclick="">TLAuction on Pinterest</span>
-                        <span class="slnk cg-footer-socialMediaLink cg-footer-socialMediaIcon-googlePlus" onclick="">TLAuction on GooglePlus</span>
-                        <span class="slnk cg-footer-socialMediaLink cg-footer-socialMediaIcon-instagram" onclick="">TLAuction on Instagram</span>
-                        <span class="slnk cg-footer-socialMediaLink cg-footer-socialMediaIcon-linkedin" onclick="">TLAuction on LinkedIn</span>
-                    </div>
-                    <p>Copyright © 2006-2015 TLAuction ®, Inc., All Rights Reserved.</p>
-                </div>
-            </footer>
         </div>
+    </div>
 
-  <environment names="Development">
-            <script src="~/lib/jquery/dist/jquery.js"></script>
-            <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-            <script src="~/js/site.js" asp-append-version="true"></script>
-        </environment>
-        <environment names="Staging,Production">
-            <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js"
-                    asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-                    asp-fallback-test="window.jQuery">
-            </script>
-            <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/bootstrap.min.js"
-                    asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
-                    asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
-            </script>
-            <script src="~/js/site.min.js" asp-append-version="true"></script>
-        </environment>
+    <!-- slide in menu (mobile only) -->
+    <nav id="offCanvasMenu" class="navmenu offcanvas offcanvas-left">
+        <ul class="nav">
+            <li>
+                <a href="/dashboard" data-pjax="#main" data-title="Customers">
+                    <i class="fa fa-lg fa-dashboard"></i>
+                    Dashboard
+                </a>
+            </li>
+            <li class="active">
+                <a href="/companies" data-pjax="#main" data-title="Companies">
+                    <i class="fa fa-lg fa-building-o"></i>
+                    Companies
+                </a>
+            </li>
+            <li>
+                <a href="/contacts" data-pjax="#main" data-title="Contacts">
+                    <i class="fa fa-lg fa-users"></i>
+                    Contacts
+                </a>
+            </li>
+            <li>
+                <a href="/notes" data-pjax="#main" data-title="Notes">
+                    <i class="fa fa-lg fa-clipboard"></i>
+                    Notes
+                </a>
+            </li>
+            <li>
+                <a href="/charts" data-pjax="#main" data-title="Charts">
+                    <i class="fa fa-lg fa-bar-chart-o"></i>
+                    Charts
+                </a>
+            </li>
+            <li>
+                <a href="/settings" data-pjax="#main" data-title="Settings">
+                    <i class="fa fa-lg fa-gears"></i>
+                    Settings
+                </a>
+            </li>
+        </ul>
 
-        @RenderSection("scripts", required: false)
-    </body>
+        <div style="margin-top:20px; padding-left: 20px; font-size: 12px; color: #777">v1.1.2</div>
+    </nav>
+
+    @RenderBody()
+    <!-- fixed tabbed footer -->
+    <div class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container">
+            <div class="bootcards-desktop-footer clearfix">
+                <p class="pull-left">Bootcards v1.1.2</p>
+            </div>
+            <div class="cg-footer-followUsWrap clearfix">
+                <span class="slnk cg-footer-socialMediaLink cg-footer-socialMediaIcon-FB" onclick="">TLAuction on Facebook</span>
+                <span class="slnk cg-footer-socialMediaLink cg-footer-socialMediaIcon-twitter" onclick="">TLAuction on Twitter</span>
+                <span class="slnk cg-footer-socialMediaLink cg-footer-socialMediaIcon-pinterest" onclick="">TLAuction on Pinterest</span>
+                <span class="slnk cg-footer-socialMediaLink cg-footer-socialMediaIcon-googlePlus" onclick="">TLAuction on GooglePlus</span>
+                <span class="slnk cg-footer-socialMediaLink cg-footer-socialMediaIcon-instagram" onclick="">TLAuction on Instagram</span>
+                <span class="slnk cg-footer-socialMediaLink cg-footer-socialMediaIcon-linkedin" onclick="">TLAuction on LinkedIn</span>
+            </div>
+            <div class="btn-group">
+                <a href="/dashboard" class="btn btn-default" data-pjax="#main" data-title="Customers">
+                    <i class="fa fa-2x fa-dashboard"></i>
+                    Dashboard
+                </a>
+                <a href="/companies" class="btn btn-default active" data-pjax="#main" data-title="Companies">
+                    <i class="fa fa-2x fa-building-o"></i>
+                    Companies
+                </a>
+                <a href="/contacts" class="btn btn-default" data-pjax="#main" data-title="Contacts">
+                    <i class="fa fa-2x fa-users"></i>
+                    Contacts
+                </a>
+                <a href="/notes" class="btn btn-default" data-pjax="#main" data-title="Notes">
+                    <i class="fa fa-2x fa-clipboard"></i>
+                    Notes
+                </a>
+                <a href="/charts" class="btn btn-default" data-pjax="#main" data-title="Charts">
+                    <i class="fa fa-2x fa-bar-chart-o"></i>
+                    Charts
+                </a>
+                <a href="/settings" class="btn btn-default" data-pjax="#main" data-title="Settings">
+                    <i class="fa fa-2x fa-gears"></i>
+                    Settings
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <environment names="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/js/jquery-ui.min.js"></script>
+        <script src="~/js/jquery.pjax.min.js"></script>
+        <script src="~/lib/fastclick/lib/fastclick.js"></script>
+        <script src="~/js/raphael-min.js"></script>
+        <script src="~/js/morris.min.js"></script>
+
+        <!-- Bootcards JS file -->
+        <script src="~/lib/bootcards/dist/js/bootcards.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
+        </script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+
+    <!--modals-->
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content"></div>
+        </div>
+    </div>
+    <div class="modal fade" id="docsModal" tabindex="-1" role="dialog" aria-labelledby="docsModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content"></div>
+        </div>
+    </div>
+
+
+    @RenderSection("scripts", required: false)
+    <script type="text/javascript">
+        //highlight first list group option (if non active yet)
+        if ($('.list-group a.active').length === 0) {
+            $('.list-group a').first().addClass('active');
+        }
+
+        $(function () {
+            console.log('ready');
+
+            $('.list-group a').click(function (e) {
+                e.preventDefault()
+
+                $that = $(this);
+
+                $that.parent().find('a').removeClass('active');
+                $that.addClass('active');
+            });
+        })
+
+        /*
+       * Initialize Bootcards.
+       *
+       * Parameters:
+       * - offCanvasBackdrop (boolean): show a backdrop when the offcanvas is shown
+       * - offCanvasHideOnMainClick (boolean): hide the offcanvas menu on clicking outside the off canvas
+       * - enableTabletPortraitMode (boolean): enable single pane mode for tablets in portraitmode
+       * - disableRubberBanding (boolean): disable the iOS rubber banding effect
+       * - disableBreakoutSelector (string) : for iOS apps that are added to the home screen:
+                            jQuery selector to target links for which a fix should be added to not
+                            allow those links to break out of fullscreen mode.
+       */
+
+        bootcards.init({
+            offCanvasBackdrop: true,
+            offCanvasHideOnMainClick: true,
+            enableTabletPortraitMode: true,
+            disableRubberBanding: true,
+            disableBreakoutSelector: 'a.no-break-out'
+        });
+        //enable FastClick
+        window.addEventListener('load', function () {
+            FastClick.attach(document.body);
+        }, false);
+
+
+        //activate the sub-menu options in the offcanvas menu
+        $('.collapse').collapse();
+
+    </script>
+</body>
 </html>

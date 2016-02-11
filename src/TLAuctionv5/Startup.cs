@@ -40,11 +40,11 @@ namespace TLAuctionv5
             var connection = @"Server=dataserver;Database=TechLiquid;Trusted_Connection=True;MultipleActiveResultSets = True";
             services.AddEntityFramework()
                 .AddSqlServer()
-                .AddDbContext<TechLiquidDbContext>(options => options.UseSqlServer(connection));
+                .AddDbContext<MyDbContext>(options => options.UseSqlServer(connection));
 
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<TechLiquidDbContext>()
+                .AddEntityFrameworkStores<MyDbContext>()
                 .AddDefaultTokenProviders();
 
             // Register the service and implementation for the database context
@@ -87,7 +87,7 @@ namespace TLAuctionv5
                     using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>()
                         .CreateScope())
                     {
-                        serviceScope.ServiceProvider.GetService<TechLiquidDbContext>()
+                        serviceScope.ServiceProvider.GetService<MyDbContext>()
                              .Database.Migrate();
                     }
                 }
@@ -106,8 +106,13 @@ namespace TLAuctionv5
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{auctionid?}");
 
+                routes.MapRoute(
+                    name: "details",
+                    template: "{controller=Home}/{action=Index}/{auctionid?}");
+                
+                
                 routes.MapRoute(
                     name: "manifest",
                     template: "{controller=Home}/{action=Manifest}/{auctionid?}");
@@ -116,9 +121,10 @@ namespace TLAuctionv5
                     name: "product",
                     template: "{controller=Home}/{action=Product}/{id?}");
 
+
             });
 
-           
+
         }
 
         // Entry point for the application.

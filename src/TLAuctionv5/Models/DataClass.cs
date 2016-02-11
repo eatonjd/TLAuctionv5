@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TLAuctionv5.Models
 {
+
     public class AuctionOpenView
     {
         [Key]
@@ -122,9 +123,7 @@ namespace TLAuctionv5.Models
         public int ConditionId { get; set; }
         public DateTime EndDate { get; set; }
     }
-
-
-
+    
     public class ProductView
     {
         [Key]
@@ -134,26 +133,24 @@ namespace TLAuctionv5.Models
         public int conditionid { get; set; }
         public long upc { get; set; }
         public string partno { get; set; }
-
         [DisplayFormat(NullDisplayText = @"&nbsp;", HtmlEncode = false)]
         public string title { get; set; }
-
         public decimal avgprice { get; set; }
-
-       public decimal minprice { get; set; }
-       public decimal maxprice { get; set; }
-       public int productcnt { get; set; }
-       [DisplayFormat(NullDisplayText = @"&nbsp;", HtmlEncode = false)]
+        public decimal minprice { get; set; }
+        public decimal maxprice { get; set; }
+        public int productcnt { get; set; }
+        [DisplayFormat(NullDisplayText = @"&nbsp;", HtmlEncode = false)]
         public string manufacturer { get; set; }
-       public string bb_name { get; set; }
-       public string bb_model { get; set; }
-
-
-       public int bb_stage { get; set; }
-       public int ebay_stage { get; set; }
-       public DateTime Updated { get; set; }
-       public string ConditionName { get; set; }
-
+        public string ConditionName { get; set; }
+        /*
+        public string ebtitle { get; set; }
+        public string ebitemurl { get; set; }
+        public string eblistingtype { get; set; }
+        public DateTime ebstartdate { get; set; }
+        public DateTime ebenddate { get; set; }
+        public string ebcondition { get; set; }
+        public string ebupc { get; set; }
+        */
 
         public virtual ICollection<ManifestOpenView> Manifests { get; set; }
     }

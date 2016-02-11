@@ -7,7 +7,7 @@ using TLAuctionv5.Models;
 
 namespace TLAuctionv5.Migrations
 {
-    [DbContext(typeof(TechLiquidDbContext))]
+    [DbContext(typeof(MyDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

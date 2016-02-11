@@ -7,7 +7,7 @@ using TLAuctionv5.ViewModels.Main;
 
 namespace TLAuctionv5.Models
 {
-    public class TechLiquidDbContext : DbContext
+    public class MyDbContext : DbContext
     {
         public DbSet<AuctionOpenView> Auctions { get; set; }
         public DbSet<Auction_Category> Categories { get; set; }

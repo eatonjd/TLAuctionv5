@@ -9,7 +9,7 @@
     <div id="contentbody">
         <div class="psdgraphics-com-table">
             <div id="psdg-header">
-                <span class="psdg-bold">@("Manifest For Auction " + Model.Manifests.FirstOrDefault().AuctionId + "-" + Model.Manifests.FirstOrDefault().AuctionTitle)</span><br>
+                <span class="psdg-bold">@("Manifest For Auction " + ViewBag.AuctionId + "-" + ViewBag.AuctionTitle)</span><br>
             </div>
             <div id="psdg-top">
                 <div class="psdg-top-cell" style="width:50px;">@Html.ActionLink("Qty", "Manifest", new { AuctionId = ViewBag.AuctionId, sortOrder = ViewBag.QtySortParm })</div>

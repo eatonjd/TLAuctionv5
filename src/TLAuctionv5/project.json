@@ -6,11 +6,13 @@
   },
 
   "dependencies": {
-    "bootstrap": "3.3.6",
     "EntityFramework.Commands": "7.0.0-rc1-final",
     "EntityFramework.MicrosoftSqlServer": "7.0.0-rc1-final",
     "EntityFramework.MicrosoftSqlServer.Design": "7.0.0-rc1-final",
     "EntityFramework.Relational": "7.0.0-rc1-final",
+    "Font.Awesome": "4.5.0",
+    "Grunt.js": "0.4.2.6",
+    "jQuery.UI.Combined": "1.11.4",
     "Microsoft.AspNet.Authentication.Cookies": "1.0.0-rc1-final",
     "Microsoft.AspNet.Diagnostics.Entity": "7.0.0-rc1-final",
     "Microsoft.AspNet.Identity.EntityFramework": "3.0.0-rc1-final",
@@ -28,8 +30,8 @@
     "Microsoft.Extensions.Logging": "1.0.0-rc1-final",
     "Microsoft.Extensions.Logging.Console": "1.0.0-rc1-final",
     "Microsoft.Extensions.Logging.Debug": "1.0.0-rc1-final",
-    "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-rc1-final",
- },
+    "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-rc1-final"
+  },
 
   "commands": {
     "web": "Microsoft.AspNet.Server.Kestrel",
@@ -53,6 +55,6 @@
     "**.vspscc"
   ],
   "scripts": {
-    "prepublish": [ "npm install", "bower install", "gulp clean", "gulp min" ]
+    "prepublish": [ "npm install", "bower install" ]
   }
 }
