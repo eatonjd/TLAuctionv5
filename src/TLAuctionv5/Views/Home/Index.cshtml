@@ -33,13 +33,15 @@
                     <div id="divResults">
                         @foreach (var auction in Model.AuctionMD.Auctions)
                         {
-                            string strListing = "AuctionListing_" + auction.AuctionId;
+                            <!--string strListing = "AuctionListing_" + auction.AuctionId;-->
                             string sImageURL = "/Images/" + auction.getCategoryImage(auction.TLCategoryName);
-                            <a class="list-group-item" href="@Url.Action("Details", new { auctionid = auction.AuctionId })">
-                                    <img src='@sImageURL' class="img-rounded pull-left">
-                                    <h5 class="list-group-item-heading">@auction.Title</h5>
-                                    <p class="list-group-item-text">@auction.Price.ToString("C0")</p>
-                                    <p class="list-group-item-text">@auction.AvgPrice.ToString("C0")</p>
+                            <a id="#auction-details" class="list-group-item"
+                               href="@Url.Action("AuctionDetails", "Home",
+                                                      new { AuctionId=auction.AuctionId, sortOrder=ViewBag.sortOrder })">
+                                <img src='@sImageURL' class="img-rounded pull-left">
+                                <h5 class="list-group-item-heading">@auction.Title</h5>
+                                <p class="list-group-item-text">@auction.Price.ToString("C0")</p>
+                                <p class="list-group-item-text">@auction.AvgPrice.ToString("C0")</p>
                             </a>
                         }
                     </div>
@@ -54,6 +56,19 @@
 
             </div>
         </div><!--panel-->
-        @{ await Html.RenderPartialAsync("Details");  }
+        <div id="AuctionDetails">
+            @Html.Partial("_Details")
+        </div>
     </div>
 </div>
+<script>
+    $(function () {
+        $('#auction-details').on('click', function (e) {
+            $.get($(this).prop('href'), function (response) {
+                $('#AuctionDetails').html(response)
+            });
+
+            e.preventDefault();
+        });
+    });
+</script>

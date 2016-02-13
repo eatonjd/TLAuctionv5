@@ -25,7 +25,7 @@ namespace TLAuctionv5.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index(string sortOrder)
+        public IActionResult Index(int auctionid, string sortOrder)
         {
             if (sortOrder == null) sortOrder = "pricediff";
             switch (sortOrder)
@@ -41,41 +41,38 @@ namespace TLAuctionv5.Controllers
                     break;
             }
 
-            ViewBag.sortList = myViewModel.SortList;
+            if (auctionid == 0)
+                myViewModel.AuctionMD.SelectedAuction = mydbContext.Auctions.FirstOrDefault();
+            else
+                myViewModel.AuctionMD.SelectedAuction = mydbContext.Auctions.Single(m => m.AuctionId == auctionid);
 
-            myViewModel.AuctionMD.SelectedAuction = myViewModel.AuctionMD.Auctions.FirstOrDefault();
-            myViewModel.AuctionMD.SelectedAuctionId = myViewModel.AuctionMD.Auctions.FirstOrDefault().AuctionId;
+            myViewModel.AuctionMD.SelectedAuctionId = myViewModel.AuctionMD.SelectedAuction.AuctionId;
+
             myViewModel.Manifests = mydbContext.Manifests
                             .Where(m => m.AuctionId == myViewModel.AuctionMD.SelectedAuctionId)
                             .OrderBy(m => m.Total);
-            ViewBag.Manifests = myViewModel.Manifests;
+
+            ViewBag.sortList = myViewModel.SortList;
+            ViewBag.sortOrder = sortOrder;
 
             return View(myViewModel);
-
-
-            /*
-           myMainModel.Categories = mydbContext.Categories;
-           ViewBag.Categories = myMainModel.Categories;
-
-           myMainModel.Conditions = mydbContext.Conditions;
-           ViewBag.Conditions = myMainModel.Conditions;
-
-           */
         }
 
-        [HttpGet]
-        public IActionResult Details(int auctionid)
+        
+        public IActionResult AuctionDetails(int auctionid)
         {
-            myViewModel.AuctionMD.SelectedAuction = mydbContext.Auctions.Single(m => m.AuctionId == auctionid);
-            myViewModel.AuctionMD.SelectedAuctionId = auctionid;
+            if (auctionid == 0)
+                myViewModel.AuctionMD.SelectedAuction = mydbContext.Auctions.FirstOrDefault();
+            else
+                myViewModel.AuctionMD.SelectedAuction = mydbContext.Auctions.Single(m => m.AuctionId == auctionid);
 
-            ViewBag.SelectedAuction = myViewModel.AuctionMD.SelectedAuction;
-            ViewBag.SelectedAuctionId = myViewModel.AuctionMD.SelectedAuctionId;
+            myViewModel.AuctionMD.SelectedAuctionId = myViewModel.AuctionMD.SelectedAuction.AuctionId;
+
             myViewModel.Manifests = mydbContext.Manifests
-                          .Where(m => m.AuctionId == myViewModel.AuctionMD.SelectedAuctionId)
-                          .OrderBy(m => m.Total);
+                            .Where(m => m.AuctionId == myViewModel.AuctionMD.SelectedAuctionId)
+                            .OrderBy(m => m.Total);
 
-            return View(myViewModel);
+            return PartialView("_Details", myViewModel);
         }
 
         [HttpGet]
@@ -291,6 +288,7 @@ namespace TLAuctionv5.Controllers
             sCondition = Request.Form["conditions"].ToString();
             return View(myViewModel);
         }
+        /*
         [HttpPost]
         public IActionResult Index()
         {
@@ -309,7 +307,7 @@ namespace TLAuctionv5.Controllers
 
             return View(myViewModel);
         }
-
+        */
         public IActionResult Bootcards()
         {
             ViewData["Message"] = "";
@@ -335,5 +333,6 @@ namespace TLAuctionv5.Controllers
         {
             return View();
         }
+
     }
 }

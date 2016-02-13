@@ -109,10 +109,10 @@ namespace TLAuctionv5
                     template: "{controller=Home}/{action=Index}/{auctionid?}");
 
                 routes.MapRoute(
-                    name: "details",
-                    template: "{controller=Home}/{action=Index}/{auctionid?}");
-                
-                
+                    name: "index",
+                    template: "{controller=Home}/{action=Index}/{auctionid, sortOrder}");
+
+               
                 routes.MapRoute(
                     name: "manifest",
                     template: "{controller=Home}/{action=Manifest}/{auctionid?}");

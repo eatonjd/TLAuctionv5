@@ -63,25 +63,43 @@
 
     <environment names="Development">
         <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-        <!-- Optional theme -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-        <link rel="stylesheet" href="~/lib/bootcards/dist/css/bootcards-desktop.css" /> <!-- Bootcards CSS for desktop: -->
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-theme.css"  />
+        <link rel="stylesheet" href="~/lib/bootcards/dist/css/bootcards-desktop.min.css">
+        <link rel="stylesheet" href="~/lib/patternfly/dist/css/patternfly.min.css">
+        <link rel="stylesheet" href="~/lib/patternfly/dist/css/patternfly-additions.min.css" />
+
+        <!-- Font awesome -->
+        <link href="~/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+
         <link rel="stylesheet" href="~/css/tlcards.css" />
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css" />
-        <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.min.css" />
         <!-- Important: you'll only need one of the Bootcards CSS files below for every platform -->
         <!-- Bootcards CSS for iOS: -->
-        <!--<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootcards/1.0.0/css/bootcards-ios.min.css">
+        <!--<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootcards/1.0.0/css/bootcards-ios.min.css"> -->
         <!-- Bootcards CSS for Android: -->
         <!--<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootcards/1.0.0/css/bootcards-android.min.css"> -->
+    
+        <!-- Bootstrap & jQuery core JavaScript
+    ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+      
 
-        <script src="~/lib/jquery/dist/jquery.js"></script>
+    </environment>
+    <environment>
+        <environment names="Staging,Production">
+            <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js"
+                    asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                    asp-fallback-test="window.jQuery">
+            </script>
+            <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/bootstrap.min.js"
+                    asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                    asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
+            </script>
+            <script src="~/js/site.min.js" asp-append-version="true"></script>
+        </environment>
 
-        <!-- Bootstrap and Bootcards JS -->
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-        <script src="~/lib/bootcards/dist/js/bootcards.js"></script>
     </environment>
     <environment names="Staging,Production">
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/css/bootstrap.min.css"
@@ -213,30 +231,6 @@
         </div>
     </div>
 
-    <environment names="Development">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/js/jquery-ui.min.js"></script>
-        <script src="~/js/jquery.pjax.min.js"></script>
-        <script src="~/lib/fastclick/lib/fastclick.js"></script>
-        <script src="~/js/raphael-min.js"></script>
-        <script src="~/js/morris.min.js"></script>
-
-        <!-- Bootcards JS file -->
-        <script src="~/lib/bootcards/dist/js/bootcards.min.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
-    </environment>
-    <environment names="Staging,Production">
-        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js"
-                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-                asp-fallback-test="window.jQuery">
-        </script>
-        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/bootstrap.min.js"
-                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
-                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
-        </script>
-        <script src="~/js/site.min.js" asp-append-version="true"></script>
-    </environment>
-
     <!--modals-->
     <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModal" aria-hidden="true">
         <div class="modal-dialog">
@@ -248,57 +242,17 @@
             <div class="modal-content"></div>
         </div>
     </div>
-
-
     @RenderSection("scripts", required: false)
-    <script type="text/javascript">
-        //highlight first list group option (if non active yet)
-        if ($('.list-group a.active').length === 0) {
-            $('.list-group a').first().addClass('active');
-        }
 
-        $(function () {
-            console.log('ready');
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/transition.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.pjax/1.9.2/jquery.pjax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.3/fastclick.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+    <script src="~/lib/bootcards/src/js/bootcards.js"></script>
+    <script src="~/js/site.js"></script>
 
-            $('.list-group a').click(function (e) {
-                e.preventDefault()
-
-                $that = $(this);
-
-                $that.parent().find('a').removeClass('active');
-                $that.addClass('active');
-            });
-        })
-
-        /*
-       * Initialize Bootcards.
-       *
-       * Parameters:
-       * - offCanvasBackdrop (boolean): show a backdrop when the offcanvas is shown
-       * - offCanvasHideOnMainClick (boolean): hide the offcanvas menu on clicking outside the off canvas
-       * - enableTabletPortraitMode (boolean): enable single pane mode for tablets in portraitmode
-       * - disableRubberBanding (boolean): disable the iOS rubber banding effect
-       * - disableBreakoutSelector (string) : for iOS apps that are added to the home screen:
-                            jQuery selector to target links for which a fix should be added to not
-                            allow those links to break out of fullscreen mode.
-       */
-
-        bootcards.init({
-            offCanvasBackdrop: true,
-            offCanvasHideOnMainClick: true,
-            enableTabletPortraitMode: true,
-            disableRubberBanding: true,
-            disableBreakoutSelector: 'a.no-break-out'
-        });
-        //enable FastClick
-        window.addEventListener('load', function () {
-            FastClick.attach(document.body);
-        }, false);
-
-
-        //activate the sub-menu options in the offcanvas menu
-        $('.collapse').collapse();
-
-    </script>
 </body>
 </html>
