@@ -1898,6 +1898,22 @@
       "Node.js/0.10.21": {
         "type": "package"
       },
+      "NonFactors.Grid.Core.Mvc6/0.9.0-rc1-final": {
+        "type": "package",
+        "compile": {
+          "lib/dnx451/Mvc.Grid.Core.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/Mvc.Grid.Core.dll": {}
+        }
+      },
+      "NonFactors.Grid.Mvc6/0.9.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.Mvc.ViewFeatures": "[6.0.0-rc1-final]",
+          "NonFactors.Grid.Core.Mvc6": "[0.9.0-rc1-final]"
+        }
+      },
       "Npm.js/1.3.15.4": {
         "type": "package",
         "dependencies": {
@@ -3812,6 +3828,9 @@
         }
       },
       "Node.js/0.10.21": {
+        "type": "package"
+      },
+      "NonFactors.Grid.Mvc6/0.9.0-rc1-final": {
         "type": "package"
       },
       "Npm.js/1.3.15.4": {
@@ -6798,6 +6817,22 @@
       "Node.js/0.10.21": {
         "type": "package"
       },
+      "NonFactors.Grid.Core.Mvc6/0.9.0-rc1-final": {
+        "type": "package",
+        "compile": {
+          "lib/dnx451/Mvc.Grid.Core.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/Mvc.Grid.Core.dll": {}
+        }
+      },
+      "NonFactors.Grid.Mvc6/0.9.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.Mvc.ViewFeatures": "[6.0.0-rc1-final]",
+          "NonFactors.Grid.Core.Mvc6": "[0.9.0-rc1-final]"
+        }
+      },
       "Npm.js/1.3.15.4": {
         "type": "package",
         "dependencies": {
@@ -8924,6 +8959,22 @@
       "Node.js/0.10.21": {
         "type": "package"
       },
+      "NonFactors.Grid.Core.Mvc6/0.9.0-rc1-final": {
+        "type": "package",
+        "compile": {
+          "lib/dnx451/Mvc.Grid.Core.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/Mvc.Grid.Core.dll": {}
+        }
+      },
+      "NonFactors.Grid.Mvc6/0.9.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.Mvc.ViewFeatures": "[6.0.0-rc1-final]",
+          "NonFactors.Grid.Core.Mvc6": "[0.9.0-rc1-final]"
+        }
+      },
       "Npm.js/1.3.15.4": {
         "type": "package",
         "dependencies": {
@@ -10841,6 +10892,9 @@
         }
       },
       "Node.js/0.10.21": {
+        "type": "package"
+      },
+      "NonFactors.Grid.Mvc6/0.9.0-rc1-final": {
         "type": "package"
       },
       "Npm.js/1.3.15.4": {
@@ -14124,6 +14178,9 @@
       "Node.js/0.10.21": {
         "type": "package"
       },
+      "NonFactors.Grid.Mvc6/0.9.0-rc1-final": {
+        "type": "package"
+      },
       "Npm.js/1.3.15.4": {
         "type": "package",
         "dependencies": {
@@ -17403,6 +17460,31 @@
         "Node.js.0.10.21.nupkg",
         "Node.js.0.10.21.nupkg.sha512",
         "Node.js.nuspec"
+      ]
+    },
+    "NonFactors.Grid.Core.Mvc6/0.9.0-rc1-final": {
+      "type": "package",
+      "sha512": "HKiOKBsGi1Q2IiGmBssveRhnMlGSisWku2OiQjqfPK/c2C2awFAY0HT7PE9MwYkW8x6mhD9+T2wvVbOy+Nrsrg==",
+      "files": [
+        "lib/dnx451/Mvc.Grid.Core.dll",
+        "NonFactors.Grid.Core.Mvc6.0.9.0-rc1-final.nupkg",
+        "NonFactors.Grid.Core.Mvc6.0.9.0-rc1-final.nupkg.sha512",
+        "NonFactors.Grid.Core.Mvc6.nuspec"
+      ]
+    },
+    "NonFactors.Grid.Mvc6/0.9.0-rc1-final": {
+      "type": "package",
+      "sha512": "Yo7K13Q0wbgor6sHKlOJSxsr4g3IXKX0qo4IS+NvuQqzI1gD8slccy0/omVuG6n0PZLF/vSzh+UiAYjJokc1Sw==",
+      "files": [
+        "content/Content/MvcGrid/mvc-grid.css",
+        "content/Scripts/MvcGrid/mvc-grid.js",
+        "content/Scripts/MvcGrid/mvc-grid.min.js",
+        "content/Views/Shared/MvcGrid/_AjaxGrid.cshtml",
+        "content/Views/Shared/MvcGrid/_Grid.cshtml",
+        "content/Views/Shared/MvcGrid/_Pager.cshtml",
+        "NonFactors.Grid.Mvc6.0.9.0-rc1-final.nupkg",
+        "NonFactors.Grid.Mvc6.0.9.0-rc1-final.nupkg.sha512",
+        "NonFactors.Grid.Mvc6.nuspec"
       ]
     },
     "Npm.js/1.3.15.4": {
@@ -23114,7 +23196,8 @@
       "Microsoft.Extensions.Logging >= 1.0.0-rc1-final",
       "Microsoft.Extensions.Logging.Console >= 1.0.0-rc1-final",
       "Microsoft.Extensions.Logging.Debug >= 1.0.0-rc1-final",
-      "Microsoft.VisualStudio.Web.BrowserLink.Loader >= 14.0.0-rc1-final"
+      "Microsoft.VisualStudio.Web.BrowserLink.Loader >= 14.0.0-rc1-final",
+      "NonFactors.Grid.Mvc6 >= 0.9.0-rc1-final"
     ],
     "DNX,Version=v4.5.1": [],
     "DNXCore,Version=v5.0": []

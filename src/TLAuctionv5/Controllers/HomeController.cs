@@ -61,18 +61,7 @@ namespace TLAuctionv5.Controllers
         
         public IActionResult AuctionDetails(int auctionid)
         {
-            if (auctionid == 0)
-                myViewModel.AuctionMD.SelectedAuction = mydbContext.Auctions.FirstOrDefault();
-            else
-                myViewModel.AuctionMD.SelectedAuction = mydbContext.Auctions.Single(m => m.AuctionId == auctionid);
-
-            myViewModel.AuctionMD.SelectedAuctionId = myViewModel.AuctionMD.SelectedAuction.AuctionId;
-
-            myViewModel.Manifests = mydbContext.Manifests
-                            .Where(m => m.AuctionId == myViewModel.AuctionMD.SelectedAuctionId)
-                            .OrderBy(m => m.Total);
-
-            return PartialView("_Details", myViewModel);
+            return ViewComponent("AuctionDetail", auctionid);
         }
 
         [HttpGet]

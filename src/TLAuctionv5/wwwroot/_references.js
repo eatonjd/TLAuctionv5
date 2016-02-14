@@ -3,6 +3,7 @@
 /// <reference path="js/jquery.pjax.min.js" />
 /// <reference path="js/jquery-ui.min.js" />
 /// <reference path="js/morris.min.js" />
+/// <reference path="js/mvc-grid.js" />
 /// <reference path="js/raphael-min.js" />
 /// <reference path="js/site.js" />
 /// <reference path="lib/bootcards/dist/js/bootcards.js" />

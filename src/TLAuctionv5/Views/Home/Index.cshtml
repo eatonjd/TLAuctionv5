@@ -56,19 +56,9 @@
 
             </div>
         </div><!--panel-->
-        <div id="AuctionDetails">
-            @Html.Partial("_Details")
-        </div>
+      
     </div>
 </div>
 <script>
-    $(function () {
-        $('#auction-details').on('click', function (e) {
-            $.get($(this).prop('href'), function (response) {
-                $('#AuctionDetails').html(response)
-            });
-
-            e.preventDefault();
-        });
-    });
+    $('.mvc-grid').mvcgrid();
 </script>

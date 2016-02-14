@@ -9,6 +9,7 @@ using System;
 using TLAuctionv5.Models;
 using TLAuctionv5.Services;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using NonFactors.Mvc.Grid;
 
 namespace TLAuctionv5
 {
@@ -61,6 +62,8 @@ namespace TLAuctionv5
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
+
+            services.AddMvcGrid();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,0 +1,79 @@
+﻿@using TLAuctionv5.ViewModels.Main;
+@using Microsoft.Data.Entity;
+@model MyViewModel
+
+<div class="col-sm-6 bootcards-cards" id="listDetails">
+    <div class="panel panel-default bootcards-table">
+        <div class="panel-heading">
+            <h3 class="panel-title">@Model.AuctionMD.SelectedAuction.Title</h3>
+        </div>
+        <table class="table table-hover">
+            <tbody>
+                <tr><td>Condition:</td><td class="text-right">@Model.AuctionMD.SelectedAuction.ConditionName</td></tr>
+                <tr><td>End Date:</td><td class="text-right">@Model.AuctionMD.SelectedAuction.EndDate</td></tr>
+                <tr><td># of Bids: </td><td class="text-right">@Model.AuctionMD.SelectedAuction.Bid</td></tr>
+                <tr><td>MSRP (Est):</td><td class="text-right">@Model.AuctionMD.SelectedAuction.MSRP.ToString("C0")</td></tr>
+                <tr><td><strong>Current Bid:</strong></td><td class="text-right"><strong>@Model.AuctionMD.SelectedAuction.Price.ToString("C0")</strong></td></tr>
+
+                @if (Model.AuctionMD.SelectedAuction.PriceDiff < 0)
+                {
+                    <tr><td><strong>Estimated Avg Price:</strong></td><td class="text-right"><strong class="pricediff-green">@Model.AuctionMD.SelectedAuction.AvgPrice.ToString("C0")</strong></td></tr>
+                }
+                else
+                {
+                    <tr><td><strong>Estimated Avg Price:</strong></td><td class="text-right"><strong class="pricediff-red">@Model.AuctionMD.SelectedAuction.AvgPrice.ToString("C0")</strong></td></tr>
+                }
+
+                @if (Model.AuctionMD.SelectedAuction.PriceDiff < 0)
+                {
+                    <tr><td><strong>Estimated Low Price:</strong></td><td class="text-right"><strong class="pricediff-green">@Model.AuctionMD.SelectedAuction.LowPrice.ToString("C0")</strong></td></tr>
+                }
+                else
+                {
+                    <tr><td><strong>Estimated Low Price:</strong></td><td class="text-right"><strong class="pricediff-red">@Model.AuctionMD.SelectedAuction.LowPrice.ToString("C0")</strong></td></tr>
+                }
+            </tbody>
+        </table>
+        <div class="panel-footer">
+            <small class="pull-left">Estimated Aution Pricing TLAuctionHistory.com</small>
+            <a class="btn btn-link btn-xs pull-right" href="/snippets/table" data-toggle="modal" data-target="#docsModal">
+                View Source
+            </a>
+        </div>
+    </div>
+
+    <div class="panel panel-default bootcards-table">
+        <div class="panel-heading">
+            <h3 class="panel-title">@(Model.AuctionMD.SelectedAuction.Title + " Manifest")</h3>
+        </div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Qty</th>
+                    <th>Item</th>
+                    <th>Lowest Price</th>
+                    <th class="text-right">Avg Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (ManifestOpenView manifest in Model.Manifests)
+                {
+                    string strListing = "ProductListing_" + manifest.ProductId;
+                        <tr>
+                            <td>@manifest.Quantity.ToString()</td>
+                            <td>@manifest.ProductTitle</td>
+                            <td>@manifest.MinPrice.ToString()</td>
+                            <td class="text-right">@manifest.AvgPrice.ToString()</td>
+                        </tr>
+
+                }
+            </tbody>
+        </table>
+               <div class="panel-footer">
+            <small class="pull-left">Estimated Manifest Pricing TLAuctionHistory.com</small>
+            <a class="btn btn-link btn-xs pull-right" href="/snippets/table" data-toggle="modal" data-target="#docsModal">
+                View Source
+            </a>
+        </div>
+    </div>
+</div>
