@@ -1,8 +1,8 @@
 ﻿/*!
  * Mvc.Grid 0.9.0
- * https://github.com/NonFactors/MVC6.Grid
+ * https://github.com/TLAuctionv5/MVC6.Grid
  *
- * Copyright © NonFactors
+ * Copyright © TLAuctionv5
  *
  * Licensed under the terms of the MIT License
  * http://www.opensource.org/licenses/mit-license.php

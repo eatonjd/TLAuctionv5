@@ -1,6 +1,7 @@
 ﻿@using TLAuction5.HtmlExtensions;
 @using TLAuctionv5.ViewModels.Main;
 @using Microsoft.Data.Entity;
+@using TLAuctionv5.Mvc.Grid;
 @model MyViewModel
 
 
@@ -29,36 +30,31 @@
                         </div>
                     </div>
                 </div>
-                <div class="list-group">
-                    <div id="divResults">
-                        @foreach (var auction in Model.AuctionMD.Auctions)
-                        {
-                            <!--string strListing = "AuctionListing_" + auction.AuctionId;-->
-                            string sImageURL = "/Images/" + auction.getCategoryImage(auction.TLCategoryName);
-                            <a id="#auction-details" class="list-group-item"
-                               href="@Url.Action("AuctionDetails", "Home",
-                                                      new { AuctionId=auction.AuctionId, sortOrder=ViewBag.sortOrder })">
-                                <img src='@sImageURL' class="img-rounded pull-left">
-                                <h5 class="list-group-item-heading">@auction.Title</h5>
-                                <p class="list-group-item-text">@auction.Price.ToString("C0")</p>
-                                <p class="list-group-item-text">@auction.AvgPrice.ToString("C0")</p>
-                            </a>
-                        }
-                    </div>
-                </div>
+                
+                    @(Html
+                    .Grid(Model.AuctionMD.Auctions)
+                    .Build(columns =>
+                    {
+                        columns.Add(model => model.AuctionId).Titled("ID").MultiFilterable(true).Sortable(true).Css("mvc-grid-header.sortable mvc-grid-header.filterable");
+                        columns.Add(model => model.Title).Titled("Title").MultiFilterable(true).Sortable(true);
+                        columns.Add(model => model.EndDate).Titled("EndDate").Sortable(true);
+                    })
+                    .Named("Master")
+                    .MultiFilterable()
+                    .Filterable()
+                    .Css("table-hover")
+                    )
+                
                 <div class="panel-footer">
                     <small class="pull-left">TechLiquidators Live Auctions</small>
                     <a class="btn btn-link btn-xs pull-right" href="#">
                         Footer link
                     </a>
                 </div>
-
-
             </div>
-        </div><!--panel-->
-      
+        </div>
     </div>
 </div>
-<script>
-    $('.mvc-grid').mvcgrid();
-</script>
+
+
+
