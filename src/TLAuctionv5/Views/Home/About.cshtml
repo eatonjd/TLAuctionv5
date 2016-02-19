@@ -1,421 +1,429 @@
-﻿
-<!DOCTYPE html>
-<html lang="en">
+﻿<html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="javascript:void">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!--<link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Grid controls for ASP.NET MVC projects.">
+    <title>Binding row clicked event</title>
 
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-    <!-- Icons -->
-    <link rel="shortcut icon" sizes="196x196" href="/bootcards-demo-app/images/apple-touch-icon-144x144.png">
-    <link rel="shortcut icon" sizes="128x128" href="/bootcards-demo-app/images/apple-touch-icon-120x120.png">
-    <!-- For iPhone with high-resolution Retina display running iOS ≥ 7: -->
-    <link rel="apple-touch-icon" sizes="120x120" href="/bootcards-demo-app/images/apple-touch-icon-120x120.png">
-    <!-- For iPad with high-resolution Retina display running iOS ≤ 6: -->
-    <link rel="apple-touch-icon" sizes="144x144" href="/bootcards-demo-app/images/apple-touch-icon-144x144.png">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
 
-    <!-- Splash Screen Images -->
-    <!-- iOS 6 & 7 iPad (retina, portrait) -->
-    <link href="/bootcards-demo-app/images/bootcards-splash-768x1004@2x.png"
-          media="(device-width: 768px) and (device-height: 1024px)
-             and (orientation: portrait)
-             and (-webkit-device-pixel-ratio: 2)"
-          rel="apple-touch-startup-image">
-
-    <!-- iOS 6 & 7 iPad (retina, landscape) -->
-    <link href="/bootcards-demo-app/images/bootcards-splash-1024x748@2x.png"
-          media="(device-width: 768px) and (device-height: 1024px)
-             and (orientation: landscape)
-             and (-webkit-device-pixel-ratio: 2)"
-          rel="apple-touch-startup-image">
-
-    <!-- iOS 6 iPad (portrait) -->
-    <link href="/bootcards-demo-app/images/bootcards-splash-1024x748.png"
-          media="(device-width: 768px) and (device-height: 1024px)
-             and (orientation: portrait)
-             and (-webkit-device-pixel-ratio: 1)"
-          rel="apple-touch-startup-image">
-
-    <!-- iOS 6 iPad (landscape) -->
-    <link href="/bootcards-demo-app/images/bootcards-splash-768x1004.png"
-          media="(device-width: 768px) and (device-height: 1024px)
-             and (orientation: landscape)
-             and (-webkit-device-pixel-ratio: 1)"
-          rel="apple-touch-startup-image">
-
-    <!-- iOS 6 & 7 iPhone 5 -->
-    <link href="/bootcards-demo-app/images/bootcards-splash-320x548@2x.png"
-          media="(device-width: 320px) and (device-height: 568px)
-             and (-webkit-device-pixel-ratio: 2)"
-          rel="apple-touch-startup-image">
-
-    <!-- iOS 6 & 7 iPhone (retina) -->
-    <link href="/bootcards-demo-app/images/bootcards-splash-320x460@2x.png"
-          media="(device-width: 320px) and (device-height: 480px)
-             and (-webkit-device-pixel-ratio: 2)"
-          rel="apple-touch-startup-image">
-
-    <!-- iOS 6 iPhone -->
-    <link href="/bootcards-demo-app/images/bootcards-splash-320x460.png"
-          media="(device-width: 320px) and (device-height: 480px)
-             and (-webkit-device-pixel-ratio: 1)"
-          rel="apple-touch-startup-image">
-
-
-    <title>Customers</title>
-    <!-- 1.1.2 -->
-    <!-- Load the required CSS libraries -->
-    <!-- bootstrap -->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Bootcards CSS file (different for desktop, iOS and Android, included Bootstrap CSS) -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/bootcards/1.1.2/css/bootcards-desktop.min.css" rel="stylesheet" type="text/css" />
-
-    <link href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css" rel="stylesheet" />
-
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
-
-    <script>var isDesktop = true;</script>
-    <!-- Custom CSS for the demo app -->
-    <link href="/bootcards-demo-app/css/bootcards-demo-app.css" rel="stylesheet" />
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-      <![endif]-->
-    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
-    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <link href="/Content/JQueryUI/jquery-ui.css" rel="stylesheet">
+    <link href="/Content/Bootstrap/bootstrap.css" rel="stylesheet">
+    <link href="/Content/FontAwesome/font-awesome.css" rel="stylesheet">
+    <link href="/Content/MvcGrid/mvc-grid.css" rel="stylesheet">
+    <link href="/Content/Shared/base.css" rel="stylesheet">
 </head>
-<body id="bootcards">
-
-    <!-- fixed top navbar -->
-    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+<body class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="sidebar logo">
+                <a href="https://github.com/NonFactors/MVC6.Grid">
+                    <img src="/Images/github.png">
+                </a>
             </div>
-
-            <button type="button" class="btn btn-default btn-back navbar-left pull-left hidden" onclick="history.back()">
-                <i class="fa fa-lg fa-chevron-left"></i><span>Back</span>
-            </button>
-            <!-- menu button to show/ hide the off canvas slider -->
-            <button type="button" class="btn btn-default btn-menu navbar-left pull-left offCanvasToggle" data-toggle="offcanvas">
-                <i class="fa fa-lg fa-bars"></i><span>Menu</span>
-            </button>
-
-            <a class="navbar-brand no-break-out" title="Customers" href="/">Customers</a>
-
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+            <div class="sidebar-search content-block">
+                <input id="SearchInput" name="SearchInput" placeholder="Search..." type="text" value="">
+            </div>
+            <div class="sidebar content-block">
+                <ul>
                     <li>
-                        <a href="/dashboard" data-pjax="#main" data-title="Customers"
-              <i class="fa fa-dashboard"></i>
-              Dashboard
-            </a>
-                    </li>
-                    <li class="active">
-                        <a href="/companies" data-pjax="#main" data-title="Companies"
-              <i class="fa fa-building-o"></i>
-              Companies
-            </a>
+                        <a href="/">Quick start</a>
                     </li>
                     <li>
-                        <a href="/contacts" data-pjax="#main" data-title="Contacts"
-              <i class="fa fa-users"></i>
-              Contacts
-            </a>
+                        <a href="/Home/Installation">Installation</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="sidebar content-block">
+                <ul>
+                    <li>
+                        <a href="/Grid/MultiFiltering">Grid multi filtering</a>
                     </li>
                     <li>
-                        <a href="/notes" data-pjax="#main" data-title="Notes"
-              <i class="fa fa-clipboard"></i>
-              Notes
-            </a>
+                        <a href="/Grid/GlobalSearch">Grid global search</a>
                     </li>
                     <li>
-                        <a href="/charts" data-pjax="#main" data-title="Charts"
-              <i class="fa fa-bar-chart-o"></i>
-              Charts
-            </a>
+                        <a href="/Grid/Filtering">Grid filtering</a>
                     </li>
                     <li>
-                        <a href="/settings" data-pjax="#main" data-title="Settings"
-              <i class="fa fa-gears"></i>
-              Settings
-            </a>
+                        <a href="/Grid/Sorting">Grid sorting</a>
+                    </li>
+                    <li>
+                        <a href="/Grid/Styling">Grid styling</a>
+                    </li>
+                    <li>
+                        <a href="/Grid/Ajax?mainParam=mainValue">Ajax grid</a>
+                    </li>
+                    <li>
+                        <a href="/Grid/EmptyText">Empty grid text</a>
+                    </li>
+                    <li>
+                        <a href="/Grid/Multiple">Multiple grids</a>
+                    </li>
+                    <li>
+                        <a href="/Grid/RowProcessing">Processing grid rows</a>
+                    </li>
+                    <li>
+                        <a href="/Grid/RowStyling">Grid row styling</a>
+                    </li>
+                    <li>
+                        <a href="/Grid/Localization">Grid localization</a>
+                    </li>
+                    <li>
+                        <a href="/Grid/Paging">Grid paging</a>
+                    </li>
+                    <li>
+                        <a href="/Grid/Partial">Custom grid partial</a>
+                    </li>
+                    <li>
+                        <a href="/Grid/Export">Grid export</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="sidebar content-block">
+                <ul>
+                    <li>
+                        <a href="/Column/RenderingValue">Column value rendering</a>
+                    </li>
+                    <li>
+                        <a href="/Column/Formatting">Column formatting</a>
+                    </li>
+                    <li>
+                        <a href="/Column/Encoding">Column encoding</a>
+                    </li>
+                    <li>
+                        <a href="/Column/Title">Column header title</a>
+                    </li>
+                    <li>
+                        <a href="/Column/Filtering">Column filtering</a>
+                    </li>
+                    <li>
+                        <a href="/Column/CustomFilter">Column custom filter</a>
+                    </li>
+                    <li>
+                        <a href="/Column/MultiFiltering">Column multi filtering</a>
+                    </li>
+                    <li>
+                        <a href="/Column/InitialSort">Column initial sort order</a>
+                    </li>
+                    <li>
+                        <a href="/Column/FirstSort">Column first sort order</a>
+                    </li>
+                    <li>
+                        <a href="/Column/Sorting">Column sorting</a>
+                    </li>
+                    <li>
+                        <a href="/Column/Styling">Column styling</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="sidebar content-block">
+                <ul>
+                    <li>
+                        <a href="/Pager/PagesToDisplay">Pager pages to display</a>
+                    </li>
+                    <li>
+                        <a href="/Pager/RowsPerPage">Pager rows per page</a>
+                    </li>
+                    <li>
+                        <a href="/Pager/InitialPage">Pager initial page</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="sidebar content-block">
+                <ul>
+                    <li>
+                        <a href="/Javascript/RowClicked">Binding row clicked event</a>
+                    </li>
+                    <li>
+                        <a href="/Javascript/Reload">Reloading ajax grid</a>
+                    </li>
+                    <li>
+                        <a href="/Javascript/ReloadEvents">Binding reload events</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="sidebar content-block">
+                <ul>
+                    <li>
+                        <a href="/Filter/Register">Registering grid filter</a>
+                    </li>
+                    <li>
+                        <a href="/Filter/Unregister">Unregistering grid filter</a>
                     </li>
                 </ul>
             </div>
         </div>
-    </div>
+        <div class="col-md-10 content">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="example content-block">
+                        <div class="widget">
+                            <div class="widget-header">
+                                <i class="fa fa-bars"></i>
+                                Selectable grid
+                                <span class="widget-buttons">
+                                    <i class="content-toggle"></i>
+                                </span>
+                            </div>
+                            <div class="widget-content">
 
-    <!-- slide in menu (mobile only) -->
-    <nav id="offCanvasMenu" class="navmenu offcanvas offcanvas-left">
-        <ul class="nav">
-            <li>
-                <a href="/dashboard" data-pjax="#main" data-title="Customers">
-                    <i class="fa fa-lg fa-dashboard"></i>
-                    Dashboard
-                </a>
-            </li>
-            <li class="active">
-                <a href="/companies" data-pjax="#main" data-title="Companies">
-                    <i class="fa fa-lg fa-building-o"></i>
-                    Companies
-                </a>
-            </li>
-            <li>
-                <a href="/contacts" data-pjax="#main" data-title="Contacts">
-                    <i class="fa fa-lg fa-users"></i>
-                    Contacts
-                </a>
-            </li>
-            <li>
-                <a href="/notes" data-pjax="#main" data-title="Notes">
-                    <i class="fa fa-lg fa-clipboard"></i>
-                    Notes
-                </a>
-            </li>
-            <li>
-                <a href="/charts" data-pjax="#main" data-title="Charts">
-                    <i class="fa fa-lg fa-bar-chart-o"></i>
-                    Charts
-                </a>
-            </li>
-            <li>
-                <a href="/settings" data-pjax="#main" data-title="Settings">
-                    <i class="fa fa-lg fa-gears"></i>
-                    Settings
-                </a>
-            </li>
-        </ul>
+                                <div class="mvc-grid">
+                                    <table class="table mvc-grid-table">
+                                        <thead>
+                                            <tr>
+                                                <th class="mvc-grid-header filterable">
+                                                    <span class="mvc-grid-header-title">Name</span>
+                                                    <span class="mvc-grid-filter "></span>
+                                                </th>
+                                                <th class="mvc-grid-header">
+                                                    <span class="mvc-grid-header-title">Birth date</span>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="mvc-grid-row">
+                                                <td>Joe</td>
+                                                <td>1/5/1988 12:00:00 AM</td>
+                                            </tr>
+                                            <tr class="mvc-grid-row selected">
+                                                <td>Merry</td>
+                                                <td>5/6/1978 12:00:00 AM</td>
+                                            </tr>
+                                            <tr class="mvc-grid-row">
+                                                <td>Henry</td>
+                                                <td>11/19/1990 12:00:00 AM</td>
+                                            </tr>
+                                            <tr class="mvc-grid-row">
+                                                <td>Cody</td>
+                                                <td>8/11/1970 12:00:00 AM</td>
+                                            </tr>
+                                            <tr class="mvc-grid-row">
+                                                <td>Simon</td>
+                                                <td>10/10/1985 12:00:00 AM</td>
+                                            </tr>
+                                            <tr class="mvc-grid-row">
+                                                <td>Leena</td>
+                                                <td>7/1/2000 12:00:00 AM</td>
+                                            </tr>
+                                            <tr class="mvc-grid-row">
+                                                <td>Ode</td>
+                                                <td>4/17/1966 12:00:00 AM</td>
+                                            </tr>
+                                            <tr class="mvc-grid-row">
+                                                <td>Diandra</td>
+                                                <td>8/20/1999 12:00:00 AM</td>
+                                            </tr>
+                                            <tr class="mvc-grid-row">
+                                                <td>Pete</td>
+                                                <td>3/13/1997 12:00:00 AM</td>
+                                            </tr>
+                                            <tr class="mvc-grid-row">
+                                                <td>Nicky</td>
+                                                <td>1/5/1988 12:00:00 AM</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
 
-        <div style="margin-top:20px; padding-left: 20px; font-size: 12px; color: #777">v1.1.2</div>
-    </nav>
-
-    <div class="container bootcards-container" id="main">
-
-        <div id="companyCard">
-
-            <div class="panel panel-default">
-                <div class="panel-heading clearfix">
-                    <h3 class="panel-title pull-left">Company Details</h3>
-                    <div class="btn-group pull-right visible-xs">
-                        <a class="btn btn-primary" href="/companies/189e4u76bqh34/edit"
-                           data-toggle="modal"
-                           data-target="#editModal">
-                            <i class="fa fa-pencil"></i>
-                            <span>Edit</span>
-                        </a>
-                    </div>
-                    <a class="btn btn-primary pull-right hidden-xs" href="/companies/189e4u76bqh34/edit"
-                       data-toggle="modal"
-                       data-target="#editModal">
-                        <i class="fa fa-pencil"></i>
-                        <span>Edit</span>
-                    </a>
-                </div>
-                <div class="list-group">
-                    <div class="list-group-item">
-                        <i class="fa fa-2x fa-building-o pull-left"></i>
-                        <label>Name</label>
-                        <h4 class="list-group-item-heading">Camion Corp.</h4>
-                    </div>
-                    <div class="list-group-item">
-                        <label>City</label>
-                        <h4 class="list-group-item-heading">Tokyo</h4>
-                    </div>
-                    <div class="list-group-item">
-                        <label>Country</label>
-                        <h4 class="list-group-item-heading">Japan</h4>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="panel-footer">
-                    <small class="pull-left">Built with Bootcards - Base Card</small>
-                    <a class="btn btn-link btn-xs pull-right"
-                       href="/snippets/base-card-form"
-                       data-toggle="modal"
-                       data-target="#docsModal">
-                        View Source
-                    </a>
+                <div class="col-md-6">
+                    <div class="output content-block">
+                        <div class="widget">
+                            <div class="widget-header">
+                                <i class="fa fa-code"></i>
+                                Script output
+                                <span class="widget-buttons">
+                                    <i class="content-toggle"></i>
+                                </span>
+                            </div>
+                            <div class="widget-content">
+<pre><code class="script-output">data: {
+    "Name": "Merry",
+    "Birthday": "5/6/1978 12:00:00 AM"
+}
+grid: {
+    "name": "Grid",
+    "columns": [
+        {
+            "name": "Name",
+            "filter": {
+                "isEnabled": true,
+                "isMulti": false,
+                "name": "Text",
+                "operator": "",
+                "first": {
+                    "type": "",
+                    "val": ""
+                },
+                "second": {
+                    "type": "",
+                    "val": ""
+                }
+            }
+        },
+        {
+            "name": "Birthday",
+            "filter": {
+                "isEnabled": false,
+                "isMulti": false,
+                "name": "Date",
+                "operator": "",
+                "first": {
+                    "type": "",
+                    "val": ""
+                },
+                "second": {
+                    "type": "",
+                    "val": ""
+                }
+            }
+        }
+    ]
+}</code>
+</pre>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-        </div>
-
-        <!--list of contacts-->
-        <div>
-            <div class="panel panel-default">
-                <div class="panel-heading clearfix">
-                    <h3 class="panel-title pull-left">Contacts</h3>
-                    <div class="btn-group pull-right">
-                        <a class="btn btn-primary" href="/companies/189e4u76bqh34/contacts/add"
-                           data-toggle="modal"
-                           data-target="#editModal">
-                            <i class="fa fa-plus"></i>
-                            <span>Add</span>
-                        </a>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="example-code content-block">
+                        <div class="widget">
+                            <div class="widget-header">
+                                <i class="fa fa-code"></i>
+                                View
+                                <span class="widget-buttons">
+                                    <i class="content-toggle"></i>
+                                </span>
+                            </div>
+                            <div class="widget-content">
+<pre><code>
+@using NonFactors.Mvc.Grid;
+@model <span class="cls">IEnumerable</span>&lt;<span class="cls">PersonModel</span>&gt;
+@(Html
+    .Grid(Model)
+    .Build(columns =&gt;
+    {
+        columns.Add(model =&gt; model.Name).Titled(<span class="str">"Name"</span>).Filterable(<span class="kwd">true</span>);
+        columns.Add(model =&gt; model.Birthday).Titled(<span class="str">"Birth date"</span>);
+    })
+)
+</code>
+</pre>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="list-group">
-
-                    <a class="list-group-item pjax"
-                       href="/contacts/QQkRbSVxfARv">
-                        <img src="/images/Darren Sizelove.jpg" class="img-rounded pull-left" />
-                        <h4 class="list-group-item-heading">Sizelove, Darren</h4>
-                        <p class="list-group-item-text">Camion Corp.</p>
-                    </a>
-
-
-                    <a class="list-group-item pjax"
-                       href="/contacts/BHTmv2NpG3eU">
-                        <img src="/images/Teddy Skolnik.jpg" class="img-rounded pull-left" />
-                        <h4 class="list-group-item-heading">Skolnik, Teddy</h4>
-                        <p class="list-group-item-text">Camion Corp.</p>
-                    </a>
-
-                </div>
-                <div class="panel-footer">
-                    <small class="pull-left">Built with Bootcards - List</small>
-                    <a class="btn btn-link btn-xs pull-right"
-                       href="/snippets/list-card"
-                       data-toggle="modal"
-                       data-target="#docsModal">
-                        View Source
-                    </a>
-                </div>
-
-            </div>
-        </div>
-        <!--list of activities-->
-
-        <div>
-
-            <div class="panel panel-default">
-                <div class="panel-heading clearfix">
-                    <h3 class="panel-title pull-left">Notes</h3>
-                    <div class="btn-group pull-right">
-                        <a class="btn btn-primary" href="/companies/189e4u76bqh34/notes/add"
-                           data-toggle="modal"
-                           data-target="#editModal">
-                            <i class="fa fa-plus"></i>
-                            <span>Add</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="list-group">
-                    <a class="list-group-item pjax"
-                       href="/companies/189e4u76bqh34/notes/10ukkltuoikg0">
-                        <i class="fa fa-2x pull-left fa-medkit"></i>
-                        <h4 class="list-group-item-heading">RMA&#x27;s</h4>
-                        <p class="list-group-item-text">Mon 02 Dec 2013 17:19</p>
-                    </a>
-                    <a class="list-group-item pjax"
-                       href="/companies/189e4u76bqh34/notes/v208y6xswsg0">
-                        <i class="fa fa-2x pull-left fa-file-text-o"></i>
-                        <h4 class="list-group-item-heading">Delivery Scheduled</h4>
-                        <p class="list-group-item-text">Mon 02 Dec 2013 17:18</p>
-                    </a>
-                </div>
-                <div class="panel-footer">
-                    <small class="pull-left">Built with Bootcards - List</small>
-                    <a class="btn btn-link btn-xs pull-right"
-                       href="/snippets/list-card"
-                       data-toggle="modal"
-                       data-target="#docsModal">
-                        View Source
-                    </a>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- fixed tabbed footer -->
-    <div class="navbar navbar-default navbar-fixed-bottom">
-        <div class="container">
-            <div class="bootcards-desktop-footer clearfix">
-                <p class="pull-left">Bootcards v1.1.2</p>
-            </div>
-            <div class="btn-group">
-                <a href="/dashboard" class="btn btn-default" data-pjax="#main" data-title="Customers">
-                    <i class="fa fa-2x fa-dashboard"></i>
-                    Dashboard
-                </a>
-                <a href="/companies" class="btn btn-default active" data-pjax="#main" data-title="Companies">
-                    <i class="fa fa-2x fa-building-o"></i>
-                    Companies
-                </a>
-                <a href="/contacts" class="btn btn-default" data-pjax="#main" data-title="Contacts">
-                    <i class="fa fa-2x fa-users"></i>
-                    Contacts
-                </a>
-                <a href="/notes" class="btn btn-default" data-pjax="#main" data-title="Notes">
-                    <i class="fa fa-2x fa-clipboard"></i>
-                    Notes
-                </a>
-                <a href="/charts" class="btn btn-default" data-pjax="#main" data-title="Charts">
-                    <i class="fa fa-2x fa-bar-chart-o"></i>
-                    Charts
-                </a>
-                <a href="/settings" class="btn btn-default" data-pjax="#main" data-title="Settings">
-                    <i class="fa fa-2x fa-gears"></i>
-                    Settings
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Load the required JavaScript libraries -->
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
-
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.pjax/1.9.2/jquery.pjax.min.js"></script>
-
-    <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.3/fastclick.min.js"></script>
-
-    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
-
-    <!-- Bootcards JS file -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/bootcards/1.1.2/js/bootcards.min.js"></script>
-
-    <script src="/bootcards-demo-app/js/bootcards-demo-app.js"></script>
-
-    <!--modals-->
-    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModal" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content"></div>
-        </div>
-    </div>
-    <div class="modal fade" id="docsModal" tabindex="-1" role="dialog" aria-labelledby="docsModal" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content"></div>
-        </div>
-    </div>
-
-    <script type="text/javascript">
-    //highlight first list group option (if non active yet)
-    if ( $('.list-group a.active').length === 0 ) {
-      $('.list-group a').first().addClass('active');
+                <div class="col-md-6">
+                    <div class="example-code content-block">
+                        <div class="widget">
+                            <div class="widget-header">
+                                <i class="fa fa-code"></i>
+                                Javascript
+                                <span class="widget-buttons">
+                                    <i class="content-toggle"></i>
+                                </span>
+                            </div>
+                            <div class="widget-content">
+<pre><code>
+$(<span class="str">'.mvc-grid'</span>).mvcgrid({
+    rowClicked: <span class="kwd">function</span> (grid, row, data) {
+        console.log(<span class="str">'data: '</span> + data);
+        console.log(<span class="str">'grid: '</span> + grid);
     }
+})
+</code>
+</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    bootcards.init( {
-        offCanvasHideOnMainClick : true,
-        offCanvasBackdrop : true,
-        enableTabletPortraitMode : true,
-        disableRubberBanding : true,
-        disableBreakoutSelector : 'a.no-break-out'
-      });
+            <style>
+                .selected {
+                    background-color: #F5F5F5;
+                }
 
+                .mvc-grid-row {
+                    cursor: pointer;
+                }
+            </style>
+
+
+        </div>
+    </div>
+
+    <script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script>
+    <script src="/Scripts/JQuery/jquery.min.js"></script>
+    <script src="/Scripts/JQuery/jquery.UI.block.js"></script>
+    <script src="/Scripts/Bootstrap/bootstrap.min.js"></script>
+    <script src="/Scripts/JQueryUI/jquery-ui.min.js"></script>
+    <script src="/Scripts/MvcGrid/mvc-grid.js"></script>
+    <script src="/Scripts/Shared/site.js"></script>
+
+    <script>
+    $('.mvc-grid').mvcgrid({
+        rowClicked: function (grid, row, data) {
+            $(row).siblings().removeClass('selected');
+            $(row).toggleClass('selected');
+
+            if ($(row).hasClass('selected')) {
+                var rowData = [];
+                var columnHtml = [];
+
+                for (var key in data) {
+                    rowData.push('    "' + key + '": "' + data[key] + '"');
+                }
+                for (var i = 0; i < grid.columns.length; i++) {
+                    columnHtml.push(
+                        '\n' +
+                        '        {\n' +
+                        '            "name": "' + grid.columns[i].name + '",\n' +
+                        '            "filter": {\n' +
+                        '                "isEnabled": ' + grid.columns[i].filter.isEnabled + ',\n' +
+                        '                "isMulti": ' + grid.columns[i].filter.isMulti + ',\n' +
+                        '                "name": "' + grid.columns[i].filter.name + '",\n' +
+                        '                "operator": "' + grid.columns[i].filter.operator + '",\n' +
+                        '                "first": {\n' +
+                        '                    "type": "' + grid.columns[i].filter.first.type + '",\n' +
+                        '                    "val": "' + grid.columns[i].filter.first.val + '"\n' +
+                        '                },\n' +
+                        '                "second": {\n' +
+                        '                    "type": "' + grid.columns[i].filter.second.type + '",\n' +
+                        '                    "val": "' + grid.columns[i].filter.second.val + '"\n' +
+                        '                }\n' +
+                        '            }\n' +
+                        '        }');
+                }
+
+
+                var rowHtml = 'data: {\n' + rowData.join(',\n') + '\n}';
+                var gridHtml =
+                    'grid: {\n' +
+                    '    "name": "' + grid.name + '",\n' +
+                    '    "columns": [' +
+                            columnHtml.join(',') + '\n' +
+                    '    ]\n' +
+                    '}';
+
+                $('.script-output').html(rowHtml + '\n' + gridHtml);
+            } else {
+                $('.script-output').html('');
+            }
+        }
+    })
     </script>
 
+
+
+    <div class="mvc-grid-popup"></div>
 </body>
 </html>

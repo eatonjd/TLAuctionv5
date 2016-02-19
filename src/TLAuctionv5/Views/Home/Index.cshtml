@@ -20,18 +20,7 @@
                                         <i class="fa fa-search"></i>
                                     </div>
                                 }
-                            </div>
-                            <div class="col-xs-3">
-                                <a class="btn btn-primary btn-block" href="#" onclick="bootcards.hideOffCanvasMenu()">
-                                    <i class="fa fa-plus"></i>
-                                    <span>Add</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                    @(Html
+                                @(Html
                     .Grid(Model.AuctionMD.Auctions)
                     .Build(columns =>
                     {
@@ -43,7 +32,19 @@
                     .MultiFilterable()
                     .Filterable()
                     .Css("table-hover")
-                    )
+                                )
+                            </div>
+                            <div class="col-xs-3">
+                                <a class="btn btn-primary btn-block" href="#" onclick="bootcards.hideOffCanvasMenu()">
+                                    <i class="fa fa-plus"></i>
+                                    <span>Add</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                   
                 
                 <div class="panel-footer">
                     <small class="pull-left">TechLiquidators Live Auctions</small>

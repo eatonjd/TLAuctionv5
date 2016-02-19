@@ -141,7 +141,6 @@
             </div>
         </div>
     </div>
-
     <!-- slide in menu (mobile only) -->
     <nav id="offCanvasMenu" class="navmenu offcanvas offcanvas-left">
         <ul class="nav">
@@ -255,15 +254,16 @@
     <script src="~/js/site.js"></script>
 
     <script>
-        $('.mvc-grid').mvcgrid();
+    $('.mvc-grid').mvcgrid();
 
-        $('.mvc-grid').mvcgrid({
-            rowClicked: function (grid, row, data) {
-                console.log('data: ' + data);
-                console.log('grid: ' + grid);
-            }
-        })
+    $('.mvc-grid').mvcgrid({
+        rowClicked: function (grid, row, data) {
+            $(row).siblings().removeClass('selected');
+            $(row).toggleClass('selected');
+        }
+    })
     </script>
+
 
 </body>
 </html>
