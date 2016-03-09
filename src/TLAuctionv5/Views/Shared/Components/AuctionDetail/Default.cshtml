@@ -2,7 +2,6 @@
 @using Microsoft.Data.Entity;
 @model MyViewModel
 
-<div class="col-sm-6 bootcards-cards" id="listDetails">
     <div class="panel panel-default bootcards-table">
         <div class="panel-heading">
             <h3 class="panel-title">@Model.AuctionMD.SelectedAuction.Title</h3>
@@ -24,7 +23,7 @@
                     <tr><td><strong>Estimated Avg Price:</strong></td><td class="text-right"><strong class="pricediff-red">@Model.AuctionMD.SelectedAuction.AvgPrice.ToString("C0")</strong></td></tr>
                 }
 
-                @if (Model.AuctionMD.SelectedAuction.PriceDiff < 0)
+                @if (Model.AuctionMD.SelectedAuction.LowPrice < Model.AuctionMD.SelectedAuction.Price)
                 {
                     <tr><td><strong>Estimated Low Price:</strong></td><td class="text-right"><strong class="pricediff-green">@Model.AuctionMD.SelectedAuction.LowPrice.ToString("C0")</strong></td></tr>
                 }
@@ -41,7 +40,6 @@
             </a>
         </div>
     </div>
-
     <div class="panel panel-default bootcards-table">
         <div class="panel-heading">
             <h3 class="panel-title">@(Model.AuctionMD.SelectedAuction.Title + " Manifest")</h3>
@@ -51,8 +49,9 @@
                 <tr>
                     <th>Qty</th>
                     <th>Item</th>
-                    <th>Lowest Price</th>
+                    <th>Low Price</th>
                     <th class="text-right">Avg Price</th>
+                    <th class="text-right">Total</th>
                 </tr>
             </thead>
             <tbody>
@@ -64,6 +63,7 @@
                             <td>@manifest.ProductTitle</td>
                             <td>@manifest.MinPrice.ToString()</td>
                             <td class="text-right">@manifest.AvgPrice.ToString()</td>
+                            <td>@manifest.Total.ToString("C0")</td>
                         </tr>
 
                 }
@@ -76,4 +76,3 @@
             </a>
         </div>
     </div>
-</div>

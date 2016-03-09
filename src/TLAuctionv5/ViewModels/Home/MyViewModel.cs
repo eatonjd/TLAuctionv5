@@ -22,7 +22,43 @@ namespace TLAuctionv5.ViewModels.Main
         public IQueryable<ProductView> Products { get; set; }
 
         public AuctionMasterDetail AuctionMD { get; set; }
-       
+
+        public string getDiffColor(decimal lPctDiff)
+        {
+            if (lPctDiff > 0.50m)
+                return "pricediff-darkgreen";
+            if (lPctDiff <= 0.50m && lPctDiff > 0.25m)
+                return "pricediff-green";
+            if (lPctDiff <= 0.25m && lPctDiff > 0.10m)
+                return "pricediff-lightgreen";
+            if (lPctDiff <= 0.10m && lPctDiff > 0.5m)
+                return "pricediff-yellow";
+
+            return "pricediff-red";
+        }
+
+        public string getLowPriceColor(decimal lowPrice, decimal currPrice)
+        {
+            if (lowPrice < currPrice)
+                return "pricediff-green";
+
+            return "pricediff-red";
+        }
+
+        public string getDiffArrow(decimal lPctDiff)
+        {
+            if (lPctDiff > 0.50m)
+                return "fa fa-arrow-circle-up fa-3x fa-pull-left";
+            if (lPctDiff <= 0.50m && lPctDiff > 0.25m)
+                return "fa fa-arrow-circle-up fa-3x fa-pull-left";
+            if (lPctDiff <= 0.25m && lPctDiff > 0.10m)
+                return "fa fa-arrow-circle-up fa-3x fa-pull-left";
+            if (lPctDiff <= 0.10m && lPctDiff > 0.5m)
+                return "fa fa-arrow-circle-right fa-3x fa-pull-left";
+
+            return "fa fa-arrow-circle-down fa-3x fa-pull-left";
+        }
+
         [NotMapped]
         public SelectList SortList
         {

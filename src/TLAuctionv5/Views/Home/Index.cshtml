@@ -1,61 +1,49 @@
 ﻿@using TLAuction5.HtmlExtensions;
 @using TLAuctionv5.ViewModels.Main;
 @using Microsoft.Data.Entity;
-@using TLAuctionv5.Mvc.Grid;
 @model MyViewModel
 
 
 <div class="container bootcards-container" id="main">
     <div class="row">
-        <div class="col-sm-6 bootcards-list" id="list" data-title="Auctions">
+        <div class="col-sm-6 bootcards-list" id="left" data-title="Auctions">
             <div class="panel panel-default">
-                <div class="panel-body">
-                    <div class="search-form">
-                        <div class="row">
-                            <div class="col-xs-9">
-                                @using (Html.BeginForm("Index", "HomeController", FormMethod.Get))
-                                {
-                                    <div class="form-group">
-                                        @Html.DropDownList("sortOrder", (SelectList)ViewBag.sortList, new { onchange = "this.form.submit();" })
-                                        <i class="fa fa-search"></i>
-                                    </div>
-                                }
-                                @(Html
-                    .Grid(Model.AuctionMD.Auctions)
-                    .Build(columns =>
+                <div class="panel-heading">
+                    <h3 class="panel-title">TechLiquidator Live Auctions</h3>
+                </div>
+                <div class="list-group">
+                    @foreach (var auction in Model.AuctionMD.Auctions)
                     {
-                        columns.Add(model => model.AuctionId).Titled("ID").MultiFilterable(true).Sortable(true).Css("mvc-grid-header.sortable mvc-grid-header.filterable");
-                        columns.Add(model => model.Title).Titled("Title").MultiFilterable(true).Sortable(true);
-                        columns.Add(model => model.EndDate).Titled("EndDate").Sortable(true);
-                    })
-                    .Named("Master")
-                    .MultiFilterable()
-                    .Filterable()
-                    .Css("table-hover")
-                                )
+                        <a id="#auction-details" class="list-group-item" ref="#" data-id="@auction.AuctionId">
+                            <h4 class="list-group-item-heading">@(auction.AuctionId + ": " + auction.Title)</h4>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <i class="@Model.getDiffArrow(auction.PctDiff)"></i>
+                                    <p class="list-group-item-text"><strong>Current Bid: </strong>@auction.Price.ToString("C0")</p>
+                                    <p class="list-group-item-text"><strong>EndDate: </strong>@auction.EndDate.ToString("MM/dd/yy h:mm tt")</p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <p class="list-group-item-text"><strong class="@Model.getDiffColor(auction.PctDiff)">Estimated Winning Bid</strong></p>
+                                    <p class="list-group-item-text"><strong class="@Model.getDiffColor(auction.PctDiff)">@auction.AvgPrice.ToString("C0")</strong></p>
+                                    <!--<p class="list-group-item-text"><strong class="Model.getLowPriceColor(auction.LowPrice, auction.Price)">Lowest Bid: auction.LowPrice.ToString("C0")</strong></p>--> 
+                                </div>
                             </div>
-                            <div class="col-xs-3">
-                                <a class="btn btn-primary btn-block" href="#" onclick="bootcards.hideOffCanvasMenu()">
-                                    <i class="fa fa-plus"></i>
-                                    <span>Add</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                        </a>
+                    }
                 </div>
-                
-                   
-                
-                <div class="panel-footer">
-                    <small class="pull-left">TechLiquidators Live Auctions</small>
-                    <a class="btn btn-link btn-xs pull-right" href="#">
-                        Footer link
-                    </a>
-                </div>
+            </div>
+            <div class="panel-footer">
+                <small class="pull-left">TechLiquidators Live Auctions</small>
+                <a class="btn btn-link btn-xs pull-right" href="#">
+                    Footer link
+                </a>
+            </div>
+    </div>
+        <div id="rightaffix">
+            <div id="AuctionDetails" class="col-sm-6 bootcards-cards affix" data-spy="affix" data-offset-top="50" data-offset-bottom="50">
+                @await Component.InvokeAsync("AuctionDetail", 0)
             </div>
         </div>
     </div>
 </div>
-
-
 

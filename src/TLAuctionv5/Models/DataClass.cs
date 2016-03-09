@@ -25,10 +25,15 @@ namespace TLAuctionv5.Models
         public Decimal HighPrice { get; set; }
         public Decimal PriceDiff { get; set; }
         public Decimal PctDiff { get; set; }
-        public string EndDate { get; set; }
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yy h:mm}")]
+        public DateTime EndDate { get; set; }
         public int CategoryId { get; set; }
         public int ConditionId { get; set; }
         public int ProductCnt { get; set; }
+
+        [NotMapped]
+        public string ArrowType { get; set; }
+        
 
         public virtual ICollection<ManifestOpenView> Manifests { get; set; }
 

@@ -18,6 +18,13 @@
     <DnxInvisibleContent Include="bower.json" />
     <DnxInvisibleContent Include=".bowerrc" />
     <DnxInvisibleContent Include="package.json" />
+    <DnxInvisibleContent Include="wwwroot\css\mvc-grid-base.css" />
+    <DnxInvisibleContent Include="wwwroot\css\mvc-grid.css" />
+    <DnxInvisibleContent Include="wwwroot\js\mvc-grid.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <DnxInvisibleFolder Include="MvcGrid\" />
+    <DnxInvisibleFolder Include="Views\Shared\MvcGrid\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\DNX\Microsoft.DNX.targets" Condition="'$(VSToolsPath)' != ''" />
 </Project>

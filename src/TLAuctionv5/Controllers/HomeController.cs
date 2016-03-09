@@ -6,6 +6,8 @@ using Microsoft.AspNet.Mvc.Rendering;
 using Microsoft.Data.Entity;
 using System.Linq;
 using System;
+using Microsoft.AspNet.Http;
+using Microsoft.AspNet.Mvc.Routing;
 
 namespace TLAuctionv5.Controllers
 {
@@ -31,13 +33,13 @@ namespace TLAuctionv5.Controllers
             switch (sortOrder)
             {
                 case "pricediff":
-                    myViewModel.AuctionMD.Auctions = mydbContext.Auctions.OrderBy(s => s.PriceDiff);
+                    myViewModel.AuctionMD.Auctions = mydbContext.Auctions.OrderBy(s => s.PctDiff);
                     break;
                 case "enddate_desc":
                     myViewModel.AuctionMD.Auctions = mydbContext.Auctions.OrderBy(s => s.EndDate);
                     break;
                 default:
-                    myViewModel.AuctionMD.Auctions = mydbContext.Auctions.OrderBy(s => s.PriceDiff);
+                    myViewModel.AuctionMD.Auctions = mydbContext.Auctions.OrderBy(s => s.PctDiff);
                     break;
             }
 
@@ -58,7 +60,7 @@ namespace TLAuctionv5.Controllers
             return View(myViewModel);
         }
 
-        
+
         public IActionResult AuctionDetails(int auctionid)
         {
             return ViewComponent("AuctionDetail", auctionid);
@@ -134,7 +136,7 @@ namespace TLAuctionv5.Controllers
                             .Where(m => m.AuctionId == auctionid)
                             .OrderBy(m => m.UPC);
                     break;
-               case "SKU_desc":
+                case "SKU_desc":
                     myViewModel.Manifests = mydbContext.Manifests
                             .Where(m => m.AuctionId == auctionid)
                             .OrderByDescending(m => m.Sku);
@@ -322,6 +324,5 @@ namespace TLAuctionv5.Controllers
         {
             return View();
         }
-
-    }
+    }    
 }

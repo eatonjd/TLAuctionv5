@@ -73,9 +73,6 @@
         <link rel="stylesheet" href="~/css/tlcards.css" />
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css" />
 
-        <link rel="stylesheet" href="~/css/mvc-grid.css"  />
-        <link rel="stylesheet" href="~/css/mvc-grid-base.css"  />
-
         <!-- Important: you'll only need one of the Bootcards CSS files below for every platform -->
         <!-- Bootcards CSS for iOS: -->
         <!--<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootcards/1.0.0/css/bootcards-ios.min.css"> -->
@@ -83,6 +80,15 @@
         <!--<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootcards/1.0.0/css/bootcards-android.min.css"> -->
     
         <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.pjax/1.9.2/jquery.pjax.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.3/fastclick.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+        <script src="~/lib/Microsoft.jQuery.Unobtrusive.Ajax/jquery.unobtrusive-ajax.min.js"></script>
+        <script src="~/lib/bootcards/src/js/bootcards.js"></script>
+        <script src="~/js/site.js"></script>
       
 
     </environment>
@@ -110,35 +116,36 @@
     <title>TLAuctionHistory.com</title>
 </head>
 <body id="bootcards">
-    <!-- fixed top navbar -->
-    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+                <a class="navbar-brand" href="#">TLAuction</a>
             </div>
-
-            <button type="button" class="btn btn-default btn-back navbar-left pull-left hidden" onclick="history.back()">
-                <i class="fa fa-lg fa-chevron-left"></i><span>Back</span>
-            </button>
-            <!-- menu button to show/ hide the off canvas slider -->
-            <button type="button" class="btn btn-default btn-menu navbar-left pull-left offCanvasToggle" data-toggle="offcanvas">
-                <i class="fa fa-lg fa-bars"></i><span>Menu</span>
-            </button>
-
-            <a class="navbar-brand no-break-out Logo" href="/">TLAuctionHistory</a>
-
-            <div class="navbar-collapse collapse">
+            <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li>
-                        <a href="/settings" data-pjax="#main" data-title="Settings"> <i class="fa fa-gears"></i>Settings</a>
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Auction Sort<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="@Url.Action("Index", "Home", new { auctionid = 0, sortOrder="priceDiff" })">Best price first</a></li>
+                            <li><a href="@Url.Action("Index", "Home", new { auctionid = 0, sortOrder="enddate_desc" })">Auction Ending Soonest</a></li>
+                            <li><a href="#">Annother Sort</a></li>
+                            <li class="divider"></li>
+                            <li class="dropdown-header">Sort HEader</li>
+                            <li><a href="#">Separated link</a></li>
+                            <li><a href="#">Separated link 2</a></li>
+                        </ul>
                     </li>
                 </ul>
-            </div>
+            </div><!--/.nav-collapse -->
         </div>
     </div>
     <!-- slide in menu (mobile only) -->
@@ -184,7 +191,6 @@
 
         <div style="margin-top:20px; padding-left: 20px; font-size: 12px; color: #777">v1.1.2</div>
     </nav>
-
     @RenderBody()
     <!-- fixed tabbed footer -->
     <div class="navbar navbar-default navbar-fixed-bottom">
@@ -241,29 +247,5 @@
         </div>
     </div>
     @RenderSection("scripts", required: false)
-
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/transition.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.pjax/1.9.2/jquery.pjax.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.3/fastclick.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
-    <script src="~/lib/bootcards/src/js/bootcards.js"></script>
-    <script src="~/js/mvc-grid.min.js"></script>
-    <script src="~/js/site.js"></script>
-
-    <script>
-    $('.mvc-grid').mvcgrid();
-
-    $('.mvc-grid').mvcgrid({
-        rowClicked: function (grid, row, data) {
-            $(row).siblings().removeClass('selected');
-            $(row).toggleClass('selected');
-        }
-    })
-    </script>
-
-
 </body>
 </html>
