@@ -3,7 +3,11 @@
   "private": true,
   "dependencies": {
     "jquery": "2.1.4",
+    "bootstrap": "4.0",
     "Microsoft.jQuery.Unobtrusive.Ajax": "~3.2.3",
     "seiyria-bootstrap-slider": "~6.1.4"
+  },
+  "resolutions": {
+    "bootstrap": "4.0"
   }
 }

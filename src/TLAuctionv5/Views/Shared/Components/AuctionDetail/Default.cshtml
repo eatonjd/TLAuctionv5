@@ -2,7 +2,7 @@
 @using Microsoft.Data.Entity;
 @model MyViewModel
 
-<div class="panel panel-default bootcards-table ">
+<div class="panel panel-default bootcards-table">
     <div class="panel-heading">
         <h3 class="panel-title">@Model.AuctionMD.SelectedAuction.Title</h3>
     </div>
@@ -16,41 +16,37 @@
 
             @if (Model.AuctionMD.SelectedAuction.LowPrice < Model.AuctionMD.SelectedAuction.Price)
             {
-                <tr><td><strong>Estimated Lowest Price:</strong></td><td class="text-right"><strong class="pricediff-green">@Model.AuctionMD.SelectedAuction.LowPrice.ToString("C0")</strong></td></tr>
+            <tr><td><strong>Estimated Lowest Price:</strong></td><td class="text-right"><strong class="pricediff-green">@Model.AuctionMD.SelectedAuction.LowPrice.ToString("C0")</strong></td></tr>
             }
             else
             {
-                <tr><td><strong>Estimated Lowest Price:</strong></td><td class="text-right"><strong class="pricediff-red">@Model.AuctionMD.SelectedAuction.LowPrice.ToString("C0")</strong></td></tr>
+            <tr><td><strong>Estimated Lowest Price:</strong></td><td class="text-right"><strong class="pricediff-red">@Model.AuctionMD.SelectedAuction.LowPrice.ToString("C0")</strong></td></tr>
             }
 
             @if (Model.AuctionMD.SelectedAuction.PriceDiff < 0)
             {
-                <tr><td><strong>Estimated Avg Price:</strong></td><td class="text-right"><strong class="pricediff-green">@Model.AuctionMD.SelectedAuction.AvgPrice.ToString("C0")</strong></td></tr>
+            <tr><td><strong>Estimated Avg Price:</strong></td><td class="text-right"><strong class="pricediff-green">@Model.AuctionMD.SelectedAuction.AvgPrice.ToString("C0")</strong></td></tr>
             }
             else
             {
-                <tr><td><strong>Estimated Avg Price:</strong></td><td class="text-right"><strong class="pricediff-red">@Model.AuctionMD.SelectedAuction.AvgPrice.ToString("C0")</strong></td></tr>
+            <tr><td><strong>Estimated Avg Price:</strong></td><td class="text-right"><strong class="pricediff-red">@Model.AuctionMD.SelectedAuction.AvgPrice.ToString("C0")</strong></td></tr>
             }
 
-               <tr><td colspan="2"> <input type="text"
+            <tr>
+                <td colspan="2">
+                    <input type="text"
                            name="priceSlider"
                            data-provide="slider"
                            data-ticks-positions="[0, @Model.getSliderMidPct(Model.AuctionMD.SelectedAuction.Price, Model.AuctionMD.SelectedAuction.LowPrice, Model.AuctionMD.SelectedAuction.AvgPrice), 100]"
                            data-slider-ticks="[ @Model.getSliderLow(Model.AuctionMD.SelectedAuction.Price, Model.AuctionMD.SelectedAuction.LowPrice),@Model.getSliderMid(Model.AuctionMD.SelectedAuction.Price, @Model.AuctionMD.SelectedAuction.LowPrice), @Model.AuctionMD.SelectedAuction.AvgPrice]"
                            data-slider-ticks-labels='["@Model.getSliderLow(Model.AuctionMD.SelectedAuction.Price,Model.AuctionMD.SelectedAuction.LowPrice).ToString("C0")","@Model.getSliderMid(Model.AuctionMD.SelectedAuction.Price, Model.AuctionMD.SelectedAuction.LowPrice).ToString("C0")","@Model.AuctionMD.SelectedAuction.AvgPrice.ToString("C0")" ]'
                            data-slider-value="@Model.AuctionMD.SelectedAuction.Price"
-                           data-slider-tooltip="show" /> </td>
-              </tr>
-            </tbody>
-        </table>
-<div class="panel-footer">
-    <small class="pull-left">Estimated Aution Pricing TLAuctionHistory.com</small>
-    <a class="btn btn-link btn-xs pull-right" href="/snippets/table" data-toggle="modal" data-target="#docsModal">
-        View Source
-    </a>
-</div>
-    </div>
-<div class="panel panel-default bootcards-table">
+                           data-slider-tooltip="show" />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
     <div class="panel-heading">
         <h3 class="panel-title">@(Model.AuctionMD.SelectedAuction.Title + " Manifest")</h3>
     </div>
@@ -60,8 +56,8 @@
                 <th>Qty</th>
                 <th>Item</th>
                 <th>Low Price</th>
-                <th class="text-right">Avg Price</th>
-                <th class="text-right">Total</th>
+                <th>Avg Price</th>
+                <th>Total</th>
             </tr>
         </thead>
         <tbody>
@@ -72,8 +68,8 @@
                     <td>@manifest.Quantity.ToString()</td>
                     <td>@manifest.ProductTitle</td>
                     <td>@manifest.MinPrice.ToString()</td>
-                    <td class="text-right">@manifest.AvgPrice.ToString()</td>
-                    <td>@manifest.Total.ToString("C0")</td>
+                    <td>@manifest.AvgPrice.ToString()</td>
+                    <td>@manifest.Total.ToString()</td>
                 </tr>
 
             }

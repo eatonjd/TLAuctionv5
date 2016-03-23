@@ -1,16 +1,17 @@
-﻿
-//highlight first list group option (if non active yet)
-if ($('.list-group a.active').length === 0) {
-    $('.list-group a').first().addClass('active');
-}
-
-bootcards.init({
+﻿bootcards.init({
     offCanvasHideOnMainClick: true,
     offCanvasBackdrop: true,
     enableTabletPortraitMode: true,
     disableRubberBanding: true,
     disableBreakoutSelector: 'a.no-break-out'
 });
+
+//highlight first list group option (if non active yet)
+if ($('.list-group-item .active').length == 0) {
+    $('.list-group-item').first().addClass('active');
+}
+
+
 
 //enable FastClick
 window.addEventListener('load', function () {
