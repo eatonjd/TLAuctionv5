@@ -92,8 +92,8 @@ namespace TLAuctionv5.Models
 
         [DisplayFormat(NullDisplayText = @"&nbsp;", HtmlEncode = false)]
         public string AuctionTitle { get; set; }
-        public long Sku { get; set; }
-        public long UPC { get; set; }
+        public decimal Sku { get; set; }
+        public string UPC { get; set; }
         public string ProductTitle { get; set; }
         public string ManifestTitle { get; set; }
         public string BB_name { get; set; }
@@ -134,9 +134,9 @@ namespace TLAuctionv5.Models
         [Key]
         public string id { get; set; }
 
-        public long sku { get; set; }
+        public decimal sku { get; set; }
         public int conditionid { get; set; }
-        public long upc { get; set; }
+        public string upc { get; set; }
         public string partno { get; set; }
         [DisplayFormat(NullDisplayText = @"&nbsp;", HtmlEncode = false)]
         public string title { get; set; }

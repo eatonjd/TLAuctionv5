@@ -31,6 +31,7 @@ $(document).ready(function () {
    });
 });
 
+//affix right hand details
 $('#rightaffix').on('affix.bs.affix', function () {
     var size = $(window).width(); //get browser width
     var divWidth = $(myContainer).width(); //get width of container

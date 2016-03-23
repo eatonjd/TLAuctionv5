@@ -39,7 +39,7 @@ namespace TLAuctionv5.ViewModels.Main
 
         public string getLowPriceColor(decimal lowPrice, decimal currPrice)
         {
-            if (lowPrice < currPrice)
+            if (currPrice < lowPrice)
                 return "pricediff-green";
 
             return "pricediff-red";
@@ -59,6 +59,38 @@ namespace TLAuctionv5.ViewModels.Main
             return "fa fa-arrow-circle-down fa-3x fa-pull-left";
         }
 
+        public decimal getSliderLow(decimal curPrice, decimal lowPrice)
+        {
+            if (curPrice < lowPrice) return curPrice; else return lowPrice;
+        }
+
+        public decimal getSliderMid(decimal curPrice, decimal lowPrice)
+        {
+            if (curPrice < lowPrice) return lowPrice; else return curPrice;
+        }
+
+
+        public decimal getSliderMidPct(decimal curPrice, decimal lowPrice, decimal highPrice)
+        {
+            decimal low = 0;
+            decimal cur = 0;
+            decimal mid = 0;
+
+            if (curPrice < lowPrice)
+            {
+                low = curPrice;
+                cur = lowPrice;
+            }
+            else
+            {
+                low = lowPrice;
+                cur = curPrice;
+            }
+
+            mid = ((cur-low)/(highPrice-low)) * 100;
+
+            return mid;
+        }
         [NotMapped]
         public SelectList SortList
         {
@@ -82,7 +114,7 @@ namespace TLAuctionv5.ViewModels.Main
     public class AuctionMasterDetail
     {
         public AuctionOpenView SelectedAuction { get; set; }
-        public int SelectedAuctionId { get; set; }
+        public decimal SelectedAuctionId { get; set; }
         public IQueryable<AuctionOpenView> Auctions { get; set; }
     }
 }

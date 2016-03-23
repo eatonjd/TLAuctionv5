@@ -11,3 +11,4 @@
 /// <reference path="lib/fastclick/lib/fastclick.js" />
 /// <reference path="lib/jquery/dist/jquery.js" />
 /// <reference path="lib/microsoft.jquery.unobtrusive.ajax/jquery.unobtrusive-ajax.js" />
+/// <reference path="lib/seiyria-bootstrap-slider/dist/bootstrap-slider.js" />

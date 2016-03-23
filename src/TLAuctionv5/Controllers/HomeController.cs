@@ -23,6 +23,7 @@ namespace TLAuctionv5.Controllers
         public HomeController(MyDbContext dbContext)
         {
             mydbContext = dbContext;
+            mydbContext.Database.SetCommandTimeout(180);
             myViewModel = new MyViewModel();
         }
 
@@ -33,13 +34,13 @@ namespace TLAuctionv5.Controllers
             switch (sortOrder)
             {
                 case "pricediff":
-                    myViewModel.AuctionMD.Auctions = mydbContext.Auctions.OrderBy(s => s.PctDiff);
+                    myViewModel.AuctionMD.Auctions = mydbContext.Auctions.OrderByDescending(s => s.PctDiff);
                     break;
                 case "enddate_desc":
                     myViewModel.AuctionMD.Auctions = mydbContext.Auctions.OrderBy(s => s.EndDate);
                     break;
                 default:
-                    myViewModel.AuctionMD.Auctions = mydbContext.Auctions.OrderBy(s => s.PctDiff);
+                    myViewModel.AuctionMD.Auctions = mydbContext.Auctions.OrderByDescending(s => s.PctDiff);
                     break;
             }
 

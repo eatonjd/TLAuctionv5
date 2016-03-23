@@ -23,9 +23,8 @@
                                     <p class="list-group-item-text"><strong>EndDate: </strong>@auction.EndDate.ToString("MM/dd/yy h:mm tt")</p>
                                 </div>
                                 <div class="col-sm-6">
-                                    <p class="list-group-item-text"><strong class="@Model.getDiffColor(auction.PctDiff)">Estimated Winning Bid</strong></p>
-                                    <p class="list-group-item-text"><strong class="@Model.getDiffColor(auction.PctDiff)">@auction.AvgPrice.ToString("C0")</strong></p>
-                                    <!--<p class="list-group-item-text"><strong class="Model.getLowPriceColor(auction.LowPrice, auction.Price)">Lowest Bid: auction.LowPrice.ToString("C0")</strong></p>--> 
+                                    <p class="list-group-item-text"><strong class="@Model.getLowPriceColor(auction.LowPrice, auction.Price)">Lowest Price: @auction.LowPrice.ToString("C0")</strong></p>
+                                    <p class="list-group-item-text"><strong class="@Model.getDiffColor(auction.PctDiff)">Average Price: @auction.AvgPrice.ToString("C0")</strong></p>
                                 </div>
                             </div>
                         </a>
@@ -38,7 +37,7 @@
                     Footer link
                 </a>
             </div>
-    </div>
+        </div>
         <div id="rightaffix">
             <div id="AuctionDetails" class="col-sm-6 bootcards-cards affix" data-spy="affix" data-offset-top="50" data-offset-bottom="50">
                 @await Component.InvokeAsync("AuctionDetail", 0)
