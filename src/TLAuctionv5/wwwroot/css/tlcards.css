@@ -1,0 +1,91 @@
+﻿/*I love me some border-box*/
+* {
+    box-sizing: border-box;
+}
+/*This just stops me getting horizontal scrolling if anything overflows the width*/
+body {
+    overflow-x: hidden;
+}
+/*Just removing default browser padding/margin*/
+html,
+body {
+    padding: 0;
+    margin: 0;
+}
+.Logo {
+    color: rgb(62, 130, 185);
+    float: left;
+    width: 300px;
+    height: 50px;
+    display: block;
+    text-indent: -9999px;
+    border: 0 none rgb(62, 130, 185);
+    background-image: url('../images/tlauction-250x50.jpg') ;
+    background-repeat: no-repeat;
+}
+
+.slnk {
+    color: rgb(62, 130, 185);
+    cursor: pointer;
+}
+
+    .slnk:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+ .list-group-item {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  margin-bottom: -1px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+.list-group-item .leftside {
+    float: left;
+    text-align:right;
+    width: 50%;
+}
+.list-group-item .rightside {
+    float: right;
+    width: 50%;
+}
+
+.list-group-item .center {
+    text-align: center;
+}
+
+.pricediff-darkgreen {
+    color: darkgreen;
+ }
+
+.pricediff-green {
+    color: green;
+ }
+
+.pricediff-lightgreen {
+    color: lightgreen;
+ }
+
+.pricediff-yellow {
+    color: yellow;
+ }
+
+
+.pricediff-red {
+    color: red;
+}
+.affix {
+    top: 80px;
+    right: 400px;
+    width: 555px;
+}
+
+.slider.slider-horizontal{
+    width: 80%;
+    margin-left: 10%;
+}
+
+

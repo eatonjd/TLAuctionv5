@@ -154,6 +154,9 @@
           "Npm.js": "1.3.15.4"
         }
       },
+      "HubSpot.Tether/1.1.1": {
+        "type": "package"
+      },
       "Ix-Async/1.2.5": {
         "type": "package",
         "frameworkAssemblies": [
@@ -2245,6 +2248,9 @@
         "dependencies": {
           "Npm.js": "1.3.15.4"
         }
+      },
+      "HubSpot.Tether/1.1.1": {
+        "type": "package"
       },
       "Ix-Async/1.2.5": {
         "type": "package",
@@ -5051,6 +5057,9 @@
           "Npm.js": "1.3.15.4"
         }
       },
+      "HubSpot.Tether/1.1.1": {
+        "type": "package"
+      },
       "Ix-Async/1.2.5": {
         "type": "package",
         "frameworkAssemblies": [
@@ -7177,6 +7186,9 @@
           "Npm.js": "1.3.15.4"
         }
       },
+      "HubSpot.Tether/1.1.1": {
+        "type": "package"
+      },
       "Ix-Async/1.2.5": {
         "type": "package",
         "frameworkAssemblies": [
@@ -9271,6 +9283,9 @@
         "dependencies": {
           "Npm.js": "1.3.15.4"
         }
+      },
+      "HubSpot.Tether/1.1.1": {
+        "type": "package"
       },
       "Ix-Async/1.2.5": {
         "type": "package",
@@ -12552,6 +12567,9 @@
         "dependencies": {
           "Npm.js": "1.3.15.4"
         }
+      },
+      "HubSpot.Tether/1.1.1": {
+        "type": "package"
       },
       "Ix-Async/1.2.5": {
         "type": "package",
@@ -15856,6 +15874,25 @@
         "tools/init.ps1",
         "tools/install.ps1",
         "tools/npm.cmd"
+      ]
+    },
+    "HubSpot.Tether/1.1.1": {
+      "type": "package",
+      "sha512": "6eRkX57HxjOtOt2uAvqFUfqSuW7Vz0fuakFOVwZoY/ZIKPvCuzGd6nN1Apt83znUCZ5FtSYIbGqmt3FDB9EWpw==",
+      "files": [
+        "content/Content/tether/tether.css",
+        "content/Content/tether/tether.min.css",
+        "content/Content/tether/tether-theme-arrows.css",
+        "content/Content/tether/tether-theme-arrows.min.css",
+        "content/Content/tether/tether-theme-arrows-dark.css",
+        "content/Content/tether/tether-theme-arrows-dark.min.css",
+        "content/Content/tether/tether-theme-basic.css",
+        "content/Content/tether/tether-theme-basic.min.css",
+        "content/Scripts/tether/tether.js",
+        "content/Scripts/tether/tether.min.js",
+        "HubSpot.Tether.1.1.1.nupkg",
+        "HubSpot.Tether.1.1.1.nupkg.sha512",
+        "HubSpot.Tether.nuspec"
       ]
     },
     "Ix-Async/1.2.5": {
@@ -23114,7 +23151,8 @@
       "Microsoft.Extensions.Logging.Console >= 1.0.0-rc1-final",
       "Microsoft.Extensions.Logging.Debug >= 1.0.0-rc1-final",
       "Microsoft.VisualStudio.Web.BrowserLink.Loader >= 14.0.0-rc1-final",
-      "Font.Awesome >= 4.5.0"
+      "Font.Awesome >= 4.5.0",
+      "HubSpot.Tether >= 1.1.1"
     ],
     "DNX,Version=v4.5.1": [],
     "DNXCore,Version=v5.0": []
