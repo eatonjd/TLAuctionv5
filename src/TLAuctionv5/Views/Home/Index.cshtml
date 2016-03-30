@@ -17,13 +17,28 @@
                         <a id="#auction-details" class="list-group-item" ref="#" data-id="@auction.AuctionId">
                             <h4 class="list-group-item-heading">@(auction.AuctionId + ": " + auction.Title)</h4>
                             <div class="row">
-                                <div class="col-sm-6">
-                                    <i class="@Model.getDiffArrow(auction.PctDiff)"></i>
-                                    <p class="list-group-item-text"><strong>Current Bid: </strong>@auction.Price.ToString("C0")</p>
+                                <div class="col-sm-3">
+                                    <p class="list-group-item-text"><strong>Condition: </strong></p>
+                                    <p class="list-group-item-text"><strong># of Bids: </strong>@auction.Bid</p>
+                                    <p class="list-group-item-text"><strong>Quantity: </strong>@auction.Quantity</p>
                                     <p class="list-group-item-text"><strong>EndDate: </strong>@auction.EndDate.ToString("MM/dd/yy h:mm tt")</p>
                                 </div>
+                                <div class="col-sm-3">
+                                    <p class="list-group-item-text">@auction.ConditionName</p>
+                                    <p class="list-group-item-text">@auction.Bid</p>
+                                    <p class="list-group-item-text">@auction.Quantity</p>
+                                    <p class="list-group-item-text">@auction.EndDate.ToString("MM/dd/yy h:mm tt")</p>
+                                </div>
                                 <div class="col-sm-6">
-                                    <p class="list-group-item-text"><strong class="@Model.getLowPriceColor(auction.LowPrice, auction.Price)">Lowest Price: @auction.LowPrice.ToString("C0")</strong></p>
+                                    <p class="list-group-item-text"><strong>MSRP: </strong></p>
+                                    <p class="list-group-item-text"><strong>Current Bid: </strong></p>
+                                    <p class="list-group-item-text"><strong>Low Price:</strong></p>
+                                    <p class="list-group-item-text"><strong>Average Price: @auction.AvgPrice.ToString("C0")</strong></p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <p class="list-group-item-text">@auction.MSRP.ToString("C0")</p>
+                                    <p class="list-group-item-text">@auction.Price.ToString("C0")</p>
+                                    <p class="list-group-item-text"><strong class="@Model.getLowPriceColor(auction.LowPrice, auction.Price)">@auction.LowPrice.ToString("C0")</strong></p>
                                     <p class="list-group-item-text"><strong class="@Model.getDiffColor(auction.PctDiff)">Average Price: @auction.AvgPrice.ToString("C0")</strong></p>
                                 </div>
                             </div>

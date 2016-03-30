@@ -13,25 +13,8 @@
             <tr><td># of Bids: </td><td class="text-right">@Model.AuctionMD.SelectedAuction.Bid</td></tr>
             <tr><td>MSRP (Est):</td><td class="text-right">@Model.AuctionMD.SelectedAuction.MSRP.ToString("C0")</td></tr>
             <tr><td><strong>Current Bid:</strong></td><td class="text-right"><strong>@Model.AuctionMD.SelectedAuction.Price.ToString("C0")</strong></td></tr>
-
-            @if (Model.AuctionMD.SelectedAuction.LowPrice < Model.AuctionMD.SelectedAuction.Price)
-            {
-            <tr><td><strong>Estimated Lowest Price:</strong></td><td class="text-right"><strong class="pricediff-green">@Model.AuctionMD.SelectedAuction.LowPrice.ToString("C0")</strong></td></tr>
-            }
-            else
-            {
-            <tr><td><strong>Estimated Lowest Price:</strong></td><td class="text-right"><strong class="pricediff-red">@Model.AuctionMD.SelectedAuction.LowPrice.ToString("C0")</strong></td></tr>
-            }
-
-            @if (Model.AuctionMD.SelectedAuction.PriceDiff < 0)
-            {
-            <tr><td><strong>Estimated Avg Price:</strong></td><td class="text-right"><strong class="pricediff-green">@Model.AuctionMD.SelectedAuction.AvgPrice.ToString("C0")</strong></td></tr>
-            }
-            else
-            {
-            <tr><td><strong>Estimated Avg Price:</strong></td><td class="text-right"><strong class="pricediff-red">@Model.AuctionMD.SelectedAuction.AvgPrice.ToString("C0")</strong></td></tr>
-            }
-
+            <tr><td><strong>Lowest Price:</strong></td><td class="text-right"><strong class="@Model.getLowPriceColor(Model.AuctionMD.SelectedAuction.LowPrice, Model.AuctionMD.SelectedAuction.Price)">@Model.AuctionMD.SelectedAuction.LowPrice</strong></td></tr>
+            <tr><td><strong>Average Price:</strong></td><td class="text-right"><strong class="@Model.getDiffColor(Model.AuctionMD.SelectedAuction.PriceDiff)">@Model.AuctionMD.SelectedAuction.AvgPrice</strong></td></tr>
             <tr>
                 <td colspan="2">
                     <input type="text"

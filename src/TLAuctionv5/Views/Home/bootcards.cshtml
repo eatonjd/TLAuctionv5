@@ -1,73 +1,10 @@
-﻿@using TLAuction5.HtmlExtensions;
-@using TLAuctionv5.ViewModels.Main;
-@using Microsoft.Data.Entity;
-@model MyViewModel
-
-
-<div class="container bootcards-container" id="main">
+﻿<div class="container">
     <div class="row">
-        <div class="col-sm-6 bootcards-list" id="left" data-title="Auctions">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">TechLiquidator Live Auctions</h3>
-                </div>
-                <div class="list-group">
-                    @foreach (var auction in Model.AuctionMD.Auctions)
-                    {
-                        <a id="#auction-details" class="list-group-item" ref="#" data-id="@auction.AuctionId">
-                            <h4>@(auction.AuctionId + ":" + auction.Title)</h4>
-                            <div class="row">
-                                <div class="col-md-2 bootcards-list"></div>
-                                <div class="col-md-4 bootcards-list">
-                                    <table class="table">
-                                        <tbody>
-                                            <tr><td>Condition:</td><td class="text-right">@auction.ConditionName</td></tr>
-                                            <tr><td>End Date:</td><td class="text-right">@auction.EndDate</td></tr>
-                                            <tr><td># of Bids: </td><td class="text-right">@auction.Bid</td></tr>
-                                            <tr><td>MSRP (Est):</td><td class="text-right">@auction.MSRP.ToString("C0")</td></tr>
-                                            <tr><td><strong>Current Bid:</strong></td><td class="text-right"><strong>@auction.Price.ToString("C0")</strong></td></tr>
-
-                                            @if (auction.PriceDiff < 0)
-                                            {
-                                                <tr><td><strong>Estimated Avg Price:</strong></td><td class="text-right"><strong class="pricediff-green">@auction.AvgPrice.ToString("C0")</strong></td></tr>
-                                            }
-                                            else
-                                            {
-                                                <tr><td><strong>Estimated Avg Price:</strong></td><td class="text-right"><strong class="pricediff-red">@auction.AvgPrice.ToString("C0")</strong></td></tr>
-                                            }
-
-                                            @if (auction.PriceDiff < 0)
-                                            {
-                                                <tr><td><strong>Estimated Low Price:</strong></td><td class="text-right"><strong class="pricediff-green">@auction.LowPrice.ToString("C0")</strong></td></tr>
-                                            }
-                                            else
-                                            {
-                                                <tr><td><strong>Estimated Low Price:</strong></td><td class="text-right"><strong class="pricediff-red">@auction.LowPrice.ToString("C0")</strong></td></tr>
-                                            }
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-
-                        </a>
-                    }
-                </div>
-            </div>
-
-
-            <div class="panel-footer">
-                <small class="pull-left">TechLiquidators Live Auctions</small>
-                <a class="btn btn-link btn-xs pull-right" href="#">
-                    Footer link
-                </a>
-            </div>
-
-
+        <div class="col-md-2">
+            Sidebar content
         </div>
-    </div><!--panel-->
-    <div id="rightaffix">
-        <div id="AuctionDetails" class="col-sm-6 bootcards-cards affix" data-spy="affix" data-offset-top="50" data-offset-bottom="50">
-            @await Component.InvokeAsync("AuctionDetail", 0)
+        <div class="col-md-10">
+            Body content
         </div>
     </div>
 </div>
