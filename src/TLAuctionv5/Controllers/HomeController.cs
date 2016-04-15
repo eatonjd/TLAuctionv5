@@ -53,7 +53,7 @@ namespace TLAuctionv5.Controllers
 
             myViewModel.Manifests = mydbContext.Manifests
                             .Where(m => m.AuctionId == myViewModel.AuctionMD.SelectedAuctionId)
-                            .OrderBy(m => m.Total);
+                            .OrderByDescending(m => m.Total);
 
             ViewBag.sortList = myViewModel.SortList;
             ViewBag.sortOrder = sortOrder;
@@ -70,7 +70,7 @@ namespace TLAuctionv5.Controllers
         [HttpGet]
         public IActionResult Manifest(int auctionid, string sortOrder)
         {
-            ViewBag.TotalSortParm = String.IsNullOrEmpty(sortOrder) ? "Total_asc" : "";
+            ViewBag.TotalSortParm = string.IsNullOrEmpty(sortOrder) ? "" : "Total_asc";
             ViewBag.QtySortParm = sortOrder == "Qty" ? "Qty_desc" : "Qty";
             ViewBag.BrandSortParm = sortOrder == "Brand" ? "Brand_desc" : "Brand";
             ViewBag.PartSortParm = sortOrder == "Part" ? "Part_desc" : "Part";

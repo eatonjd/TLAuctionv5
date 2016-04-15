@@ -3,35 +3,8 @@
 @model MyViewModel
 
 <div class="panel panel-default bootcards-table">
-    <div class="panel-heading">
-        <h3 class="panel-title">@Model.AuctionMD.SelectedAuction.Title</h3>
-    </div>
-    <table class="table table-hover">
-        <tbody>
-            <tr><td>Condition:</td><td class="text-right">@Model.AuctionMD.SelectedAuction.ConditionName</td></tr>
-            <tr><td>End Date:</td><td class="text-right">@Model.AuctionMD.SelectedAuction.EndDate</td></tr>
-            <tr><td># of Bids: </td><td class="text-right">@Model.AuctionMD.SelectedAuction.Bid</td></tr>
-            <tr><td>MSRP (Est):</td><td class="text-right">@Model.AuctionMD.SelectedAuction.MSRP.ToString("C0")</td></tr>
-            <tr><td><strong>Current Bid:</strong></td><td class="text-right"><strong>@Model.AuctionMD.SelectedAuction.Price.ToString("C0")</strong></td></tr>
-            <tr><td><strong>Lowest Price:</strong></td><td class="text-right"><strong class="@Model.getLowPriceColor(Model.AuctionMD.SelectedAuction.LowPrice, Model.AuctionMD.SelectedAuction.Price)">@Model.AuctionMD.SelectedAuction.LowPrice</strong></td></tr>
-            <tr><td><strong>Average Price:</strong></td><td class="text-right"><strong class="@Model.getDiffColor(Model.AuctionMD.SelectedAuction.PriceDiff)">@Model.AuctionMD.SelectedAuction.AvgPrice</strong></td></tr>
-            <tr>
-                <td colspan="2">
-                    <input type="text"
-                           name="priceSlider"
-                           data-provide="slider"
-                           data-ticks-positions="[0, @Model.getSliderMidPct(Model.AuctionMD.SelectedAuction.Price, Model.AuctionMD.SelectedAuction.LowPrice, Model.AuctionMD.SelectedAuction.AvgPrice), 100]"
-                           data-slider-ticks="[ @Model.getSliderLow(Model.AuctionMD.SelectedAuction.Price, Model.AuctionMD.SelectedAuction.LowPrice),@Model.getSliderMid(Model.AuctionMD.SelectedAuction.Price, @Model.AuctionMD.SelectedAuction.LowPrice), @Model.AuctionMD.SelectedAuction.AvgPrice]"
-                           data-slider-ticks-labels='["@Model.getSliderLow(Model.AuctionMD.SelectedAuction.Price,Model.AuctionMD.SelectedAuction.LowPrice).ToString("C0")","@Model.getSliderMid(Model.AuctionMD.SelectedAuction.Price, Model.AuctionMD.SelectedAuction.LowPrice).ToString("C0")","@Model.AuctionMD.SelectedAuction.AvgPrice.ToString("C0")" ]'
-                           data-slider-value="@Model.AuctionMD.SelectedAuction.Price"
-                           data-slider-tooltip="show" />
-                </td>
-            </tr>
-        </tbody>
-    </table>
-
-    <div class="panel-heading">
-        <h3 class="panel-title">@(Model.AuctionMD.SelectedAuction.Title + " Manifest")</h3>
+     <div class="panel-heading">
+        <h3 class="panel-title">@(" Manifest for " + Model.AuctionMD.SelectedAuction.Title)</h3>
     </div>
     <table class="table table-hover" >
         <thead>

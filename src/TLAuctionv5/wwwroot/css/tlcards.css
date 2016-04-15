@@ -89,3 +89,20 @@ body {
 }
 
 
+.row.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+}
+.row.no-gutters > [class^="col-"],
+.row.no-gutters > [class*=" col-"] {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.table th, .table td { 
+     border-top: none !important; 
+     padding-top: 0;
+     padding-left: 0;
+     padding-right: 0;
+     padding-bottom: 0
+ }
