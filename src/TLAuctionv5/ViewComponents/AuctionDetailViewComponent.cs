@@ -1,12 +1,7 @@
-﻿using System.Collections.Generic;
-using Microsoft.AspNet.Mvc;
+﻿using Microsoft.AspNet.Mvc;
 using TLAuctionv5.Models;
 using TLAuctionv5.ViewModels.Main;
-using Microsoft.AspNet.Mvc.Rendering;
-using Microsoft.Data.Entity;
 using System.Linq;
-using System;
-using System.Threading.Tasks;
 
 namespace TLAuctionv5.ViewComponents
 {
@@ -21,7 +16,7 @@ namespace TLAuctionv5.ViewComponents
             mydbContext = context;
             myViewModel = new MyViewModel();
         }
-        public async Task<IViewComponentResult> InvokeAsync(int auctionid)
+        public IViewComponentResult Invoke(int auctionid)
         {
             if (auctionid == 0)
                 myViewModel.AuctionMD.SelectedAuction = mydbContext.Auctions.FirstOrDefault();
@@ -32,7 +27,7 @@ namespace TLAuctionv5.ViewComponents
 
             myViewModel.Manifests = mydbContext.Manifests
                             .Where(m => m.AuctionId == myViewModel.AuctionMD.SelectedAuctionId)
-                            .OrderBy(m => m.Total);
+                            .OrderByDescending(m => m.Total);
 
             return View(myViewModel);
         }

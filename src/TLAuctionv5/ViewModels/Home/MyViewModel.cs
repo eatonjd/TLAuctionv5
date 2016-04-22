@@ -89,7 +89,7 @@ namespace TLAuctionv5.ViewModels.Main
 
             mid = ((cur-low)/(highPrice-low)) * 100;
 
-            return mid;
+            return Math.Round(mid,2);
         }
         [NotMapped]
         public SelectList SortList

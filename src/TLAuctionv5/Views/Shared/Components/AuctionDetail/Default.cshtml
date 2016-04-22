@@ -3,15 +3,15 @@
 @model MyViewModel
 
 <div class="panel panel-default bootcards-table">
-     <div class="panel-heading">
+    <div class="panel-heading">
         <h3 class="panel-title">@(" Manifest for " + Model.AuctionMD.SelectedAuction.Title)</h3>
     </div>
-    <table class="table table-hover" >
+    <table class="table table-hover">
         <thead>
             <tr>
                 <th>Qty</th>
                 <th>Item</th>
-                <th>Low Price</th>
+                <th>MSRP</th>
                 <th>Avg Price</th>
                 <th>Total</th>
             </tr>
@@ -20,21 +20,22 @@
             @foreach (ManifestOpenView manifest in Model.Manifests)
             {
                 string strListing = "ProductListing_" + manifest.ProductId;
-                <tr>
-                    <td>@manifest.Quantity.ToString()</td>
-                    <td>@manifest.ProductTitle</td>
-                    <td>@manifest.MinPrice.ToString()</td>
-                    <td>@manifest.AvgPrice.ToString()</td>
-                    <td>@manifest.Total.ToString()</td>
-                </tr>
+            <tr>
+                <td>@manifest.Quantity.ToString()</td>
+                <td>@manifest.ProductTitle</td>
+                <td>@manifest.Msrp.ToString()</td>
+                <td>@manifest.AvgPrice.ToString()</td>
+                <td>@manifest.Total.ToString()</td>
+            </tr>
 
             }
         </tbody>
     </table>
-    <div class="panel-footer">
-        <small class="pull-left">Estimated Manifest Pricing TLAuctionHistory.com</small>
-        <a class="btn btn-link btn-xs pull-right" href="/snippets/table" data-toggle="modal" data-target="#docsModal">
-            View Source
-        </a>
-    </div>
+</div>
+<div class="panel-footer">
+    <small class="pull-left">Estimated Manifest Pricing TLAuctionHistory.com</small>
+    <a class="btn btn-link btn-xs pull-right" href="/snippets/table" data-toggle="modal" data-target="#docsModal">
+        View Source
+    </a>
+
 </div>

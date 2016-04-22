@@ -1,17 +1,11 @@
-﻿/*I love me some border-box*/
-* {
-    box-sizing: border-box;
-}
-/*This just stops me getting horizontal scrolling if anything overflows the width*/
-body {
-    overflow-x: hidden;
-}
+﻿
 /*Just removing default browser padding/margin*/
 html,
 body {
-    padding: 0;
-    margin: 0;
+    height: 100%;
+    overflow-x: hidden;
 }
+
 .Logo {
     color: rgb(62, 130, 185);
     float: left;
@@ -34,15 +28,7 @@ body {
         text-decoration: underline;
     }
 
- .list-group-item {
-  position: relative;
-  display: block;
-  padding: 10px 15px;
-  margin-bottom: -1px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-}
-
+ 
 .list-group-item .leftside {
     float: left;
     text-align:right;
@@ -77,32 +63,104 @@ body {
 .pricediff-red {
     color: red;
 }
-.affix {
-    top: 80px;
-    right: 400px;
-    width: 555px;
-}
-
-.slider.slider-horizontal{
-    width: 80%;
-    margin-left: 10%;
-}
 
 
-.row.no-gutters {
-  margin-right: 0;
-  margin-left: 0;
-}
-.row.no-gutters > [class^="col-"],
-.row.no-gutters > [class*=" col-"] {
-  padding-right: 0;
-  padding-left: 0;
-}
-
-.table th, .table td { 
+.tltable { 
      border-top: none !important; 
-     padding-top: 0;
-     padding-left: 0;
-     padding-right: 0;
-     padding-bottom: 0
+     padding-top: 0 !important;
+     padding-left: 0 !important;
+     padding-right: 0 !important;
+     padding-bottom: 0 !important;
  }
+
+.scrollable {
+    overflow: auto;
+ }
+
+.no-overflow {
+    overflow: hidden;
+}
+
+.footer-followUsWrap {
+    width: 250px;
+    margin: 10px auto 20px;
+    text-align: center;
+}
+
+.footer-socialMediaLink {
+    margin: 2px 5px 0 0;
+    text-indent: -9999px;
+    display: block;
+    float: left;
+    line-height: 32px;
+    width: 32px;
+    text-align: center;
+    box-shadow: rgb(51, 51, 51) 0 8px 6px -6px;
+    background: url("../images/socialmedia32pxsprite.png") 0 0 no-repeat;
+}
+
+.footer-socialMediaIcon-FB:hover {
+    background-color: rgb(58, 87, 149);
+}
+
+.footer-socialMediaIcon-twitter {
+    background-position: -40px 0;
+}
+
+.footer-socialMediaIcon-pinterest {
+    background-position: -120px 0;
+}
+
+.footer-socialMediaIcon-googlePlus {
+    background-position: -160px 0;
+}
+
+.footer-socialMediaLink.cg-footer-socialMediaIcon-instagram {
+    background: url("../images/instagram.png") 0 0 no-repeat;
+}
+
+.footer-socialMediaIcon-linkedin {
+    background: url("../images/linkedin-logo-white.png") 0 0 no-repeat;
+}
+
+.footer-socialMediaIcon-googlePlus:hover {
+    background-color: rgb(221, 75, 57);
+}
+
+.one, .two, .three{
+    position:absolute;
+	margin-top:-10px;
+	z-index:1;
+	height:40px;
+	width:40px;
+	border-radius:25px;
+	
+}
+.one{
+	left:0%;
+}
+.two{
+	left:50%;
+}
+.three{
+	left:100%;
+}
+.primary-color{
+	background-color:#4989bd;
+}
+.success-color{
+	background-color:#5cb85c;
+}
+.danger-color{
+	background-color:#d9534f;
+}
+.warning-color{
+	background-color:#f0ad4e;
+}
+.info-color{
+	background-color:#5bc0de;
+}
+.no-color{
+	background-color:inherit;
+}
+

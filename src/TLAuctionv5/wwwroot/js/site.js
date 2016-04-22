@@ -28,6 +28,8 @@ window.addEventListener('load', function () {
 //highlight first list group option (if non active yet)
 if ($('.list-group-item .active').length == 0) {
     $('.list-group-item').first().addClass('active');
+    var auctionid = $('.list-group-item').first().attr('data-id');
+    $('#AuctionDetails').load("/Home/AuctionDetails/" + auctionid)
 }
 
 //activate the sub-menu options in the offcanvas menu
@@ -44,7 +46,23 @@ $(document).ready(function () {
     });
 });
 
-//affix right hand details
+$(document).ready(function () {
+    $('ul.nav.navbar-nav').find('a[href="' + location.pathname + '"]')
+        .closest('li').addClass('active');
+});
+
+$(document).ready(function () {
+    var h = $(window).height();
+    $('.scrollable').height(h + 'px');
+});
+/*
+$(document).ready(function () {
+    $('.progress-bar').each(function () {
+        var progwidth = $(this).attr('data-id');
+        $('.progress-bar').css('width', progwidth + '%');
+    });
+});
+affix right hand details
 $('#rightaffix').on('affix.bs.affix', function () {
     var size = $(window).width(); //get browser width
     var divWidth = $('#rconatiner').width(); //get width of container
@@ -54,8 +72,4 @@ $('#rightaffix').on('affix.bs.affix', function () {
 .on('affix-top.bs.affix', function () {
     $("#rightaffix").css("right", "0px");
 });
-
-$(document).ready(function () {
-    $('ul.nav.navbar-nav').find('a[href="' + location.pathname + '"]')
-        .closest('li').addClass('active');
-});
+*/

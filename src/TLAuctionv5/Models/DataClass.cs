@@ -101,6 +101,7 @@ namespace TLAuctionv5.Models
         public decimal AvgPrice { get; set; }
         public decimal MinPrice { get; set; }
         public decimal MaxPrice { get; set; }
+        public decimal Msrp { get; set; }
         public int ConditionId { get; set; }
         public int ProductCnt { get; set; }
         public string Manufacturer { get; set; }
