@@ -55,6 +55,9 @@ $(document).ready(function () {
     var h = $(window).height();
     $('.scrollable').height(h + 'px');
 });
+
+// With JQuery
+$("#ex1").slider({});
 /*
 $(document).ready(function () {
     $('.progress-bar').each(function () {

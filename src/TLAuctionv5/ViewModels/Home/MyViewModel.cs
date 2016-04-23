@@ -61,7 +61,7 @@ namespace TLAuctionv5.ViewModels.Main
 
         public decimal getSliderLow(decimal curPrice, decimal lowPrice)
         {
-            if (curPrice < lowPrice) return curPrice; else return lowPrice;
+            if (curPrice < lowPrice) return lowPrice; else return curPrice;
         }
 
         public decimal getSliderMid(decimal curPrice, decimal lowPrice)

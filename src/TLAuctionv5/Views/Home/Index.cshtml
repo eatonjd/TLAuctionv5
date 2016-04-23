@@ -14,50 +14,48 @@
                 <div class="list-group">
                     @foreach (var auction in Model.AuctionMD.Auctions)
                     {
-                    <a id="#auction-details" class="list-group-item" ref="#" data-id="@auction.AuctionId">
-                        <h4 class="list-group-item-heading">@(auction.AuctionId + ": " + auction.Title)</h4>
-                        <div class="row no-gutters">
-                            <div class="col-sm-pull-1">
-                                <i class="@Model.getDiffArrow(auction.PctDiff)"></i>
-                            </div>
-                            <div class="col-md-10">
-                                <table class="table">
-                                    <tr>
-                                        <td class="tltable">Condition:</td>
-                                        <td class="tltable">@auction.ConditionName</td>
-                                        <td class="tltable">MSRP:</td>
-                                        <td class="tltable">@auction.MSRP.ToString("C0")</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="tltable"># of Bids:</td>
-                                        <td class="tltable">@auction.Bid</td>
-                                        <td class="tltable">Current Bid:</td>
-                                        <td class="tltable">@auction.Price.ToString("C0")</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="tltable">Quantity:</td>
-                                        <td class="tltable">@auction.Quantity</td>
-                                        <td class="tltable">Low Price:</td>
-                                        <td class="@Model.getLowPriceColor(auction.LowPrice, auction.Price) tltable">@auction.LowPrice.ToString("C0")</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="tltable">EndDate:</td>
-                                        <td class="tltable">@auction.EndDate.ToString("MM/dd/yy h:mm tt")</td>
-                                        <td class="tltable">High Price:</td>
-                                        <td class="@Model.getDiffColor(auction.PctDiff) tltable">@auction.AvgPrice.ToString("C0")</td>
-                                    </tr>
-                                </table>
-                                <div id="myProgressbar" class="progress">
-                                    <div class="progress-bar" role="progressbar" 
-                                         aria-valuenow="@auction.Price" 
-                                         aria-valuemin="@Model.getSliderLow(auction.Price,auction.LowPrice)" 
-                                         aria-valuemax="@auction.AvgPrice" 
-                                         style="@("width: " +  Model.getSliderMidPct(auction.Price, auction.LowPrice, auction.HighPrice) + "%")">
-                                    </div>
+                        <a id="#auction-details" class="list-group-item" ref="#" data-id="@auction.AuctionId">
+                            <h4 class="list-group-item-heading">@(auction.AuctionId + ": " + auction.Title)</h4>
+                            <div class="row no-gutters">
+                                <div class="col-sm-pull-1">
+                                    <i class="@Model.getDiffArrow(auction.PctDiff)"></i>
+                                </div>
+                                <div class="col-md-10">
+                                    <table class="table">
+                                        <tr>
+                                            <td class="tltable">Condition:</td>
+                                            <td class="tltable">@auction.ConditionName</td>
+                                            <td class="tltable">MSRP:</td>
+                                            <td class="tltable">@auction.MSRP.ToString("C0")</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tltable"># of Bids:</td>
+                                            <td class="tltable">@auction.Bid</td>
+                                            <td class="tltable">Current Bid:</td>
+                                            <td class="tltable">@auction.Price.ToString("C0")</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tltable">Quantity:</td>
+                                            <td class="tltable">@auction.Quantity</td>
+                                            <td class="tltable">Low Price:</td>
+                                            <td class="@Model.getLowPriceColor(auction.LowPrice, auction.Price) tltable">@auction.LowPrice.ToString("C0")</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tltable">EndDate:</td>
+                                            <td class="tltable">@auction.EndDate.ToString("MM/dd/yy h:mm tt")</td>
+                                            <td class="tltable">High Price:</td>
+                                            <td class="@Model.getDiffColor(auction.PctDiff) tltable">@auction.AvgPrice.ToString("C0")</td>
+                                        </tr>
+                                    </table>
+                                          <input id="ex1" data-slider-id="ex1Slider" type="text" data-provide="slider"
+                                           data-slider-min="0"
+                                           data-slider-max="@auction.AvgPrice.ToString("C0")"
+                                           data-slider-ticks="[0, @auction.LowPrice,@auction.AvgPrice ]"  
+                                           data-slider-ticks-labels='["$0", "@auction.LowPrice.ToString("C0")", "@auction.AvgPrice.ToString("C0")"]'
+                                           data-slider-value="@auction.Price"/>
                                 </div>
                             </div>
-                        </div>
-                    </a>
+                        </a>
                     }
                 </div>
             </div>
