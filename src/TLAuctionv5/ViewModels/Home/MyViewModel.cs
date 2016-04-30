@@ -59,38 +59,101 @@ namespace TLAuctionv5.ViewModels.Main
             return "fa fa-arrow-circle-down fa-3x fa-pull-left";
         }
 
-        public decimal getSliderLow(decimal curPrice, decimal lowPrice)
+        public decimal getCurPricePct(decimal currPrice, decimal startPrice, decimal endPrice)
         {
-            if (curPrice < lowPrice) return lowPrice; else return curPrice;
+            return Math.Round(((currPrice - startPrice) /(endPrice- startPrice)) * 100, 2);
         }
 
-        public decimal getSliderMid(decimal curPrice, decimal lowPrice)
+        public decimal getLowPricePct(decimal lowPrice, decimal startPrice, decimal endPrice)
         {
-            if (curPrice < lowPrice) return lowPrice; else return curPrice;
+            return Math.Round(((lowPrice - startPrice) / (endPrice - startPrice)) * 100, 2);
         }
 
-
-        public decimal getSliderMidPct(decimal curPrice, decimal lowPrice, decimal highPrice)
+        public decimal getHighPricePct(decimal highPrice, decimal startPrice, decimal endPrice)
         {
-            decimal low = 0;
-            decimal cur = 0;
-            decimal mid = 0;
+            return Math.Round(((highPrice - startPrice) / (endPrice - startPrice)) * 100, 2);
+        }
 
-            if (curPrice < lowPrice)
-            {
-                low = curPrice;
-                cur = lowPrice;
-            }
+        public string getLowStepColor(decimal curPrice, decimal lowPrice)
+        {
+            if (curPrice > lowPrice)
+                return "low green-color";
             else
-            {
-                low = lowPrice;
-                cur = curPrice;
-            }
-
-            mid = ((cur-low)/(highPrice-low)) * 100;
-
-            return Math.Round(mid,2);
+                return "low no-color";
         }
+        
+        public string getHighStepColor(decimal curPrice, decimal highPrice)
+        {
+            if (curPrice > highPrice)
+                return "high danger-color";
+            else
+                return "high no-color";
+        }
+
+        public string getBarColor(decimal curPrice, decimal greenLimit, decimal yellowLimit)
+        {
+            if (curPrice <= greenLimit)
+                return "progress-bar progress-bar-success";
+
+            if (curPrice > greenLimit && curPrice <= yellowLimit )
+                return " progress-bar progress-bar-warning";
+
+            return "progress-bar progress-bar-danger";
+
+        }
+
+        public string getCurrPriceStyle(decimal currPricePct)
+        {
+            if (currPricePct <= 50)
+                return "left: " + currPricePct; 
+            else
+                return "right: " + (100 - currPricePct);
+        }
+
+        public string getBarColor(decimal currPricePct)
+        {
+            if (currPricePct <= 60)
+                return "#5cb85c;";
+            if (currPricePct > 60 && currPricePct <= 90)
+                return "#f0ad4e;";
+            if (currPricePct > 90 && currPricePct <= 100)
+                return "#d9534f;";
+
+            return "";
+
+        }
+
+        public decimal getGreenBarPct(decimal currPricePct)
+        {
+            if (currPricePct <= 60)
+                return currPricePct;
+            else
+                return 60;
+        }
+
+
+        public decimal getYellowBarPct(decimal currPricePct)
+        {
+            if (currPricePct > 60 && currPricePct <= 90)
+                return currPricePct - 60;
+            if (currPricePct > 90)
+                return 30;
+
+            return 0;
+        }
+
+        public decimal getRedBarPct(decimal currPricePct)
+        {
+            if (currPricePct >= 100)
+                return 10;
+            if (currPricePct > 90 && currPricePct < 100)
+                return currPricePct - 90;
+            else
+                return 0;
+        }
+
+
+
         [NotMapped]
         public SelectList SortList
         {

@@ -23,6 +23,14 @@ namespace TLAuctionv5.Models
         public Decimal AvgPrice { get; set; }
         public Decimal LowPrice { get; set; }
         public Decimal HighPrice { get; set; }
+        public Decimal StartPrice { get; set; }
+        public Decimal EndPrice { get; set; }
+        public Decimal currPricePct { get; set; }
+        public Decimal lowPricePct { get; set; }
+        public Decimal highPricePct { get; set; }
+        public Decimal greenLimit { get; set; }
+        public Decimal yellowLimit { get; set; }
+      
         public Decimal PriceDiff { get; set; }
         public Decimal PctDiff { get; set; }
         [DisplayFormat(DataFormatString = "{0:MM/dd/yy h:mm}")]

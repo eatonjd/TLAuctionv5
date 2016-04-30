@@ -35,35 +35,36 @@
                                             <td class="tltable">@auction.Price.ToString("C0")</td>
                                         </tr>
                                         <tr>
-                                            <td class="tltable">Quantity:</td>
-                                            <td class="tltable">@auction.Quantity</td>
-                                            <td class="tltable">Low Price:</td>
-                                            <td class="@Model.getLowPriceColor(auction.LowPrice, auction.Price) tltable">@auction.LowPrice.ToString("C0")</td>
-                                        </tr>
-                                        <tr>
                                             <td class="tltable">EndDate:</td>
                                             <td class="tltable">@auction.EndDate.ToString("MM/dd/yy h:mm tt")</td>
-                                            <td class="tltable">High Price:</td>
-                                            <td class="@Model.getDiffColor(auction.PctDiff) tltable">@auction.AvgPrice.ToString("C0")</td>
+                                            <td class="tltable">Quantity:</td>
+                                            <td class="tltable">@auction.Quantity</td>
                                         </tr>
                                     </table>
-                                          <input id="ex1" data-slider-id="ex1Slider" type="text" data-provide="slider"
-                                           data-slider-min="0"
-                                           data-slider-max="@auction.AvgPrice.ToString("C0")"
-                                           data-slider-ticks="[0, @auction.LowPrice,@auction.AvgPrice ]"  
-                                           data-slider-ticks-labels='["$0", "@auction.LowPrice.ToString("C0")", "@auction.AvgPrice.ToString("C0")"]'
-                                           data-slider-value="@auction.Price"/>
+                                </div>
+                            </div>
+                            <div class="row no-gutters">
+                                <div class="col-md-10 col-md-offset-1">
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-success" aria-valuenow="@auction.Price" aria-valuemin="@auction.StartPrice"
+                                             aria-valuemax="@(auction.EndPrice)" role="progressbar" style="@("width: " + Model.getGreenBarPct(auction.currPricePct) + "%")"></div>
+                                        <div class="progress-bar progress-bar-warning" aria-valuenow="@auction.Price" aria-valuemin="@auction.StartPrice"
+                                             aria-valuemax="@(auction.EndPrice)" role="progressbar" style="@("width: " + Model.getYellowBarPct(auction.currPricePct) + "%")"></div>
+                                        <div class="progress-bar progress-bar-danger" aria-valuenow="@auction.Price" aria-valuemin="@auction.StartPrice"
+                                             aria-valuemax="@(auction.EndPrice)" role="progressbar" style="@("width: " + Model.getRedBarPct(auction.currPricePct) + "%")"></div>
+                                        <span style="@(Model.getCurrPriceStyle(auction.currPricePct) + "%;  background-color: " + Model.getBarColor(auction.currPricePct))">@auction.Price.ToString("C0")</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-11">
+                                    <div class="progress-meter">
+                                        <div class="meter meter-left" style="width: 0%;"><span class="meter-text">@auction.StartPrice.ToString("C0")</span></div>
+                                        <div class="meter meter-right" style="width: 0%;"><span class="meter-text">@auction.EndPrice.ToString("C0")</span></div>
+                                    </div>
                                 </div>
                             </div>
                         </a>
                     }
                 </div>
-            </div>
-            <div class="panel-footer">
-                <small class="pull-left">TechLiquidators Live Auctions</small>
-                <a class="btn btn-link btn-xs pull-right" href="#">
-                    Footer link
-                </a>
             </div>
         </div>
         <div id="AuctionDetails" class="col-sm-6 bootcards-cards scrollable" data-title="Manifest">

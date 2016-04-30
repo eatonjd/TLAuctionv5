@@ -1,132 +1,220 @@
-﻿
-/*Just removing default browser padding/margin*/
+﻿/*Just removing default browser padding/margin*/
+
 html,
 body {
-    height: 100%;
-    overflow-x: hidden;
+  height: 100%;
+  overflow-x: hidden;
 }
 
 .Logo {
-    color: rgb(62, 130, 185);
-    float: left;
-    width: 300px;
-    height: 50px;
-    display: block;
-    text-indent: -9999px;
-    border: 0 none rgb(62, 130, 185);
-    background-image: url('../images/tlauction-250x50.jpg') ;
-    background-repeat: no-repeat;
+  color: rgb(62, 130, 185);
+  float: left;
+  width: 300px;
+  height: 50px;
+  display: block;
+  text-indent: -9999px;
+  border: 0 none rgb(62, 130, 185);
+  background-image: url('../images/tlauction-250x50.jpg');
+  background-repeat: no-repeat;
 }
 
 .slnk {
-    color: rgb(62, 130, 185);
-    cursor: pointer;
+  color: rgb(62, 130, 185);
+  cursor: pointer;
 }
 
-    .slnk:hover {
-        cursor: pointer;
-        text-decoration: underline;
-    }
+.slnk:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
 
- 
 .list-group-item .leftside {
-    float: left;
-    text-align:right;
-    width: 50%;
+  float: left;
+  text-align: right;
+  width: 50%;
 }
+
 .list-group-item .rightside {
-    float: right;
-    width: 50%;
+  float: right;
+  width: 50%;
 }
 
 .list-group-item .center {
-    text-align: center;
+  text-align: center;
 }
 
 .pricediff-darkgreen {
-    color: darkgreen;
- }
-
-.pricediff-green {
-    color: green;
- }
-
-.pricediff-lightgreen {
-    color: lightgreen;
- }
-
-.pricediff-yellow {
-    color: yellow;
- }
-
-
-.pricediff-red {
-    color: red;
+  color: darkgreen;
 }
 
+.pricediff-green {
+  color: green;
+}
 
-.tltable { 
-     border-top: none !important; 
-     padding-top: 0 !important;
-     padding-left: 0 !important;
-     padding-right: 0 !important;
-     padding-bottom: 0 !important;
- }
+.pricediff-lightgreen {
+  color: lightgreen;
+}
+
+.pricediff-yellow {
+  color: yellow;
+}
+
+.pricediff-red {
+  color: red;
+}
+
+.tltable {
+  border-top: none !important;
+  padding-top: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  padding-bottom: 0 !important;
+}
 
 .scrollable {
-    overflow: auto;
- }
+  overflow: auto;
+}
 
 .no-overflow {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .footer-followUsWrap {
-    width: 250px;
-    margin: 10px auto 20px;
-    text-align: center;
+  width: 250px;
+  margin: 10px auto 20px;
+  text-align: center;
 }
 
 .footer-socialMediaLink {
-    margin: 2px 5px 0 0;
-    text-indent: -9999px;
-    display: block;
-    float: left;
-    line-height: 32px;
-    width: 32px;
-    text-align: center;
-    box-shadow: rgb(51, 51, 51) 0 8px 6px -6px;
-    background: url("../images/socialmedia32pxsprite.png") 0 0 no-repeat;
+  margin: 2px 5px 0 0;
+  text-indent: -9999px;
+  display: block;
+  float: left;
+  line-height: 32px;
+  width: 32px;
+  text-align: center;
+  box-shadow: rgb(51, 51, 51) 0 8px 6px -6px;
+  background: url("../images/socialmedia32pxsprite.png") 0 0 no-repeat;
 }
 
 .footer-socialMediaIcon-FB:hover {
-    background-color: rgb(58, 87, 149);
+  background-color: rgb(58, 87, 149);
 }
 
 .footer-socialMediaIcon-twitter {
-    background-position: -40px 0;
+  background-position: -40px 0;
 }
 
 .footer-socialMediaIcon-pinterest {
-    background-position: -120px 0;
+  background-position: -120px 0;
 }
 
 .footer-socialMediaIcon-googlePlus {
-    background-position: -160px 0;
+  background-position: -160px 0;
 }
 
 .footer-socialMediaLink.cg-footer-socialMediaIcon-instagram {
-    background: url("../images/instagram.png") 0 0 no-repeat;
+  background: url("../images/instagram.png") 0 0 no-repeat;
 }
 
 .footer-socialMediaIcon-linkedin {
-    background: url("../images/linkedin-logo-white.png") 0 0 no-repeat;
+  background: url("../images/linkedin-logo-white.png") 0 0 no-repeat;
 }
 
 .footer-socialMediaIcon-googlePlus:hover {
-    background-color: rgb(221, 75, 57);
+  background-color: rgb(221, 75, 57);
 }
 
 .slider.slider-horizontal {
-    width: 100%;
+  width: 100%;
 }
+
+.low,
+.high {
+  position: absolute;
+  margin-top: -6px;
+  z-index: 1;
+  height: 30px;
+  width: 30px;
+  border-radius: 20px;
+  line-height: 85px;
+  text-align: center;
+}
+
+.primary-color {
+  background-color: #4989bd;
+}
+
+.green-color {
+  background-color: green
+}
+
+.red-color {
+  background-color: red;
+}
+
+.yellow-color {
+  background-color: yellow;
+}
+
+.info-color {
+  background-color: #5bc0de;
+}
+
+.no-color {
+  background-color: inherit;
+}
+
+.progress {
+	margin-bottom: -2px;
+}
+
+.progress span {
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    color: black;
+    font-weight: 700;
+    font-size: 0.85em;
+    background-color: #000000;
+    border-radius: 4px;
+    color: #FFFFFF;
+    padding: 2px 2px;
+    text-align: center;
+    text-decoration: none;
+}
+
+
+.progress-meter {
+  min-height: 15px;
+}
+
+.progress-meter > .meter {
+  position: relative;
+  float: left;
+  min-height: 15px;
+}
+
+.progress-meter > .meter-left {
+  border-left-width: 2px;
+}
+
+.progress-meter > .meter-right {
+  float: right;
+  border-right-width: 2px;
+}
+
+.progress-meter > .meter-right:last-child {
+  border-left-width: 2px;
+}
+
+.progress-meter > .meter > .meter-text {
+  font-weight: 700;
+  font-size: 0.85em;
+  color: rgb(160, 160, 160);
+}
+
+.progress-meter > .meter.meter-right > .meter-text {
+  text-align: right;
+}
+

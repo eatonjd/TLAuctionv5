@@ -60,12 +60,14 @@ $(document).ready(function () {
 $("#ex1").slider({});
 /*
 $(document).ready(function () {
-    $('.progress-bar').each(function () {
-        var progwidth = $(this).attr('data-id');
-        $('.progress-bar').css('width', progwidth + '%');
+    $('#highPrice').each(function () {
+        var left = $(this).attr('data-id');
+        $('.labels').css('left', left + '%');
     });
 });
-affix right hand details
+
+
+fix right hand details
 $('#rightaffix').on('affix.bs.affix', function () {
     var size = $(window).width(); //get browser width
     var divWidth = $('#rconatiner').width(); //get width of container
